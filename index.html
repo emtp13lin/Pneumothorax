@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMT-P 進階生命創傷與急症模擬學習平台</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #0b0f19;
+            --bg-secondary: #131b2e;
+            --bg-tertiary: #1e293b;
+            --accent-red: #ef4444;
+            --accent-blue: #3b82f6;
+            --accent-orange: #f97316;
+            --accent-yellow: #f59e0b;
+            --accent-green: #10b981;
+            --accent-purple: #8b5cf6;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --font-main: 'Inter', 'Noto Sans TC', sans-serif;
+            --font-header: 'Outfit', 'Noto Sans TC', sans-serif;
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(30, 27, 75, 0.4) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(15, 23, 42, 0.4) 0px, transparent 50%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e1b4b 0%, var(--bg-secondary) 100%);
+            border-bottom: 1px solid var(--border-color);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .logo-area {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .logo-badge {
+            background-color: var(--accent-red);
+            color: white;
+            font-family: var(--font-header);
+            font-weight: 800;
+            font-size: 0.85rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            letter-spacing: 1.5px;
+            box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+        }
+
+        h1 {
+            font-family: var(--font-header);
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #ffffff, #cbd5e1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        main {
+            max-width: 1400px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+            flex: 1;
+        }
+
+        .section-title {
+            font-family: var(--font-header);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--text-primary);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-red);
+            border-radius: 2px;
+        }
+
+        .grid-portal {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .grid-portal {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .grid-portal {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .topic-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 380px;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .topic-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--card-accent, var(--accent-blue));
+            transition: height var(--transition-speed);
+        }
+
+        .topic-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--card-accent, var(--accent-blue));
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 20px var(--card-glow, rgba(59, 82, 246, 0.15));
+        }
+
+        .topic-card:hover::before {
+            height: 6px;
+        }
+
+        .topic-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.25rem;
+        }
+
+        .topic-icon {
+            font-size: 2.2rem;
+            background: rgba(255, 255, 255, 0.03);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            color: var(--card-accent);
+        }
+
+        .difficulty-badge {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.25rem 0.6rem;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .diff-extreme {
+            background-color: rgba(239, 68, 68, 0.15);
+            color: var(--accent-red);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .diff-hard {
+            background-color: rgba(249, 115, 22, 0.15);
+            color: var(--accent-orange);
+            border: 1px solid rgba(249, 115, 22, 0.3);
+        }
+
+        .diff-medium {
+            background-color: rgba(245, 158, 11, 0.15);
+            color: var(--accent-yellow);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .topic-title {
+            font-family: var(--font-header);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .topic-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .topic-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.25rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .topic-stats {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .btn-enter {
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all var(--transition-speed);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .topic-card:hover .btn-enter {
+            background-color: var(--card-accent);
+            border-color: transparent;
+            color: #fff;
+            box-shadow: 0 4px 12px var(--card-glow);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            background-color: rgba(11, 15, 25, 0.8);
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-area">
+            <span class="logo-badge">EMT-P</span>
+            <span style="font-family: var(--font-header); font-weight: 800; letter-spacing: 1px; color: var(--text-secondary); font-size: 0.9rem;">TRAUMA COURSE</span>
+        </div>
+        <h1>胸部與呼吸循環急症學習儀表板</h1>
+        <p class="subtitle">依據 PHTLS 10th、ATLS 10th 及 TCCC 指引設計，提供高級救護技術員 (EMT-P) 臨床決策、理學檢查與處置技術模擬訓練。</p>
+    </header>
+
+    <main>
+        <div class="section-title">選擇您的學習主題</div>
+        
+        <div class="grid-portal">
+            <!-- 1. 張力性氣胸 -->
+            <a href="./tension_pneumothorax.html" class="topic-card" style="--card-accent: var(--accent-red); --card-glow: rgba(239, 68, 68, 0.25);">
+                <div>
+                    <div class="topic-header">
+                        <div class="topic-icon">🫁</div>
+                        <span class="difficulty-badge diff-extreme">極高危</span>
+                    </div>
+                    <div class="topic-title">張力性氣胸 (Tension Pneumothorax)</div>
+                    <div class="topic-desc">氣體流入肋膜腔形成單向瓣膜效應，呼氣時氣體無法排出導致胸內壓驟增、縱膈腔健側偏移，最終壓迫大靜脈造成梗塞性休克。需立即執行針刺減壓或指尖造口術。</div>
+                </div>
+                <div class="topic-footer">
+                    <div class="topic-stats">
+                        <div class="stat-item">⏱️ 25 Mins</div>
+                        <div class="stat-item">📝 5 題</div>
+                    </div>
+                    <span class="btn-enter">開始訓練 ➔</span>
+                </div>
+            </a>
+
+            <!-- 2. 開放性氣胸 -->
+            <a href="./open_pneumothorax.html" class="topic-card" style="--card-accent: var(--accent-orange); --card-glow: rgba(249, 115, 22, 0.25);">
+                <div>
+                    <div class="topic-header">
+                        <div class="topic-icon">💨</div>
+                        <span class="difficulty-badge diff-hard">高危</span>
+                    </div>
+                    <div class="topic-title">開放性氣胸 (Open Pneumothorax)</div>
+                    <div class="topic-desc">胸壁有大於氣管直徑 2/3 的穿透性傷口，吸氣時空氣從胸壁傷口自由進出。會產生「吮吸性胸部傷口」與縱膈撲動。一線急救需使用三邊固定密封敷料，並預防轉變為張力性氣胸。</div>
+                </div>
+                <div class="topic-footer">
+                    <div class="topic-stats">
+                        <div class="stat-item">⏱️ 20 Mins</div>
+                        <div class="stat-item">📝 5 題</div>
+                    </div>
+                    <span class="btn-enter">開始訓練 ➔</span>
+                </div>
+            </a>
+
+            <!-- 3. 大量血胸 -->
+            <a href="./massive_hemothorax.html" class="topic-card" style="--card-accent: #b91c1c; --card-glow: rgba(185, 28, 28, 0.25);">
+                <div>
+                    <div class="topic-header">
+                        <div class="topic-icon">🩸</div>
+                        <span class="difficulty-badge diff-extreme">極高危</span>
+                    </div>
+                    <div class="topic-title">大量血胸 (Massive Hemothorax)</div>
+                    <div class="topic-desc">肋膜腔內積聚大量血液（成人大於 1,500 mL 或大於體重之 1/3），多因肋間動脈、胸廓內動脈或大血管裂傷所致。臨床特徵為患側呼吸音消失、叩診呈現「實音」、低血容量性休克。</div>
+                </div>
+                <div class="topic-footer">
+                    <div class="topic-stats">
+                        <div class="stat-item">⏱️ 20 Mins</div>
+                        <div class="stat-item">📝 5 題</div>
+                    </div>
+                    <span class="btn-enter">開始訓練 ➔</span>
+                </div>
+            </a>
+
+            <!-- 4. 心包膜填塞 -->
+            <a href="./cardiac_tamponade.html" class="topic-card" style="--card-accent: var(--accent-purple); --card-glow: rgba(139, 92, 246, 0.25);">
+                <div>
+                    <div class="topic-header">
+                        <div class="topic-icon">❤️</div>
+                        <span class="difficulty-badge diff-extreme">極高危</span>
+                    </div>
+                    <div class="topic-title">心包膜填塞 (Cardiac Tamponade)</div>
+                    <div class="topic-desc">心包腔內積聚血液或液體，壓迫心臟妨礙舒張充盈。特徵為貝克氏三徵（Beck's Triad）：低血壓、頸靜脈怒張、心音遙遠，以及奇脈。需要利用超音波診斷並執行心包穿刺術。</div>
+                </div>
+                <div class="topic-footer">
+                    <div class="topic-stats">
+                        <div class="stat-item">⏱️ 25 Mins</div>
+                        <div class="stat-item">📝 5 題</div>
+                    </div>
+                    <span class="btn-enter">開始訓練 ➔</span>
+                </div>
+            </a>
+
+            <!-- 5. 肺栓塞 -->
+            <a href="./pulmonary_embolism.html" class="topic-card" style="--card-accent: var(--accent-blue); --card-glow: rgba(59, 82, 246, 0.25);">
+                <div>
+                    <div class="topic-header">
+                        <div class="topic-icon">⚠️</div>
+                        <span class="difficulty-badge diff-hard">高危</span>
+                    </div>
+                    <div class="topic-title">肺栓塞 (Pulmonary Embolism)</div>
+                    <div class="topic-desc">深部靜脈血栓（DVT）或其他栓子隨血流阻塞肺動脈，造成肺泡死腔增加、通氣血流比不均。特徵為突發性胸痛、呼吸困難、咳血、不明原因低血氧、心電圖呈現 S1Q3T3。</div>
+                </div>
+                <div class="topic-footer">
+                    <div class="topic-stats">
+                        <div class="stat-item">⏱️ 20 Mins</div>
+                        <div class="stat-item">📝 5 題</div>
+                    </div>
+                    <span class="btn-enter">開始訓練 ➔</span>
+                </div>
+            </a>
+
+            <!-- 6. 呼吸道破裂 -->
+            <a href="./tracheobronchial_rupture.html" class="topic-card" style="--card-accent: var(--accent-yellow); --card-glow: rgba(245, 158, 11, 0.25);">
+                <div>
+                    <div class="topic-header">
+                        <div class="topic-icon">🧬</div>
+                        <span class="difficulty-badge diff-hard">高危</span>
+                    </div>
+                    <div class="topic-title">氣管支氣管破裂 (Tracheobronchial Rupture)</div>
+                    <div class="topic-desc">鈍傷或穿透傷導致氣管或大支氣管破裂。臨床特徵為嚴重頸胸部皮下氣腫、氣胸、縱膈腔氣腫、咳血，且置入胸管排氣後患側仍有持續大量的氣體溢出。一線需建立人工氣道及外科修補。</div>
+                </div>
+                <div class="topic-footer">
+                    <div class="topic-stats">
+                        <div class="stat-item">⏱️ 15 Mins</div>
+                        <div class="stat-item">📝 5 題</div>
+                    </div>
+                    <span class="btn-enter">開始訓練 ➔</span>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 EMT-P 臨床模擬教學系統 - 高階緊急救護訓練教材</p>
+    </footer>
+</body>
+</html>

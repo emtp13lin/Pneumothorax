@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>氣管支氣管破裂：皮下氣腫與哈曼氏徵候 | EMT-P 臨床決策學習網站</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #0b0f19;
+            --bg-secondary: #131b2e;
+            --bg-tertiary: #1e293b;
+            --accent-red: #ef4444;
+            --accent-red-hover: #dc2626;
+            --accent-orange: #f97316;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-yellow: #f59e0b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --glow-yellow: 0 0 15px rgba(245, 158, 11, 0.5);
+            --font-main: 'Inter', 'Noto Sans TC', sans-serif;
+            --font-header: 'Outfit', 'Noto Sans TC', sans-serif;
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2a1f0a 0%, var(--bg-secondary) 100%);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-badge {
+            background-color: var(--accent-yellow);
+            color: #0b0f19;
+            font-family: var(--font-header);
+            font-weight: 800;
+            font-size: 0.8rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: var(--glow-yellow);
+        }
+
+        h1 {
+            font-family: var(--font-header);
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #fff, #fef3c7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn-back {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all var(--transition-speed);
+        }
+
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-yellow);
+        }
+
+        nav {
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 77px;
+            z-index: 99;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .nav-tab {
+            padding: 1.2rem 1.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-tab:hover {
+            color: var(--text-primary);
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        .nav-tab.active {
+            color: var(--accent-yellow);
+            border-bottom-color: var(--accent-yellow);
+            background-color: rgba(245, 158, 11, 0.05);
+        }
+
+        main {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            min-height: 70vh;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-title {
+            font-family: var(--font-header);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--accent-yellow);
+            padding-left: 0.75rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 992px) {
+            .grid-2 {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .btn {
+            background-color: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-yellow);
+            color: #0b0f19;
+            border-color: transparent;
+        }
+
+        .btn-primary:hover {
+            background-color: #f59e0b;
+            box-shadow: var(--glow-yellow);
+        }
+
+        .bullet-list {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .bullet-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Patho SVG & Animations */
+        .anatomy-svg-wrapper {
+            background-color: #0b111e;
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        @keyframes lung-breath-normal {
+            0% { transform: scale(0.95); }
+            50% { transform: scale(1.06); }
+            100% { transform: scale(0.95); }
+        }
+
+        .svg-breathing-lung-right {
+            animation: lung-breath-normal 3.5s infinite ease-in-out;
+            transform-origin: 120px 210px;
+        }
+
+        @keyframes leak-bubbles {
+            0% { transform: translate(0, 0) scale(0.5); opacity: 1; }
+            100% { transform: translate(45px, -35px) scale(1.4); opacity: 0; }
+        }
+
+        .svg-bubble {
+            animation: leak-bubbles 1.5s infinite linear;
+        }
+
+        .patho-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .patho-btn {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: left;
+            transition: all var(--transition-speed);
+        }
+
+        .patho-btn.active {
+            background: rgba(245, 158, 11, 0.08);
+            border-color: var(--accent-yellow);
+            color: var(--text-primary);
+        }
+
+        /* Diag Split Layout */
+        .diag-split-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 992px) {
+            .diag-split-layout {
+                grid-template-columns: 1.1fr 0.9fr;
+            }
+        }
+
+        .diag-matrix-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: left;
+            transition: all var(--transition-speed);
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .diag-matrix-card.active {
+            background: rgba(245, 158, 11, 0.08);
+            border-color: var(--accent-yellow);
+            color: var(--text-primary);
+            box-shadow: var(--glow-yellow);
+        }
+
+        .diag-interactive-area {
+            background-color: #0b111e;
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            position: relative;
+            min-height: 420px;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .chest-wrapper {
+            position: relative;
+            width: 280px;
+            height: 380px;
+        }
+
+        .interactive-spot {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(245, 158, 11, 0.2);
+            border: 2px dashed var(--accent-yellow);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            transition: all 0.2s ease-in-out;
+            z-index: 10;
+        }
+
+        .interactive-spot:hover {
+            background: rgba(245, 158, 11, 0.4);
+            transform: scale(1.15);
+            box-shadow: var(--glow-yellow);
+        }
+
+        .us-screen-container {
+            width: 100%;
+            max-width: 400px;
+            background: #000;
+            border: 4px solid var(--bg-tertiary);
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        .us-canvas {
+            width: 100%;
+            height: 220px;
+            background-color: #050505;
+            display: block;
+        }
+
+        /* Quiz Contrast Fix */
+        .quiz-option {
+            background-color: rgba(255, 255, 255, 0.04);
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            font-size: 0.95rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-align: left;
+            width: 100%;
+        }
+
+        .quiz-option:hover {
+            background-color: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .quiz-option.correct {
+            background-color: rgba(16, 185, 129, 0.25);
+            border-color: var(--accent-green);
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .quiz-option.wrong {
+            background-color: rgba(239, 68, 68, 0.25);
+            border-color: var(--accent-red);
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .quiz-feedback {
+            background-color: rgba(59, 82, 246, 0.08);
+            border-left: 4px solid var(--accent-blue);
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: #f1f5f9;
+            display: none;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .audio-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all var(--transition-speed);
+            margin-bottom: 1rem;
+        }
+
+        .audio-btn.active {
+            background: rgba(245, 158, 11, 0.15);
+            border-color: var(--accent-yellow);
+            box-shadow: var(--glow-yellow);
+            color: #fff;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-area">
+                <span class="logo-badge">EMT-P</span>
+                <h1>氣管支氣管破裂：皮下氣腫與持續漏氣水封瓶</h1>
+            </div>
+            <div style="display:flex; align-items:center; gap:1rem;">
+                <a href="./index.html" class="btn-back">⬅ 返回首頁</a>
+                <button class="audio-btn" id="btn-enable-audio" onclick="toggleClinicalAudio()" style="margin-bottom:0;">🔊 啟動心肺聽診音效</button>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <div class="nav-tab active" onclick="switchTab('lecture')">📖 學理與臨床導讀</div>
+            <div class="nav-tab" onclick="switchTab('patho')">🫁 擴展漏氣病理模擬</div>
+            <div class="nav-tab" onclick="switchTab('diag')">🩺 感官診斷與引流瓶監測</div>
+            <div class="nav-tab" onclick="switchTab('treatment')">🩹 氣道越過破口與手術</div>
+            <div class="nav-tab" onclick="switchTab('quiz')">✏️ EMT-P 挑戰檢定</div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Tab 1: Lecture -->
+        <section id="tab-lecture" class="tab-content active">
+            <div class="card">
+                <div class="card-title">氣管與主支氣管破裂特徵</div>
+                <p style="margin-bottom: 1rem;">氣管支氣管破裂（Tracheobronchial Rupture）是極罕見但致死率極高的鈍創或穿透傷。大約 80% 的破裂發生在距離隆突（Carina） 2.5 公分內的主支氣管，常伴隨氣道完整性崩潰，氣體快速灌入縱膈腔與胸壁下軟組織。</p>
+                <div class="grid-2">
+                    <div>
+                        <h4 style="color: var(--accent-yellow); margin-bottom: 0.5rem;">🔑 臨床關鍵特徵</h4>
+                        <ul class="bullet-list">
+                            <li><strong>嚴重的皮下氣腫 (Subcutaneous Emphysema)</strong>：頸部與上胸部迅速膨脹，按壓有「握雪感」或「捏塑膠氣泡聲」。</li>
+                            <li><strong>哈曼氏徵候 (Hamman's Sign)</strong>：聽診心前區可聞及與心跳同步的「碎裂爆裂音 (Crunching sound)」，因心臟收縮擠壓縱膈腔積氣所致。</li>
+                            <li><strong>胸管持續大量漏氣</strong>：置入胸管後，水封瓶內持續冒出極大量、不隨呼氣停止的連續氣泡（Continuous Bubbling），且肺部無法順利復張。</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--accent-yellow); margin-bottom: 0.5rem;">🚨 EMT-P 關鍵救護處置</h4>
+                        <ul class="bullet-list">
+                            <li><strong>插管越過破口 (Tube Bypass)</strong>：插管進針時，必須讓氣管內管 (ETT) 越過氣管破裂處，甚至進行單肺通氣（健側插管），以防正壓通氣使大量氣體湧入縱膈腔惡化傷情。</li>
+                            <li><strong>低壓正壓通氣</strong>：避免高氣道壓，防止縱膈腔氣胸及心臟受壓塌陷。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 2: Pathophysiology Simulator -->
+        <section id="tab-patho" class="tab-content">
+            <div class="card">
+                <div class="card-title">氣道破口漏氣與皮下擴展模擬</div>
+                <div class="grid-2" style="align-items: center;">
+                    <div class="anatomy-svg-wrapper">
+                        <!-- Tracheobronchial Rupture SVG -->
+                        <svg width="320" height="400" viewBox="0 0 320 400" id="patho-svg">
+                            <!-- Chest outline -->
+                            <rect x="50" y="50" width="220" height="320" rx="30" fill="none" stroke="#64748b" stroke-width="4"/>
+                            
+                            <!-- Trachea branching -->
+                            <!-- Trachea (main) -->
+                            <path d="M160,50 L160,130" stroke="#94a3b8" stroke-width="12" fill="none"/>
+                            
+                            <!-- Bronchus Right (Healthy) -->
+                            <path d="M160,130 Q140,160 110,180" stroke="#94a3b8" stroke-width="8" fill="none"/>
+                            <!-- Bronchus Left (Ruptured) -->
+                            <path d="M160,130 Q180,160 210,180" stroke="#94a3b8" stroke-width="8" fill="none" id="svg-bronchus-left"/>
+                            
+                            <!-- Tear Gap indicator (Left branch) - glowing jagged red crack -->
+                            <path d="M168,140 L176,145 L174,151 L182,152" stroke="#ef4444" stroke-width="4" stroke-linecap="round" fill="none" id="svg-tear-line" style="display:none; filter: drop-shadow(0 0 5px #ef4444);"/>
+                            
+                            <!-- Leaking bubbles (animated along left side) -->
+                            <circle cx="178" cy="148" r="4" fill="#60a5fa" opacity="0" id="leak-b1" class="svg-bubble" style="animation-delay:0s;"/>
+                            <circle cx="180" cy="150" r="5" fill="#60a5fa" opacity="0" id="leak-b2" class="svg-bubble" style="animation-delay:0.5s;"/>
+                            <circle cx="182" cy="152" r="3" fill="#60a5fa" opacity="0" id="leak-b3" class="svg-bubble" style="animation-delay:1s;"/>
+
+                            <!-- Left Lung (Affected) -->
+                            <path d="M210,180 Q230,160 240,200 Q250,240 220,270 Q190,290 195,250 Z" fill="#991b1b" opacity="0.6" id="svg-left-lung" transform-origin="215px 230px" style="transition: transform 0.5s;"/>
+                            
+                            <!-- Right Lung (Healthy) -->
+                            <path d="M110,180 Q90,160 80,200 Q70,240 100,270 Q130,290 125,250 Z" fill="#15803d" opacity="0.7" id="svg-right-lung" class="svg-breathing-lung-right"/>
+                        </svg>
+                    </div>
+                    <div class="patho-controls">
+                        <div class="patho-btn active" id="patho-btn-normal" onclick="setRupturePathoState('normal')">
+                            <div class="patho-btn-title">🟢 氣道結構完整 (Intact Airway)</div>
+                            <div class="patho-btn-desc">兩側肺部正常呼吸，氣流完全進入肺泡，無漏氣現象。</div>
+                        </div>
+                        <div class="patho-btn" id="patho-btn-rupture" onclick="setRupturePathoState('rupture')">
+                            <div class="patho-btn-title">🔴 左側主支氣管破裂 (Bronchial Rupture)</div>
+                            <div class="patho-btn-desc">主支氣管近端撕裂，吸入的氣流泡源源不絕從裂口溢出（藍色氣泡噴灑動態）。左側肺部塌陷，大量空氣漏入縱膈腔與皮下。</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 3: Diagnostic Lab (Side by Side) -->
+        <section id="tab-diag" class="tab-content">
+            <div class="card">
+                <div class="card-title">感官診斷與胸管水封監測</div>
+                <div class="diag-split-layout">
+                    <!-- Left Column: Visual/Canvas Screen -->
+                    <div>
+                        <div class="diag-interactive-area">
+                            <div class="chest-wrapper" id="diag-visual-container">
+                                <svg width="280" height="380" viewBox="0 0 280 380" style="background:#090d16; border-radius:8px;">
+                                    <path d="M40,340 C40,200 60,60 140,60 C220,60 240,200 240,340 Z" fill="#1e293b" stroke="#475569" stroke-width="3"/>
+                                    
+                                    <!-- Neck swollen representation (Subcutaneous air) -->
+                                    <path d="M100,50 Q140,40 180,50 L170,100 L110,100 Z" fill="rgba(245, 158, 11, 0.25)" id="visual-emphysema-neck" style="display:none;"/>
+                                </svg>
+                                
+                                <!-- Listen spot (Heart / Hamman's) -->
+                                <div class="interactive-spot" id="spot-listen-hamman" style="top:190px; left:115px; display:none;" onclick="triggerDiagnosticFeedback('listen-hamman')">🩺</div>
+                                <!-- Feel spot (Neck) -->
+                                <div class="interactive-spot" id="spot-feel-emphysema" style="top:70px; left:115px; display:none;" onclick="triggerDiagnosticFeedback('feel-emphysema')">✋</div>
+                                <!-- Water seal bottle spot -->
+                                <div class="interactive-spot" id="spot-water-seal" style="top:270px; left:180px; display:none;" onclick="triggerDiagnosticFeedback('water-seal')">📟</div>
+                            </div>
+
+                            <!-- Water seal screen panel -->
+                            <div class="us-screen-container" id="water-seal-panel" style="display:none;">
+                                <div style="display:flex; justify-content:space-between; color:#00ff00; font-family:monospace; font-size:11px; margin-bottom:5px;">
+                                    <span>WATER SEAL CHAMBER MONITOR</span>
+                                    <span id="bypass-status-label">LEAKING: MASSIVE</span>
+                                </div>
+                                <canvas class="us-canvas" id="waterSealCanvas"></canvas>
+                                <div style="text-align:center; margin-top:10px;">
+                                    <button class="btn btn-primary" id="btn-bypass-action" onclick="performTubeBypass()" style="padding:0.4rem 1rem; font-size:0.8rem;">🩹 執行氣管導管超越破口 (ETT Bypass)</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Options & Report -->
+                    <div>
+                        <div class="diag-matrix-container" style="display:grid; grid-template-columns:1fr; gap:0.5rem; margin-bottom:1.5rem;">
+                            <div class="diag-matrix-card active" id="diag-btn-look" onclick="setDiagMethod('look')">👀 視診 (Look) - 頸部水腫與插管泡泡觀察</div>
+                            <div class="diag-matrix-card" id="diag-btn-feel" onclick="setDiagMethod('feel')">✋ 觸診 (Feel) - 頸胸部皮下氣腫捏雪感</div>
+                            <div class="diag-matrix-card" id="diag-btn-listen" onclick="setDiagMethod('listen')">👂 聽診 (Listen) - 哈曼氏碎裂音聽診</div>
+                            <div class="diag-matrix-card" id="diag-btn-drain" onclick="setDiagMethod('drain')">📟 引流管監測 - 水封瓶持續漏氣分析</div>
+                        </div>
+
+                        <div class="card" style="background:rgba(255,255,255,0.01); border-color:var(--border-color); margin-bottom:0;">
+                            <div class="card-title" id="diag-report-title" style="border-left-color:var(--accent-yellow)">診斷評估報告</div>
+                            <p id="diag-report-desc" style="color:var(--text-primary); font-size:0.95rem;">
+                                點選上方的檢查方式，並在左側人體圖上進行點擊操作。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 4: Treatment -->
+        <section id="tab-treatment" class="tab-content">
+            <div class="card">
+                <div class="card-title">🩹 氣道插管越過破口技術與急手術指引</div>
+                <p style="margin-bottom: 1.5rem;">對氣管支氣管破裂患者，最危險的操作是常規正壓通氣。如果氣管內管套囊卡在破口上方，吹氣時高壓空氣會直接灌入縱膈腔，引起嚴重的縱膈氣壓與阻礙回心血量。此時必須施展特殊的「越過破口」插管手技。</p>
+                <div class="grid-2">
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 12px;">
+                        <h3 style="color:var(--accent-yellow); margin-bottom: 1rem;">1. ETT 越過破口 (Tube Bypass)</h3>
+                        <p style="font-size:0.85rem; color:var(--text-secondary); line-height:1.6;">
+                            • <strong>定位越過</strong>：在支氣管鏡或盲插定位下，將氣管內管 (ETT) 推進，使其套囊 (Cuff) 定位在破口的遠端（健側主支氣管內）。
+                            <br>• <strong>單肺通氣</strong>：僅充氣健側肺部，完全隔离患側破裂的支氣管，這能立刻阻斷氣體洩入縱膈腔，使漏氣水泡停止。
+                        </p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 12px;">
+                        <h3 style="color:var(--accent-red); margin-bottom: 1rem;">2. 開胸修補手術指徵</h3>
+                        <p style="font-size:0.85rem; color:var(--text-secondary); line-height:1.6;">
+                            • 主支氣管裂傷 > 1/3 週徑。
+                            <br>• 置入雙胸管引流後，仍然無法維持呼吸氧合，且漏氣速度持續高於通氣補償。
+                            <br>• 急診開胸行支氣管端端吻合術 (Anastomosis)。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 5: Quiz -->
+        <section id="tab-quiz" class="tab-content">
+            <div class="card">
+                <div class="card-title">✏️ EMT-P 氣管支氣管破裂考題檢定</div>
+                <div id="quiz-progress-container" style="background:rgba(255,255,255,0.05); height:6px; border-radius:3px; margin-bottom:1.5rem; overflow:hidden;">
+                    <div id="quiz-progressbar" style="background:var(--accent-yellow); width:0%; height:100%; transition:width 0.3s;"></div>
+                </div>
+
+                <div id="quiz-question-panel">
+                    <!-- Dynamic question rendering -->
+                </div>
+
+                <div id="quiz-results-panel" style="display:none; text-align:center; padding:2rem 0;">
+                    <h3 style="font-size:2rem; color:var(--accent-yellow); margin-bottom:1rem;">🎉 測驗完成</h3>
+                    <p style="font-size:1.2rem; margin-bottom:1.5rem;" id="quiz-score-text">您的得分為：0 / 5</p>
+                    <button class="btn btn-primary" onclick="restartQuiz()">重新挑戰</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            event.currentTarget.classList.add('active');
+            document.getElementById(`tab-${tabId}`).classList.add('active');
+            
+            if (tabId === 'diag') {
+                setDiagMethod('look');
+            }
+        }
+
+        // Web Audio API Synthesizer
+        let audioCtx = null;
+        let mainVolume = null;
+        let isAudioOn = false;
+
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                mainVolume = audioCtx.createGain();
+                mainVolume.gain.value = 0.5;
+                mainVolume.connect(audioCtx.destination);
+            }
+        }
+
+        function toggleClinicalAudio() {
+            initAudio();
+            const btn = document.getElementById('btn-enable-audio');
+            if (!isAudioOn) {
+                audioCtx.resume();
+                isAudioOn = true;
+                btn.classList.add('active');
+                btn.textContent = "🔊 心肺聽診已開啟";
+            } else {
+                isAudioOn = false;
+                btn.classList.remove('active');
+                btn.textContent = "🔊 啟動心肺聽診音效";
+            }
+        }
+
+        function playHammanCrunch() {
+            if (!isAudioOn) return;
+            // Hamman's Sign: crunching, clicking sound synchronized with heartbeat.
+            // Generates high frequency crackle clusters
+            const playCrunchBeat = () => {
+                const now = audioCtx.currentTime;
+                // Lub-dub crackle cluster
+                for (let i = 0; i < 6; i++) {
+                    const time = now + i * 0.03;
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(150 + Math.random() * 400, time);
+                    gain.gain.setValueAtTime(0.08, time);
+                    gain.gain.exponentialRampToValueAtTime(0.001, time + 0.015);
+                    
+                    osc.connect(gain);
+                    gain.connect(mainVolume);
+                    osc.start(time);
+                    osc.stop(time + 0.02);
+                }
+            };
+            playCrunchBeat();
+        }
+
+        function playSubcutaneousCrackle() {
+            if (!isAudioOn) return;
+            // Short high pitch bubble crackles (bubble wrap pop)
+            const now = audioCtx.currentTime;
+            for (let i = 0; i < 4; i++) {
+                const time = now + i * 0.05;
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(1800 + Math.random() * 600, time);
+                gain.gain.setValueAtTime(0.05, time);
+                gain.gain.exponentialRampToValueAtTime(0.001, time + 0.01);
+                osc.connect(gain);
+                gain.connect(mainVolume);
+                osc.start(time);
+                osc.stop(time + 0.015);
+            }
+        }
+
+        // Patho
+        function setRupturePathoState(state) {
+            document.querySelectorAll('.patho-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`patho-btn-${state}`).classList.add('active');
+            
+            const b1 = document.getElementById('leak-b1');
+            const b2 = document.getElementById('leak-b2');
+            const b3 = document.getElementById('leak-b3');
+            const leftLung = document.getElementById('svg-left-lung');
+            const tear = document.getElementById('svg-tear-line');
+
+            if (state === 'normal') {
+                b1.style.opacity = '0';
+                b2.style.opacity = '0';
+                b3.style.opacity = '0';
+                leftLung.style.transform = '';
+                tear.style.display = 'none';
+            } else {
+                b1.style.opacity = '0.9';
+                b2.style.opacity = '0.9';
+                b3.style.opacity = '0.9';
+                leftLung.style.transform = 'scale(0.35)';
+                tear.style.display = 'block';
+            }
+        }
+
+        // Diag Method
+        function setDiagMethod(method) {
+            document.querySelectorAll('.diag-matrix-card').forEach(c => c.classList.remove('active'));
+            document.getElementById(`diag-btn-${method}`).classList.add('active');
+            
+            const reportTitle = document.getElementById('diag-report-title');
+            const reportDesc = document.getElementById('diag-report-desc');
+            const container = document.getElementById('diag-visual-container');
+            const wPanel = document.getElementById('water-seal-panel');
+            const neckEmphysema = document.getElementById('visual-emphysema-neck');
+
+            // Hide spots
+            document.getElementById('spot-listen-hamman').style.display = 'none';
+            document.getElementById('spot-feel-emphysema').style.display = 'none';
+            document.getElementById('spot-water-seal').style.display = 'none';
+
+            container.style.display = 'block';
+            wPanel.style.display = 'none';
+            neckEmphysema.style.display = 'none';
+
+            if (method === 'look') {
+                reportTitle.textContent = "👀 視診評估";
+                reportDesc.innerHTML = "<strong>頸部外觀與漏氣特徵：</strong><br>1. <strong>頸部粗大、腫脹</strong>：氣道氣體洩入軟組織，造成顏面與頸胸部腫大呈滿月臉。<br>2. <strong>進行性呼吸困難</strong>，血氧低落。<br>3. 伴隨縱膈氣胸與一側嚴重胸腔積氣。";
+            } else if (method === 'feel') {
+                reportTitle.textContent = "✋ 觸診評估 (請點選頸部 ✋ 圖案)";
+                reportDesc.innerHTML = "請觸摸病患頸胸部軟組織：<br>• <strong>皮下氣腫捏雪感 (Subcutaneous Emphysema)</strong>：手指按壓時感覺到無數微小氣泡在皮下移動，並伴隨類似捏碎乾燥積雪或擠壓塑膠泡泡包裝紙的細小碎裂感與沙沙聲。";
+                neckEmphysema.style.display = 'block';
+                document.getElementById('spot-feel-emphysema').style.display = 'flex';
+            } else if (method === 'listen') {
+                reportTitle.textContent = "👂 聽診評估 (請點選心腔 🩺 圖案)";
+                reportDesc.innerHTML = "請使用聽診器點選心前區聽診：<br>• <strong>哈曼氏徵候 (Hamman's Sign)</strong>：心前區可清晰聞及與心跳頻率完全同步的<strong>「粗糙碎裂爆裂音 (Crunching sound)」</strong>，這是心臟舒縮擠壓氣腫的縱膈腔組織所產生的特異性聲響。此外，左肺呼吸音消失。";
+                document.getElementById('spot-listen-hamman').style.display = 'flex';
+            } else if (method === 'drain') {
+                container.style.display = 'block'; // KEEP VISIBLE
+                wPanel.style.display = 'block';
+                reportTitle.textContent = "📟 胸腔引流監測 (請點選人體上的 📟 圖案進行監測)";
+                reportDesc.innerHTML = "置入胸腔引流管（Chest Tube）後觀察水封室 (Water Seal Chamber)：<br>• <strong>持續性冒水泡 (Continuous Bubbling)</strong>：水封瓶內冒出連續、劇烈的水泡（代表破口持續大量漏氣）。一般的單純氣胸在肺復張後泡泡會停止，但氣管破裂的泡泡永不停止，除非成功引導氣管內管超越破口。";
+                document.getElementById('spot-water-seal').style.display = 'flex';
+                initWaterSealCanvas();
+            }
+        }
+
+        // Action Feedback
+        function triggerDiagnosticFeedback(action) {
+            const reportDesc = document.getElementById('diag-report-desc');
+            if (action === 'feel-emphysema') {
+                reportDesc.innerHTML = "✋ <strong>觸診頸胸部：</strong> 觸摸到大面積皮下氣腫，有極其明顯的握雪感 (Crepitus)，並伴隨皮下泡泡移動的沙沙感。";
+                playSubcutaneousCrackle();
+            } else if (action === 'listen-hamman') {
+                reportDesc.innerHTML = "🔊 <strong>聽診心前區：</strong> 聽診到非常經典的 **Hamman's Sign**（心前區與心臟收縮期同步的劈啪碎裂聲），提示縱膈腔嚴重積氣。";
+                playHammanCrunch();
+            } else if (action === 'water-seal') {
+                reportDesc.innerHTML = "📟 <strong>水封室監測中：</strong> 發現每秒都有極大量氣泡湧出，不受呼吸週期影響。提示主支氣管或大氣道發生完整性斷裂。";
+            }
+        }
+
+        // Water Seal Canvas Bubbles
+        let wsCanvas = null;
+        let wsCtx = null;
+        let wsAnimId = null;
+        let isBypassed = false;
+        let bubbleList = [];
+
+        function initWaterSealCanvas() {
+            wsCanvas = document.getElementById('waterSealCanvas');
+            wsCtx = wsCanvas.getContext('2d');
+            bubbleList = [];
+            isBypassed = false;
+            document.getElementById('bypass-status-label').textContent = "LEAKING: MASSIVE";
+            document.getElementById('bypass-status-label').style.color = '#ef4444';
+            if (wsAnimId) cancelAnimationFrame(wsAnimId);
+            drawWaterSeal();
+        }
+
+        function performTubeBypass() {
+            isBypassed = true;
+            document.getElementById('bypass-status-label').textContent = "LEAKING: CONTROLLED (ETT BYPASSED)";
+            document.getElementById('bypass-status-label').style.color = '#10b981';
+            document.getElementById('diag-report-desc').innerHTML = "🩹 <strong>成功超越破口！</strong> 氣管內管已推入健側支氣管，水封瓶內的持續大量氣泡已完全停止。";
+        }
+
+        function drawWaterSeal() {
+            wsCtx.fillStyle = '#1e293b';
+            wsCtx.fillRect(0, 0, 400, 220);
+
+            // Draw chamber water line
+            wsCtx.fillStyle = 'rgba(59, 82, 246, 0.4)';
+            wsCtx.fillRect(50, 100, 300, 110);
+
+            wsCtx.strokeStyle = '#64748b';
+            wsCtx.lineWidth = 3;
+            // Draw inlet tube
+            wsCtx.beginPath();
+            wsCtx.moveTo(200, 0);
+            wsCtx.lineTo(200, 150);
+            wsCtx.stroke();
+
+            // Water surface line
+            wsCtx.strokeStyle = '#93c5fd';
+            wsCtx.lineWidth = 2;
+            wsCtx.beginPath();
+            wsCtx.moveTo(50, 100);
+            wsCtx.lineTo(350, 100);
+            wsCtx.stroke();
+
+            if (!isBypassed) {
+                // Add new bubbles continuously
+                if (Math.random() < 0.18) {
+                    bubbleList.push({
+                        x: 200 + (Math.random() * 20 - 10),
+                        y: 150,
+                        r: 2 + Math.random() * 6,
+                        vx: Math.random() * 2 - 1,
+                        vy: -2 - Math.random() * 2
+                    });
+                }
+            }
+
+            // Draw and update bubbles
+            wsCtx.fillStyle = '#fff';
+            for (let i = bubbleList.length - 1; i >= 0; i--) {
+                let b = bubbleList[i];
+                b.x += b.vx;
+                b.y += b.vy;
+                
+                wsCtx.beginPath();
+                wsCtx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+                wsCtx.fill();
+
+                // Delete bubbles once they pop at surface
+                if (b.y < 100) {
+                    bubbleList.splice(i, 1);
+                }
+            }
+
+            wsCtx.fillStyle = '#fff';
+            wsCtx.font = '10px monospace';
+            wsCtx.fillText("WATER LEVEL (2 cm H2O)", 60, 120);
+
+            wsAnimId = requestAnimationFrame(drawWaterSeal);
+        }
+
+        // Quiz
+        const quizQuestions = [
+            {
+                q: "氣管與主支氣管破裂最常見的解剖發生位置是？",
+                options: [
+                    "A. 咽喉正下方第三環狀軟骨處",
+                    "B. 距離氣管隆突 (Carina) 2.5 公分以內的主支氣管",
+                    "C. 左右兩側的細支氣管末梢",
+                    "D. 食道與氣管交接的咽壁"
+                ],
+                correct: 1,
+                reason: "氣管支氣管破裂約有 80% 發生在隆突 (Carina) 2.5 公分以內的左右主支氣管，此處承受的牽引力與剪力最大。"
+            },
+            {
+                q: "在理學檢查中，聽診心前區聞及與心跳完全同步的「劈啪碎裂爆裂音」，稱為何種徵候？",
+                options: [
+                    "A. 貝克氏三徵 (Beck's Triad)",
+                    "B. 哈曼氏徵候 (Hamman's Sign)，因心臟跳動擠壓縱膈氣腫所致",
+                    "C. 濱海徵候 (Seashore Sign)",
+                    "D. 庫斯莫爾氏呼吸 (Kussmaul breathing)"
+                ],
+                correct: 1,
+                reason: "哈曼氏徵候 (Hamman's Sign) 是縱膈氣腫的特異性表徵，心臟舒縮擠壓氣腫組織會發出與心跳同步的粗糙爆裂聲。"
+            },
+            {
+                q: "大量皮下氣腫 (Subcutaneous Emphysema) 按壓患者皮膚時，手指最典型的感官發現是？",
+                options: [
+                    "A. 皮膚冰冷、質地如鐵般堅硬",
+                    "B. 波動感及微血管快速充填",
+                    "C. 握雪感 (Crepitus)，伴隨氣泡在皮下移動的沙沙聲",
+                    "D. 局部皮膚劇烈刺痛與大理石斑紋"
+                ],
+                correct: 2,
+                reason: "皮下氣腫因氣體積聚於皮下軟組織，觸診呈現典型「握雪感」 (Crepitus)，按壓有捏碎乾燥積雪的爆裂感。"
+            },
+            {
+                q: "置入胸腔引流管後，水封瓶水封室出現何種現象，必須高度懷疑為氣管支氣管破裂？",
+                options: [
+                    "A. 水柱隨病患呼吸上下波動，但完全無氣泡",
+                    "B. 僅在病患咳嗽時冒出少量氣泡",
+                    "C. 水封室持續大量冒氣泡 (Continuous Bubbling)，且不受呼吸週期停止",
+                    "D. 水封液呈現暗紅色混濁狀態"
+                ],
+                correct: 2,
+                reason: "大氣道破裂會導致源源不絕的氣體由呼吸道湧入肋膜腔，故水封室會出現持續不斷、不受呼氣期限制的劇烈氣泡。"
+            },
+            {
+                q: "為支氣管破裂且漏氣嚴重的患者執行氣管插管時，首要防禦氣壓惡化的插管決策是？",
+                options: [
+                    "A. 套囊固定在氣管破裂口正中央",
+                    "B. 將氣管內管推進並越過破裂口 (Tube Bypass)，使套囊卡在破裂遠端（甚至單肺通氣）",
+                    "C. 採用超高正壓高頻通氣 (HFV)",
+                    "D. 禁止插管，僅使用面罩給予正壓 CPAP"
+                ],
+                correct: 1,
+                reason: "插管時必須將氣管內管越過破口 (Tube Bypass)，使充氣套囊密封在破裂端遠方，才能阻斷氣體繼續洩入縱膈腔，避免正壓通氣惡化氣壓與氣腫。"
+            }
+        ];
+
+        let currentQuizIdx = 0;
+        let score = 0;
+
+        function loadQuizQuestion() {
+            const questionPanel = document.getElementById('quiz-question-panel');
+            if (currentQuizIdx >= quizQuestions.length) {
+                questionPanel.style.display = 'none';
+                document.getElementById('quiz-results-panel').style.display = 'block';
+                document.getElementById('quiz-score-text').textContent = `您的得分為：${score} / ${quizQuestions.length}`;
+                return;
+            }
+
+            const question = quizQuestions[currentQuizIdx];
+            const progress = ((currentQuizIdx) / quizQuestions.length) * 100;
+            document.getElementById('quiz-progressbar').style.width = `${progress}%`;
+
+            let optionsHTML = '';
+            question.options.forEach((opt, idx) => {
+                optionsHTML += `
+                    <button class="quiz-option" id="opt-${idx}" onclick="checkAnswer(${idx})">
+                        <span>${opt}</span>
+                    </button>
+                `;
+            });
+
+            questionPanel.innerHTML = `
+                <div style="font-weight:bold; color:var(--accent-yellow); margin-bottom:0.5rem;">問題 ${currentQuizIdx + 1} / ${quizQuestions.length}</div>
+                <div style="font-size:1.15rem; font-weight:700; margin-bottom:1.5rem; color:#fff;">${question.q}</div>
+                <div class="quiz-options">${optionsHTML}</div>
+                <div class="quiz-feedback" id="quiz-feedback-box">
+                    <strong>💡 詳解報告：</strong> <span id="quiz-feedback-text"></span>
+                    <div style="margin-top:1rem; text-align:right;">
+                        <button class="btn btn-primary" onclick="nextQuestion()">下一題 ➔</button>
+                    </div>
+                </div>
+            `;
+            questionPanel.style.display = 'block';
+        }
+
+        function checkAnswer(selectedIdx) {
+            const question = quizQuestions[currentQuizIdx];
+            const feedbackBox = document.getElementById('quiz-feedback-box');
+            const feedbackText = document.getElementById('quiz-feedback-text');
+
+            question.options.forEach((_, idx) => {
+                const optBtn = document.getElementById(`opt-${idx}`);
+                optBtn.style.pointerEvents = 'none';
+                if (idx === question.correct) {
+                    optBtn.classList.add('correct');
+                } else if (idx === selectedIdx) {
+                    optBtn.classList.add('wrong');
+                }
+            });
+
+            if (selectedIdx === question.correct) {
+                score++;
+            }
+
+            feedbackText.textContent = question.reason;
+            feedbackBox.style.display = 'block';
+        }
+
+        function nextQuestion() {
+            currentQuizIdx++;
+            loadQuizQuestion();
+        }
+
+        function restartQuiz() {
+            currentQuizIdx = 0;
+            score = 0;
+            document.getElementById('quiz-results-panel').style.display = 'none';
+            loadQuizQuestion();
+        }
+
+        loadQuizQuestion();
+    </script>
+</body>
+</html>

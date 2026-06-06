@@ -1,0 +1,17 @@
+進階診斷工具：e-FAST 超音波判讀
+• 正常肺臟（Normal Lung）
+• 張力性氣胸（Tension Pneumothorax）
+「濱海徾候」
+（Seashore Sign）
+「條碼徵候」
+（Barcode Sign）
+10
+20
+-30
+-10
+-20
+-30
+顯示正常的肺滑動徾
+肺滑動徵消失，強烈暗示氣胸
+6-NotebookLM
+

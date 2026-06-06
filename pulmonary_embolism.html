@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>急性肺栓塞：S1Q3T3 與 DVT 評估 | EMT-P 臨床決策學習網站</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #0b0f19;
+            --bg-secondary: #131b2e;
+            --bg-tertiary: #1e293b;
+            --accent-red: #ef4444;
+            --accent-red-hover: #dc2626;
+            --accent-blue: #3b82f6;
+            --accent-blue-hover: #2563eb;
+            --accent-green: #10b981;
+            --accent-yellow: #f59e0b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --glow-blue: 0 0 15px rgba(59, 82, 246, 0.5);
+            --font-main: 'Inter', 'Noto Sans TC', sans-serif;
+            --font-header: 'Outfit', 'Noto Sans TC', sans-serif;
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0f243a 0%, var(--bg-secondary) 100%);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-badge {
+            background-color: var(--accent-blue);
+            color: white;
+            font-family: var(--font-header);
+            font-weight: 800;
+            font-size: 0.8rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: var(--glow-blue);
+        }
+
+        h1 {
+            font-family: var(--font-header);
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #fff, #dbeafe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn-back {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all var(--transition-speed);
+        }
+
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-blue);
+        }
+
+        nav {
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 77px;
+            z-index: 99;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .nav-tab {
+            padding: 1.2rem 1.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-tab:hover {
+            color: var(--text-primary);
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        .nav-tab.active {
+            color: var(--accent-blue);
+            border-bottom-color: var(--accent-blue);
+            background-color: rgba(59, 82, 246, 0.05);
+        }
+
+        main {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            min-height: 70vh;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-title {
+            font-family: var(--font-header);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--accent-blue);
+            padding-left: 0.75rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 992px) {
+            .grid-2 {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .btn {
+            background-color: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-blue);
+            border-color: transparent;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-blue-hover);
+            box-shadow: var(--glow-blue);
+        }
+
+        .bullet-list {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .bullet-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Patho SVG & Animations */
+        .anatomy-svg-wrapper {
+            background-color: #0b111e;
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        @keyframes heart-pulse-pe {
+            0% { transform: scale(1); }
+            15% { transform: scale(1.1); }
+            30% { transform: scale(0.96); }
+            45% { transform: scale(1.05); }
+            60% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+
+        .svg-pulsing-heart {
+            animation: heart-pulse-pe 0.8s infinite ease-in-out;
+            transform-origin: 160px 240px;
+        }
+
+        .patho-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .patho-btn {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: left;
+            transition: all var(--transition-speed);
+        }
+
+        .patho-btn.active {
+            background: rgba(59, 82, 246, 0.08);
+            border-color: var(--accent-blue);
+            color: var(--text-primary);
+        }
+
+        /* Diag Matrix Layout */
+        .diag-split-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 992px) {
+            .diag-split-layout {
+                grid-template-columns: 1.1fr 0.9fr;
+            }
+        }
+
+        .diag-matrix-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: left;
+            transition: all var(--transition-speed);
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .diag-matrix-card.active {
+            background: rgba(59, 82, 246, 0.08);
+            border-color: var(--accent-blue);
+            color: var(--text-primary);
+            box-shadow: var(--glow-blue);
+        }
+
+        .diag-interactive-area {
+            background-color: #0b111e;
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            position: relative;
+            min-height: 420px;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .chest-wrapper {
+            position: relative;
+            width: 280px;
+            height: 380px;
+        }
+
+        .interactive-spot {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(59, 82, 246, 0.2);
+            border: 2px dashed var(--accent-blue);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            transition: all 0.2s ease-in-out;
+            z-index: 10;
+        }
+
+        .interactive-spot:hover {
+            background: rgba(59, 82, 246, 0.4);
+            transform: scale(1.15);
+            box-shadow: var(--glow-blue);
+        }
+
+        .us-screen-container {
+            width: 100%;
+            max-width: 400px;
+            background: #000;
+            border: 4px solid var(--bg-tertiary);
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        .us-canvas {
+            width: 100%;
+            height: 220px;
+            background-color: #050505;
+            display: block;
+        }
+
+        /* Quiz Contrast Fix */
+        .quiz-option {
+            background-color: rgba(255, 255, 255, 0.04);
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            font-size: 0.95rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-align: left;
+            width: 100%;
+        }
+
+        .quiz-option:hover {
+            background-color: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .quiz-option.correct {
+            background-color: rgba(16, 185, 129, 0.25);
+            border-color: var(--accent-green);
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .quiz-option.wrong {
+            background-color: rgba(239, 68, 68, 0.25);
+            border-color: var(--accent-red);
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .quiz-feedback {
+            background-color: rgba(59, 82, 246, 0.08);
+            border-left: 4px solid var(--accent-blue);
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: #f1f5f9;
+            display: none;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .audio-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all var(--transition-speed);
+            margin-bottom: 1rem;
+        }
+
+        .audio-btn.active {
+            background: rgba(59, 82, 246, 0.15);
+            border-color: var(--accent-blue);
+            box-shadow: var(--glow-blue);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-area">
+                <span class="logo-badge">EMT-P</span>
+                <h1>急性肺栓塞：DVT 篩查與心電圖 S1Q3T3</h1>
+            </div>
+            <div style="display:flex; align-items:center; gap:1rem;">
+                <a href="./index.html" class="btn-back">⬅ 返回首頁</a>
+                <button class="audio-btn" id="btn-enable-audio" onclick="toggleClinicalAudio()" style="margin-bottom:0;">🔊 啟動心電監護音效</button>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <div class="nav-tab active" onclick="switchTab('lecture')">📖 學理與臨床導讀</div>
+            <div class="nav-tab" onclick="switchTab('patho')">🫁 肺動脈栓塞病理模擬</div>
+            <div class="nav-tab" onclick="switchTab('diag')">🩺 臨床評估與心電圖模擬判讀</div>
+            <div class="nav-tab" onclick="switchTab('treatment')">🩹 抗凝與溶栓治療決策</div>
+            <div class="nav-tab" onclick="switchTab('quiz')">✏️ EMT-P 挑戰檢定</div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Tab 1: Lecture -->
+        <section id="tab-lecture" class="tab-content active">
+            <div class="card">
+                <div class="card-title">急性肺栓塞病理生理與評估</div>
+                <p style="margin-bottom: 1rem;">急性肺栓塞（Pulmonary Embolism, PE）多因深部靜脈血栓（Deep Vein Thrombosis, DVT）脫落，隨血流阻塞肺動脈分支出口。這會造成嚴重的通氣/灌流不均（V/Q Mismatch）與死腔增加，並急劇提高右心後負荷，導致右心室急性擴張衰竭。</p>
+                <div class="grid-2">
+                    <div>
+                        <h4 style="color: var(--accent-blue); margin-bottom: 0.5rem;">🔑 臨床關鍵特徵</h4>
+                        <ul class="bullet-list">
+                            <li><strong>突發性不明原因喘與胸痛</strong>：突發性呼吸困難、發紺、不明原因低血氧（吸氧後SpO2改善有限）。</li>
+                            <li><strong>雙肺聽診清晰</strong>：理學檢查最關鍵的鑑別點是，病患極度喘，但<strong>「肺部聽診通常乾淨無囉音」</strong>（無氣喘喘鳴音、無心衰濕囉音）。</li>
+                            <li><strong>DVT 查體陽性</strong>：常見下肢單側不對稱腫脹、觸痛、溫度升高（Homans Sign 陽性）。</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--accent-blue); margin-bottom: 0.5rem;">🚨 心電圖與院前處置</h4>
+                        <ul class="bullet-list">
+                            <li><strong>S1Q3T3 特異性波形</strong>：I 導極 S 波變深、III 導極出現 Q 波及 T 波倒立，伴隨竇性心搏過速或右束支傳導阻滯 (RBBB)。</li>
+                            <li><strong>院前急救原則</strong>：支持性氧氣治療（高流量氧氣或 BVM）、維持血壓穩定。對高度懷疑且休克者，入院後即刻進行抗凝血（肝素 Heparin）或溶栓 (tPA) 治療。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 2: Pathophysiology Simulator -->
+        <section id="tab-patho" class="tab-content">
+            <div class="card">
+                <div class="card-title">肺動脈栓塞與右心擴張模擬</div>
+                <div class="grid-2" style="align-items: center;">
+                    <div class="anatomy-svg-wrapper">
+                        <!-- Pulmonary Embolism SVG -->
+                        <svg width="320" height="400" viewBox="0 0 320 400" id="patho-svg">
+                            <!-- Chest bounding -->
+                            <rect x="50" y="50" width="220" height="320" rx="30" fill="none" stroke="#64748b" stroke-width="4"/>
+                            
+                            <!-- Left Lung (Viewer's Right) -->
+                            <path d="M175,100 Q220,85 245,125 Q265,165 245,215 Q220,235 175,200 Z" fill="#fee2e2" opacity="0.35" stroke="#fca5a5" stroke-width="1.5"/>
+                            
+                            <!-- Right Lung (Viewer's Left) -->
+                            <path d="M145,100 Q100,85 75,125 Q55,165 75,215 Q100,235 145,200 Z" fill="#fee2e2" opacity="0.35" stroke="#fca5a5" stroke-width="1.5"/>
+
+                            <!-- Pulmonary artery outlet (blue arch branching into lungs) -->
+                            <path d="M150,200 L150,150 Q150,120 110,120 M150,150 Q150,120 190,120" fill="none" stroke="#3b82f6" stroke-width="10" stroke-linecap="round"/>
+                            
+                            <!-- Thrombus blood clot block (fades in on branch) -->
+                            <ellipse cx="175" cy="120" rx="7" ry="4.5" fill="#1e1b4b" opacity="0" stroke="#ef4444" stroke-width="2" id="svg-thrombus"/>
+                            
+                            <!-- Heart - 4 Chambers Group -->
+                            <g id="svg-heart-group" class="svg-pulsing-heart" style="transition: transform 0.5s;">
+                                <!-- Left Atrium (LA) -->
+                                <path d="M160,195 Q180,190 190,210 L160,215 Z" fill="#991b1b" stroke="#ef4444" stroke-width="1.5" id="svg-la"/>
+                                <!-- Right Atrium (RA) -->
+                                <path d="M160,195 Q140,190 130,210 L160,215 Z" fill="#881337" stroke="#f43f5e" stroke-width="1.5" id="svg-ra"/>
+                                <!-- Left Ventricle (LV) -->
+                                <path d="M160,215 L190,210 Q195,245 160,265 Z" fill="#991b1b" stroke="#ef4444" stroke-width="1.5" id="svg-lv"/>
+                                <!-- Right Ventricle (RV) - swells to left side of screen -->
+                                <path d="M160,215 L130,210 Q120,245 160,265 Z" fill="#b91c1c" stroke="#fca5a5" stroke-width="1.5" id="svg-rv" style="transition: d 0.5s, fill 0.5s;"/>
+                                
+                                <!-- Chamber Labels -->
+                                <text x="170" y="208" fill="#fff" font-size="7" font-weight="bold" font-family="monospace">LA</text>
+                                <text x="142" y="208" fill="#fff" font-size="7" font-weight="bold" font-family="monospace">RA</text>
+                                <text x="170" y="235" fill="#fff" font-size="7" font-weight="bold" font-family="monospace">LV</text>
+                                <text x="142" y="235" fill="#fff" font-size="7" font-weight="bold" font-family="monospace" id="svg-rv-text">RV</text>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="patho-controls">
+                        <div class="patho-btn active" id="patho-btn-normal" onclick="setPEPathoState('normal')">
+                            <div class="patho-btn-title">🟢 正常血流狀態 (Baseline)</div>
+                            <div class="patho-btn-desc">肺動脈分支暢通無阻，左右心室大小對稱，右心負荷正常。</div>
+                        </div>
+                        <div class="patho-btn" id="patho-btn-embolism" onclick="setPEPathoState('embolism')">
+                            <div class="patho-btn-title">🔴 肺動脈大塊栓塞 (Massive Embolism)</div>
+                            <div class="patho-btn-desc">肺動脈主分支被巨大血栓堵塞（深色指示）。右心室壓力驟增，導致右室急性擴張、心室中膈偏向左側（左心室受壓扁塌成 D 字型），回心血量崩潰。</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 3: Diagnostic Lab (Side by Side) -->
+        <section id="tab-diag" class="tab-content">
+            <div class="card">
+                <div class="card-title">臨床評估與心電圖模擬判讀</div>
+                <div class="diag-split-layout">
+                    <!-- Left Column: Visual/ECG Canvas -->
+                    <div>
+                        <div class="diag-interactive-area">
+                            <div class="chest-wrapper" id="diag-visual-container">
+                                <svg width="280" height="380" viewBox="0 0 280 380" style="background:#090d16; border-radius:8px;">
+                                    <!-- Patient outline: chest down to legs -->
+                                    <path d="M60,20 C60,20 100,5 140,5 C180,5 220,20 220,20 L220,240 L180,360 L145,360 L140,260 L135,360 L100,360 Z" fill="#1e293b" stroke="#475569" stroke-width="3"/>
+                                    <!-- Legs swelling indicator on Left leg (Viewer's right side) -->
+                                    <path d="M140,260 L180,360 L145,360 Z" fill="rgba(239, 68, 68, 0.4)" id="visual-swollen-leg" style="display:none;"/>
+                                </svg>
+
+                                <!-- Listen spot (Lung) -->
+                                <div class="interactive-spot" id="spot-listen-lungs" style="top:110px; left:85px; display:none;" onclick="triggerDiagnosticFeedback('listen-lungs')">🩺</div>
+                                <!-- Feel spot (Legs) -->
+                                <div class="interactive-spot" id="spot-feel-leg" style="top:300px; right:120px; display:none;" onclick="triggerDiagnosticFeedback('feel-leg')">✋</div>
+                                <!-- ECG leads spot (Chest) -->
+                                <div class="interactive-spot" id="spot-ecg-leads" style="top:120px; left:115px; display:none;" onclick="triggerDiagnosticFeedback('ecg-leads')">📟</div>
+                            </div>
+
+                            <!-- ECG Monitor Screen -->
+                            <div class="us-screen-container" id="ecg-screen-panel" style="display:none;">
+                                <div style="display:flex; justify-content:space-between; color:#00ff00; font-family:monospace; font-size:11px; margin-bottom:5px;">
+                                    <span>ECG MONITOR: 12-LEAD VIEW</span>
+                                    <span id="ecg-bpm-label">HR: 120 BPM (SINUS TACHYCARDIA)</span>
+                                </div>
+                                <canvas class="us-canvas" id="ecgCanvas"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Options & Report -->
+                    <div>
+                        <div class="diag-matrix-container" style="display:grid; grid-template-columns:1fr; gap:0.5rem; margin-bottom:1.5rem;">
+                            <div class="diag-matrix-card active" id="diag-btn-look" onclick="setDiagMethod('look')">👀 視診 (Look) - 突發氣促與血氧監測</div>
+                            <div class="diag-matrix-card" id="diag-btn-listen" onclick="setDiagMethod('listen')">👂 聽診 (Listen) - 肺音鑑別診斷</div>
+                            <div class="diag-matrix-card" id="diag-btn-feel" onclick="setDiagMethod('feel')">✋ 觸診 (Feel) - 下肢 DVT 查體</div>
+                            <div class="diag-matrix-card" id="diag-btn-ecg" onclick="setDiagMethod('ecg')">📟 心電圖 (ECG) - S1Q3T3 波形監測</div>
+                        </div>
+
+                        <div class="card" style="background:rgba(255,255,255,0.01); border-color:var(--border-color); margin-bottom:0;">
+                            <div class="card-title" id="diag-report-title" style="border-left-color:var(--accent-blue)">診斷評估報告</div>
+                            <p id="diag-report-desc" style="color:var(--text-primary); font-size:0.95rem;">
+                                點選上方的檢查方式，並在左側人體圖上進行點擊操作。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 4: Treatment -->
+        <section id="tab-treatment" class="tab-content">
+            <div class="card">
+                <div class="card-title">🩹 臨床處置與溶栓決策路徑</div>
+                <p style="margin-bottom: 1.5rem;">急性肺栓塞的嚴重度跨度極大。院前急救應以維持氧合與血壓為主，入院後則根據血流動力學狀態（有無休克）決定是採取抗凝血還是高風險的溶栓治療。</p>
+                <div class="grid-2">
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 12px;">
+                        <h3 style="color:var(--accent-blue); margin-bottom: 1rem;">1. 支持性與抗凝血 (血流穩定)</h3>
+                        <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:1rem;">
+                            對血流動力學穩定（收縮壓 > 90 mmHg）的高疑似病患：
+                            <br>• 給予高流量氧氣以糾正通氣血流比失調。
+                            <br>• 入院後立即給予<strong>肝素 (Heparin/LMWH)</strong> 進行抗凝治療，阻止血栓繼續擴大，讓身體自發溶解。
+                        </p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 12px;">
+                        <h3 style="color:var(--accent-red); margin-bottom: 1rem;">2. 系統性溶栓 tPA (血流不穩定)</h3>
+                        <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:1rem;">
+                            對血流動力學不穩定（收縮壓 < 90 mmHg 或休克狀態）的病患：
+                            <br>• 為右心梗塞性休克，必須立即給予<strong>系統性溶栓治療 (如 tPA, Alteplase)</strong> 以直接溶解肺動脈大塊血栓。
+                            <br>• 需密切評估腦出血等嚴重出血風險。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 5: Quiz -->
+        <section id="tab-quiz" class="tab-content">
+            <div class="card">
+                <div class="card-title">✏️ EMT-P 急性肺栓塞專業考題檢定</div>
+                <div id="quiz-progress-container" style="background:rgba(255,255,255,0.05); height:6px; border-radius:3px; margin-bottom:1.5rem; overflow:hidden;">
+                    <div id="quiz-progressbar" style="background:var(--accent-blue); width:0%; height:100%; transition:width 0.3s;"></div>
+                </div>
+
+                <div id="quiz-question-panel">
+                    <!-- Dynamic question rendering -->
+                </div>
+
+                <div id="quiz-results-panel" style="display:none; text-align:center; padding:2rem 0;">
+                    <h3 style="font-size:2rem; color:var(--accent-blue); margin-bottom:1rem;">🎉 測驗完成</h3>
+                    <p style="font-size:1.2rem; margin-bottom:1.5rem;" id="quiz-score-text">您的得分為：0 / 5</p>
+                    <button class="btn btn-primary" onclick="restartQuiz()">重新挑戰</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            event.currentTarget.classList.add('active');
+            document.getElementById(`tab-${tabId}`).classList.add('active');
+            
+            if (tabId === 'diag') {
+                setDiagMethod('look');
+            }
+        }
+
+        // Web Audio Synthesizer
+        let audioCtx = null;
+        let mainVolume = null;
+        let isAudioOn = false;
+        let ecgInterval = null;
+
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                mainVolume = audioCtx.createGain();
+                mainVolume.gain.value = 0.5;
+                mainVolume.connect(audioCtx.destination);
+            }
+        }
+
+        function toggleClinicalAudio() {
+            initAudio();
+            const btn = document.getElementById('btn-enable-audio');
+            if (!isAudioOn) {
+                audioCtx.resume();
+                isAudioOn = true;
+                btn.classList.add('active');
+                btn.textContent = "🔊 心電監護中...";
+            } else {
+                isAudioOn = false;
+                btn.classList.remove('active');
+                btn.textContent = "🔊 啟動心電監護音效";
+                if (ecgInterval) clearInterval(ecgInterval);
+            }
+        }
+
+        function playEcgBeep() {
+            if (!isAudioOn) return;
+            // High pitch short sinus monitor beep (e.g. 1000Hz, 80ms duration)
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.frequency.setValueAtTime(1000, audioCtx.currentTime);
+            gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.08);
+
+            osc.connect(gain);
+            gain.connect(mainVolume);
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.1);
+        }
+
+        function playNormalBreathSound() {
+            if (!isAudioOn) return;
+            const bufferSize = audioCtx.sampleRate * 2.0;
+            const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+            const data = buffer.getChannelData(0);
+            for (let i = 0; i < bufferSize; i++) {
+                data[i] = Math.random() * 2 - 1;
+            }
+            const noise = audioCtx.createBufferSource();
+            noise.buffer = buffer;
+
+            const filter = audioCtx.createBiquadFilter();
+            filter.type = 'lowpass';
+            filter.frequency.value = 250;
+
+            const gain = audioCtx.createGain();
+            gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 1.8);
+
+            noise.connect(filter);
+            filter.connect(gain);
+            gain.connect(mainVolume);
+            noise.start();
+        }
+
+        function setPEPathoState(state) {
+            document.querySelectorAll('.patho-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`patho-btn-${state}`).classList.add('active');
+            
+            const thrombus = document.getElementById('svg-thrombus');
+            const rv = document.getElementById('svg-rv');
+            const rvText = document.getElementById('svg-rv-text');
+
+            if (state === 'normal') {
+                thrombus.style.opacity = '0';
+                rv.setAttribute('d', 'M160,215 L130,210 Q120,245 160,265 Z');
+                rv.style.fill = '#b91c1c';
+                rvText.setAttribute('x', '142');
+            } else {
+                thrombus.style.opacity = '1';
+                rv.setAttribute('d', 'M160,215 L115,205 Q90,250 160,270 Z');
+                rv.style.fill = '#dc2626';
+                rvText.setAttribute('x', '132');
+            }
+        }
+
+        // Diag Method
+        function setDiagMethod(method) {
+            document.querySelectorAll('.diag-matrix-card').forEach(c => c.classList.remove('active'));
+            document.getElementById(`diag-btn-${method}`).classList.add('active');
+            
+            const reportTitle = document.getElementById('diag-report-title');
+            const reportDesc = document.getElementById('diag-report-desc');
+            const container = document.getElementById('diag-visual-container');
+            const ecgPanel = document.getElementById('ecg-screen-panel');
+            const leg = document.getElementById('visual-swollen-leg');
+
+            // Hide spots
+            document.getElementById('spot-listen-lungs').style.display = 'none';
+            document.getElementById('spot-feel-leg').style.display = 'none';
+            document.getElementById('spot-ecg-leads').style.display = 'none';
+            
+            container.style.display = 'block';
+            ecgPanel.style.display = 'none';
+            leg.style.display = 'none';
+            if (ecgInterval) clearInterval(ecgInterval);
+
+            if (method === 'look') {
+                reportTitle.textContent = "👀 視診評估";
+                reportDesc.innerHTML = "<strong>呼吸急促與發紺外觀：</strong><br>1. <strong>突發性呼吸窘迫</strong>：患者無外傷史，突然大口喘氣，RR > 28 bpm。<br>2. <strong>頑固性低血氧</strong>：給予鼻導管 6L/min O2 後，SpO2 仍徘徊在 86%（提示嚴重的肺泡死腔增加與 V/Q 失衡）。<br>3. 口唇呈現發紺。";
+            } else if (method === 'listen') {
+                reportTitle.textContent = "👂 聽診評估 (請點選雙肺 🩺 圖案)";
+                reportDesc.innerHTML = "請使用聽筒點選前胸肺野聽診：<br>• <strong>關鍵鑑別點</strong>：雖然病患極度喘促，但<strong>雙肺聽診音清晰 (Clear Lungs)</strong>，無哮鳴音 (Wheezing) 或濕囉音 (Cracks)。這可立刻排除氣喘發作或急性肺水腫。";
+                document.getElementById('spot-listen-lungs').style.display = 'flex';
+            } else if (method === 'feel') {
+                reportTitle.textContent = "✋ 下肢查體 (請點選左下肢 ✋ 圖案)";
+                reportDesc.innerHTML = "請檢查患者雙下肢對稱性：<br>• <strong>深靜脈血栓 (DVT) 篩查</strong>：發現左下肢較右下肢有明顯不對稱腫脹（腓圍相差 > 3 cm），觸診有壓痛與發熱，Homans Sign 陽性。血栓隨血流阻塞肺部是 PE 最主要源頭。";
+                leg.style.display = 'block';
+                document.getElementById('spot-feel-leg').style.display = 'flex';
+            } else if (method === 'ecg') {
+                container.style.display = 'block'; // KEEP VISIBLE
+                ecgPanel.style.display = 'block';
+                reportTitle.textContent = "📟 12 導極心電圖監測 (請點選人體上的 📟 圖案進行監測)";
+                reportDesc.innerHTML = "點選 📟 連接電極以渲染實時心電圖：<br>• <strong>S1Q3T3 特徵</strong>：I 導極見深 S 波，III 導極見顯著 Q 波及 T 波倒立 (Inverted T)。<br>• <strong>竇性心搏過速</strong>：HR = 120 bpm。";
+                document.getElementById('spot-ecg-leads').style.display = 'flex';
+            }
+        }
+
+        // Action Feedback
+        function triggerDiagnosticFeedback(action) {
+            const reportDesc = document.getElementById('diag-report-desc');
+            if (action === 'listen-lungs') {
+                reportDesc.innerHTML = "🔊 <strong>聽診肺野：</strong> 雙側呼吸音對稱、清晰，肺野乾淨，無囉音。這在排除其他呼吸急症時非常關鍵！";
+                playNormalBreathSound();
+            } else if (action === 'feel-leg') {
+                reportDesc.innerHTML = "✋ <strong>觸診左下肢：</strong> 左小腿顯著水腫，皮膚發紅發熱，Homans Sign 呈陽性反應（強烈提示深靜脈血栓 DVT）。";
+            } else if (action === 'ecg-leads') {
+                reportDesc.innerHTML = "📟 <strong>心電圖監護啟動：</strong> 心電圖顯示經典的 **S1Q3T3** 圖樣（I 導極有明顯深 S 波，III 導極出現異常 Q 波與倒置 T 波），並伴隨竇性心搏過速，提示右心負荷急性過重。";
+                initEcgCanvas();
+            }
+        }
+
+        // ECG Canvas Drawing
+        let ecgCanvas = null;
+        let ecgCtx = null;
+        let ecgAnimId = null;
+        let ecgX = 0;
+
+        function initEcgCanvas() {
+            ecgCanvas = document.getElementById('ecgCanvas');
+            ecgCtx = ecgCanvas.getContext('2d');
+            ecgX = 0;
+            if (ecgAnimId) cancelAnimationFrame(ecgAnimId);
+            
+            // Start monitor sound beep loop matching HR (120 bpm -> 500ms per beat)
+            if (ecgInterval) clearInterval(ecgInterval);
+            ecgInterval = setInterval(() => {
+                playEcgBeep();
+            }, 500);
+
+            drawEcg();
+        }
+
+        function drawEcg() {
+            // Screen trace logic
+            ecgCtx.fillStyle = 'rgba(5, 5, 5, 0.05)'; // trailing tail
+            ecgCtx.fillRect(ecgX, 0, 10, 220);
+
+            // Draw grid background once at start
+            if (ecgX === 0) {
+                ecgCtx.fillStyle = '#050505';
+                ecgCtx.fillRect(0, 0, 400, 220);
+                ecgCtx.strokeStyle = '#002200';
+                ecgCtx.lineWidth = 0.5;
+                for (let i = 0; i < 400; i += 20) {
+                    ecgCtx.beginPath();
+                    ecgCtx.moveTo(i, 0);
+                    ecgCtx.lineTo(i, 220);
+                    ecgCtx.stroke();
+                }
+                for (let i = 0; i < 220; i += 20) {
+                    ecgCtx.beginPath();
+                    ecgCtx.moveTo(0, i);
+                    ecgCtx.lineTo(400, i);
+                    ecgCtx.stroke();
+                }
+            }
+
+            // Draw line
+            ecgCtx.strokeStyle = '#00ff00';
+            ecgCtx.lineWidth = 2;
+            ecgCtx.beginPath();
+            
+            // Math function to model S1Q3T3 waveform segments
+            let y = 110;
+            let phase = ecgX % 100;
+            if (phase < 10) {
+                // P wave
+                y = 110 - Math.sin((phase / 10) * Math.PI) * 6;
+            } else if (phase >= 15 && phase < 20) {
+                // Q wave
+                y = 110 + ((phase - 15) / 5) * 15;
+            } else if (phase >= 20 && phase < 25) {
+                // R wave (high spike)
+                y = 110 - ((phase - 20) / 5) * 70;
+            } else if (phase >= 25 && phase < 32) {
+                // Deep S wave (特意加深，模擬 S1)
+                y = 110 + ((phase - 25) / 7) * 35;
+            } else if (phase >= 32 && phase < 40) {
+                // return to baseline
+                y = 145 - ((phase - 32) / 8) * 35;
+            } else if (phase >= 50 && phase < 70) {
+                // Inverted T wave (倒立 T 波，模擬 Q3T3)
+                y = 110 + Math.sin(((phase - 50) / 20) * Math.PI) * 12;
+            }
+
+            ecgCtx.moveTo(ecgX, 110); // baseline placeholder
+            ecgCtx.lineTo(ecgX + 2, y);
+            ecgCtx.stroke();
+
+            ecgX += 2;
+            if (ecgX > 400) {
+                ecgX = 0;
+            }
+
+            ecgAnimId = requestAnimationFrame(drawEcg);
+        }
+
+        // Quiz
+        const quizQuestions = [
+            {
+                q: "急性肺栓塞 (PE) 引發低氧血症與循環衰竭的主要病理生理機制是？",
+                options: [
+                    "A. 肺泡壁大面積纖維化",
+                    "B. 肺動脈被血栓阻塞造成死腔增加、通氣血流比(V/Q)嚴重失調，且右心後負荷急性驟增",
+                    "C. 胸壁單向瓣膜效應導致縱膈偏移",
+                    "D. 心包膜腔積液壓迫心房舒張"
+                ],
+                correct: 1,
+                reason: "肺動脈被血栓阻塞後，空氣可進入肺泡但無血流灌流，產生「死腔通氣」，且右心需克服巨大阻力泵血，導致右心急性擴張與衰竭。"
+            },
+            {
+                q: "當您面對一位高度懷疑肺栓塞的嚴重氣喘喘促病患，理學檢查最關鍵的鑑別診斷發現是？",
+                options: [
+                    "A. 患側叩診呈實音",
+                    "B. 雖然病患極度喘促，但「雙肺聽診音通常清晰 (Clear)」，無囉音與哮鳴音",
+                    "C. 觸診前胸有顯著皮下氣腫",
+                    "D. 聽診可聞及與心跳同步的哈曼氏爆裂音"
+                ],
+                correct: 1,
+                reason: "與氣喘（有哮鳴音）或左心衰竭肺水腫（有濕囉音）不同，單純肺栓塞患者的肺泡內無分泌物或氣道狹窄，因此雙肺聽診通常非常清晰。"
+            },
+            {
+                q: "大約 90% 的急性肺栓塞栓子來源於？",
+                options: [
+                    "A. 冠狀動脈斑塊脫落",
+                    "B. 下肢深部靜脈血栓 (DVT)",
+                    "C. 左心房黏液瘤",
+                    "D. 頸動脈硬化斑塊"
+                ],
+                correct: 1,
+                reason: "絕大多數的肺栓塞栓子起源於下肢深靜脈血栓 (DVT)，血栓脫落後隨腔靜脈回流右心，最終卡在肺動脈。"
+            },
+            {
+                q: "急性肺栓塞在心電圖 (ECG) 上最具特異性的典型表徵為？",
+                options: [
+                    "A. ST 段在所有導極呈凹面向上上升",
+                    "B. S1Q3T3 波形（I 導極 S 波變深、III 導極出現 Q 波與 T 波倒立）",
+                    "C. 出現顯著的 U 波",
+                    "D. 寬大畸形的 QRS 波群"
+                ],
+                correct: 1,
+                reason: "S1Q3T3 代表急性右心負荷過重在心電圖上的投影：I導極深S波、III導極顯著Q波及倒置T波。"
+            },
+            {
+                q: "對於急性肺栓塞病患，若血流動力學不穩定（收縮壓 < 90 mmHg 且出現休克），其關鍵藥物處置應採取？",
+                options: [
+                    "A. 僅使用生理食鹽水大量灌注",
+                    "B. 立即給予系統性血栓溶解劑 (如 tPA, Alteplase) 溶栓",
+                    "C. 給予大量 beta-blocker 減緩心速",
+                    "D. 口服阿斯匹靈預防血小板凝集"
+                ],
+                correct: 1,
+                reason: "對於休克、右心衰竭的高危肺栓塞病患，應立即使用系統性血栓溶解劑 (tPA) 快速溶解阻塞，恢復右心循環，此時純抗凝血不足以救命。"
+            }
+        ];
+
+        let currentQuizIdx = 0;
+        let score = 0;
+
+        function loadQuizQuestion() {
+            const questionPanel = document.getElementById('quiz-question-panel');
+            if (currentQuizIdx >= quizQuestions.length) {
+                questionPanel.style.display = 'none';
+                document.getElementById('quiz-results-panel').style.display = 'block';
+                document.getElementById('quiz-score-text').textContent = `您的得分為：${score} / ${quizQuestions.length}`;
+                return;
+            }
+
+            const question = quizQuestions[currentQuizIdx];
+            const progress = ((currentQuizIdx) / quizQuestions.length) * 100;
+            document.getElementById('quiz-progressbar').style.width = `${progress}%`;
+
+            let optionsHTML = '';
+            question.options.forEach((opt, idx) => {
+                optionsHTML += `
+                    <button class="quiz-option" id="opt-${idx}" onclick="checkAnswer(${idx})">
+                        <span>${opt}</span>
+                    </button>
+                `;
+            });
+
+            questionPanel.innerHTML = `
+                <div style="font-weight:bold; color:var(--accent-blue); margin-bottom:0.5rem;">問題 ${currentQuizIdx + 1} / ${quizQuestions.length}</div>
+                <div style="font-size:1.15rem; font-weight:700; margin-bottom:1.5rem; color:#fff;">${question.q}</div>
+                <div class="quiz-options">${optionsHTML}</div>
+                <div class="quiz-feedback" id="quiz-feedback-box">
+                    <strong>💡 詳解報告：</strong> <span id="quiz-feedback-text"></span>
+                    <div style="margin-top:1rem; text-align:right;">
+                        <button class="btn btn-primary" onclick="nextQuestion()">下一題 ➔</button>
+                    </div>
+                </div>
+            `;
+            questionPanel.style.display = 'block';
+        }
+
+        function checkAnswer(selectedIdx) {
+            const question = quizQuestions[currentQuizIdx];
+            const feedbackBox = document.getElementById('quiz-feedback-box');
+            const feedbackText = document.getElementById('quiz-feedback-text');
+
+            question.options.forEach((_, idx) => {
+                const optBtn = document.getElementById(`opt-${idx}`);
+                optBtn.style.pointerEvents = 'none';
+                if (idx === question.correct) {
+                    optBtn.classList.add('correct');
+                } else if (idx === selectedIdx) {
+                    optBtn.classList.add('wrong');
+                }
+            });
+
+            if (selectedIdx === question.correct) {
+                score++;
+            }
+
+            feedbackText.textContent = question.reason;
+            feedbackBox.style.display = 'block';
+        }
+
+        function nextQuestion() {
+            currentQuizIdx++;
+            loadQuizQuestion();
+        }
+
+        function restartQuiz() {
+            currentQuizIdx = 0;
+            score = 0;
+            document.getElementById('quiz-results-panel').style.display = 'none';
+            loadQuizQuestion();
+        }
+
+        loadQuizQuestion();
+    </script>
+</body>
+</html>

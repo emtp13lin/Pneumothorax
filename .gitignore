@@ -1,0 +1,8 @@
+# Ignore large source documents and presentations
+*.pdf
+*.pptx
+*.docx
+
+# OS generated files
+.DS_Store
+Thumbs.db

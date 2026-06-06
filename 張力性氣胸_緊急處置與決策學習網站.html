@@ -1,0 +1,3371 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>張力性氣胸：從致命危機到精準急救 | EMT-P 臨床決策學習網站</title>
+    <meta name="description" content="專為高級救護技術員 (EMT-P)、醫學生及第一線急救人員設計的張力性氣胸臨床決策與針刺減壓互動式學習網站。">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #0b0f19;
+            --bg-secondary: #131b2e;
+            --bg-tertiary: #1e293b;
+            --accent-red: #ef4444;
+            --accent-red-hover: #dc2626;
+            --accent-blue: #3b82f6;
+            --accent-blue-hover: #2563eb;
+            --accent-yellow: #f59e0b;
+            --accent-green: #10b981;
+            --accent-green-hover: #059669;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --glow-red: 0 0 15px rgba(239, 68, 68, 0.5);
+            --glow-blue: 0 0 15px rgba(59, 82, 246, 0.5);
+            --glow-green: 0 0 15px rgba(16, 185, 129, 0.5);
+            --font-main: 'Inter', 'Noto Sans TC', sans-serif;
+            --font-header: 'Outfit', 'Noto Sans TC', sans-serif;
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-muted);
+        }
+
+        /* Layout */
+        header {
+            background: linear-gradient(135deg, #1e1b4b 0%, var(--bg-secondary) 100%);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-badge {
+            background-color: var(--accent-red);
+            color: white;
+            font-family: var(--font-header);
+            font-weight: 800;
+            font-size: 0.8rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: var(--glow-red);
+            animation: pulse-red 2s infinite;
+        }
+
+        h1 {
+            font-family: var(--font-header);
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        .audio-control-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all var(--transition-speed);
+        }
+
+        .audio-control-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-blue);
+        }
+
+        .audio-control-btn.active {
+            background: rgba(59, 82, 246, 0.15);
+            border-color: var(--accent-blue);
+            box-shadow: var(--glow-blue);
+        }
+
+        /* Navigation Tabs */
+        nav {
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 77px;
+            z-index: 99;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .nav-tab {
+            padding: 1.2rem 1.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-tab:hover {
+            color: var(--text-primary);
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        .nav-tab.active {
+            color: var(--accent-red);
+            border-bottom-color: var(--accent-red);
+            background-color: rgba(239, 68, 68, 0.05);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            min-height: 70vh;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Cards */
+        .card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-title {
+            font-family: var(--font-header);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--accent-red);
+            padding-left: 0.75rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-title.blue {
+            border-left-color: var(--accent-blue);
+        }
+
+        .card-title.yellow {
+            border-left-color: var(--accent-yellow);
+        }
+
+        .card-title.green {
+            border-left-color: var(--accent-green);
+        }
+
+        /* Grid layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 992px) {
+            .grid-2 {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .grid-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Buttons */
+        .btn {
+            background-color: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-red);
+            border-color: transparent;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-red-hover);
+            box-shadow: var(--glow-red);
+        }
+
+        .btn-blue {
+            background-color: var(--accent-blue);
+            border-color: transparent;
+        }
+
+        .btn-blue:hover {
+            background-color: var(--accent-blue-hover);
+            box-shadow: var(--glow-blue);
+        }
+
+        .btn-green {
+            background-color: var(--accent-green);
+            border-color: transparent;
+        }
+
+        .btn-green:hover {
+            background-color: var(--accent-green-hover);
+            box-shadow: var(--glow-green);
+        }
+
+        /* Alert boxes */
+        .alert {
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid transparent;
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .alert-danger {
+            background-color: rgba(239, 68, 68, 0.1);
+            border-left-color: var(--accent-red);
+            color: #fca5a5;
+        }
+
+        .alert-warning {
+            background-color: rgba(245, 158, 11, 0.1);
+            border-left-color: var(--accent-yellow);
+            color: #fde047;
+        }
+
+        .alert-info {
+            background-color: rgba(59, 82, 246, 0.1);
+            border-left-color: var(--accent-blue);
+            color: #bfdbfe;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse-red {
+            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+
+        @keyframes pulse-blue {
+            0% { box-shadow: 0 0 0 0 rgba(59, 82, 246, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(59, 82, 246, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(59, 82, 246, 0); }
+        }
+
+        /* --- MODULE 1: SLIDE VIEWER --- */
+        .slide-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 992px) {
+            .slide-layout {
+                grid-template-columns: 3fr 2fr;
+            }
+        }
+
+        .slide-viewport {
+            background-color: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            aspect-ratio: 16 / 9;
+        }
+
+        .slide-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .slide-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .slide-info-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .slide-counter {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.06);
+            color: var(--text-secondary);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .tag-danger {
+            background-color: rgba(239, 68, 68, 0.15);
+            color: #fca5a5;
+        }
+
+        .accordion {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .accordion-header {
+            background-color: rgba(255, 255, 255, 0.02);
+            padding: 0.75rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            user-select: none;
+        }
+
+        .accordion-content {
+            padding: 1rem;
+            background-color: rgba(0, 0, 0, 0.2);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            white-space: pre-line;
+            display: none;
+        }
+
+        /* --- MODULE 2: PATHOPHYSIOLOGY SIMULATOR --- */
+        .patho-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        @media (min-width: 992px) {
+            .patho-container {
+                grid-template-columns: 1.2fr 1fr;
+            }
+        }
+
+        .anatomy-svg-wrapper {
+            background-color: #0b111e;
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .patho-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .patho-btn {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: left;
+            transition: all var(--transition-speed);
+        }
+
+        .patho-btn:hover {
+            border-color: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.02);
+        }
+
+        .patho-btn.active {
+            background: rgba(59, 82, 246, 0.08);
+            border-color: var(--accent-blue);
+            color: var(--text-primary);
+        }
+
+        .patho-btn.active.danger {
+            background: rgba(239, 68, 68, 0.08);
+            border-color: var(--accent-red);
+        }
+
+        .patho-btn-title {
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .patho-btn-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* SVG Animations */
+        .animate-breath {
+            transform-origin: 220px 250px;
+            animation: breathL 4s ease-in-out infinite;
+        }
+        .animate-breath-right {
+            transform-origin: 140px 250px;
+            animation: breathR 4s ease-in-out infinite;
+        }
+
+        @keyframes breathL {
+            0% { transform: scale(1); }
+            45% { transform: scale(1.08); }
+            55% { transform: scale(1.08); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes breathR {
+            0% { transform: scale(1); }
+            45% { transform: scale(1.08); }
+            55% { transform: scale(1.08); }
+            100% { transform: scale(1); }
+        }
+
+        .heart-beat {
+            transform-origin: 180px 270px;
+            animation: heartbeat 0.8s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            15% { transform: scale(1.08); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.08); }
+            60% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+
+        .heart-beat-fast {
+            transform-origin: 180px 270px;
+            animation: heartbeat 0.45s infinite;
+        }
+
+        /* --- MODULE 3: DIAGNOSTIC LAB --- */
+        .diag-mode-selector {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+        }
+
+        .diag-mode-btn {
+            background-color: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all var(--transition-speed);
+        }
+
+        .diag-mode-btn.active {
+            background-color: var(--accent-blue);
+            color: white;
+            border-color: transparent;
+            box-shadow: var(--glow-blue);
+        }
+
+        .diag-panel {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 992px) {
+            .diag-panel {
+                grid-template-columns: 1.2fr 1fr;
+            }
+        }
+
+        .diag-interactive-area {
+            background-color: #0b111e;
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            min-height: 400px;
+            justify-content: center;
+        }
+
+        /* Stethoscope Tool */
+        .chest-wrapper {
+            position: relative;
+            width: 280px;
+            height: 380px;
+        }
+
+        .stethoscope-target {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(59, 82, 246, 0.2);
+            border: 2px dashed var(--accent-blue);
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all var(--transition-speed);
+        }
+
+        .stethoscope-target:hover {
+            background: rgba(59, 82, 246, 0.4);
+            transform: scale(1.1);
+        }
+
+        .stethoscope-target::after {
+            content: '🩺';
+            font-size: 1.5rem;
+        }
+
+        .target-left-lung {
+            top: 130px;
+            right: 40px;
+        }
+
+        .target-right-lung {
+            top: 130px;
+            left: 40px;
+        }
+
+        /* Percussion Hotspots */
+        .percuss-target {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(245, 158, 11, 0.2);
+            border: 2px dashed var(--accent-yellow);
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all var(--transition-speed);
+        }
+
+        .percuss-target:hover {
+            background: rgba(245, 158, 11, 0.4);
+            transform: scale(1.1);
+        }
+
+        .percuss-target::after {
+            content: '👉';
+            font-size: 1.2rem;
+        }
+
+        /* e-FAST Ultrasound Probe Target */
+        .efast-target {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(16, 185, 129, 0.2);
+            border: 2px dashed var(--accent-green);
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all var(--transition-speed);
+        }
+
+        .efast-target:hover {
+            background: rgba(16, 185, 129, 0.4);
+            transform: scale(1.1);
+        }
+
+        .efast-target::after {
+            content: '📟';
+            font-size: 1.2rem;
+        }
+
+        /* Ultrasound Screen */
+        .us-screen-container {
+            width: 100%;
+            max-width: 400px;
+            background: #000;
+            border: 4px solid var(--bg-tertiary);
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: inset 0 0 20px rgba(0,255,0,0.1);
+            margin-top: 1rem;
+        }
+
+        .us-screen-header {
+            display: flex;
+            justify-content: space-between;
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: #00ff00;
+            border-bottom: 1px solid rgba(0, 255, 0, 0.2);
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+        }
+
+        .us-canvas {
+            width: 100%;
+            height: 220px;
+            background-color: #050505;
+            display: block;
+        }
+
+        /* Look indicators */
+        .jvd-indicator {
+            position: absolute;
+            top: 50px;
+            left: 110px;
+            width: 10px;
+            height: 40px;
+            background: #3b82f6;
+            border-radius: 5px;
+            opacity: 0;
+            transition: opacity 0.5s;
+            box-shadow: 0 0 10px rgba(59, 82, 246, 0.8);
+        }
+
+        .jvd-indicator.active {
+            opacity: 0.8;
+            animation: vein-pulse 2s infinite;
+        }
+
+        @keyframes vein-pulse {
+            0% { transform: scaleX(1); }
+            50% { transform: scaleX(1.3); }
+            100% { transform: scaleX(1); }
+        }
+
+        .cyanosis-overlay {
+            position: absolute;
+            top: 30px;
+            left: 100px;
+            width: 80px;
+            height: 45px;
+            background: rgba(0, 0, 255, 0.25);
+            border-radius: 50%;
+            filter: blur(10px);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s;
+        }
+
+        .cyanosis-overlay.active {
+            opacity: 1;
+        }
+
+        /* Feel indicators */
+        .emphysema-spots {
+            position: absolute;
+            top: 120px;
+            left: 45px;
+            width: 60px;
+            height: 80px;
+            border: 2px dotted rgba(239, 68, 68, 0.3);
+            border-radius: 10px;
+            opacity: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: center;
+            gap: 4px;
+            padding: 5px;
+            pointer-events: none;
+            transition: opacity 0.5s;
+        }
+
+        .emphysema-spots.active {
+            opacity: 1;
+            cursor: pointer;
+            pointer-events: auto;
+        }
+
+        .emphysema-dot {
+            width: 6px;
+            height: 6px;
+            background-color: var(--accent-red);
+            border-radius: 50%;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 0.2; }
+            50% { opacity: 1; }
+            100% { opacity: 0.2; }
+        }
+
+        /* --- MODULE 4: DECISION & ANATOMY --- */
+        .anatomy-panel {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 992px) {
+            .anatomy-panel {
+                grid-template-columns: 1.2fr 1fr;
+            }
+        }
+
+        .anatomy-hotspot-svg {
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            background: #0b111e;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            padding: 1rem;
+        }
+
+        .hotspot-node {
+            cursor: pointer;
+            transition: r 0.2s, fill 0.2s;
+        }
+
+        .hotspot-node:hover {
+            r: 12px;
+        }
+
+        .anatomy-cross-section {
+            background-color: #0b111e;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .decision-triangle-box {
+            background: rgba(239, 68, 68, 0.05);
+            border: 1px solid rgba(239, 68, 68, 0.15);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .decision-list {
+            margin: 1rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .decision-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            background: rgba(0,0,0,0.2);
+            padding: 0.75rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .decision-checkbox {
+            width: 1.2rem;
+            height: 1.2rem;
+            accent-color: var(--accent-red);
+            margin-top: 0.2rem;
+            cursor: pointer;
+        }
+
+        .decision-status {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 700;
+            margin-top: 1rem;
+            border: 1px solid var(--border-color);
+            transition: all var(--transition-speed);
+        }
+
+        .decision-status.authorized {
+            background-color: rgba(16, 185, 129, 0.15);
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+            box-shadow: var(--glow-green);
+        }
+
+        .decision-status.denied {
+            background-color: rgba(239, 68, 68, 0.15);
+            border-color: var(--accent-red);
+            color: var(--accent-red);
+        }
+
+        /* --- MODULE 5: SCENARIO SIMULATOR --- */
+        .scenario-box {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 992px) {
+            .scenario-box {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+
+        .scenario-board {
+            background-color: #0b111e;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            min-height: 480px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .scenario-vitals {
+            background-color: #080c14;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.5rem;
+            text-align: center;
+            font-family: monospace;
+        }
+
+        .vital-box {
+            border-right: 1px solid var(--border-color);
+        }
+
+        .vital-box:last-child {
+            border-right: none;
+        }
+
+        .vital-label {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        .vital-value {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            margin-top: 0.25rem;
+        }
+
+        .vital-value.critical {
+            color: var(--accent-red);
+            animation: pulse-light 1s infinite alternate;
+        }
+
+        @keyframes pulse-light {
+            from { opacity: 0.6; }
+            to { opacity: 1; }
+        }
+
+        .scenario-content {
+            flex-grow: 1;
+            margin: 1.5rem 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .scenario-text {
+            font-size: 1rem;
+            color: var(--text-primary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .scenario-log {
+            background: rgba(0,0,0,0.4);
+            border-radius: 6px;
+            padding: 0.75rem;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            max-height: 120px;
+            overflow-y: auto;
+            font-family: monospace;
+            border: 1px solid var(--border-color);
+            margin-top: 1rem;
+        }
+
+        .scenario-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .scenario-site-select {
+            display: none;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+
+        .scenario-needle-select {
+            display: none;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+            margin: 1rem 0;
+        }
+
+        @media (min-width: 576px) {
+            .scenario-needle-select {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .needle-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem;
+            cursor: pointer;
+            text-align: center;
+            transition: all var(--transition-speed);
+        }
+
+        .needle-card:hover {
+            border-color: var(--accent-blue);
+        }
+
+        .needle-card.selected {
+            background: rgba(59, 82, 246, 0.1);
+            border-color: var(--accent-blue);
+            box-shadow: var(--glow-blue);
+        }
+
+        .needle-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        .needle-desc {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        /* --- MODULE 6: QUIZ --- */
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .quiz-question-box {
+            display: none;
+        }
+
+        .quiz-question-box.active {
+            display: block;
+        }
+
+        .quiz-progress {
+            height: 6px;
+            background-color: var(--bg-tertiary);
+            border-radius: 3px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .quiz-progress-bar {
+            height: 100%;
+            background-color: var(--accent-red);
+            width: 0;
+            transition: width 0.3s ease;
+        }
+
+        .quiz-question-num {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .quiz-question-text {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .quiz-option {
+            background-color: rgba(255, 255, 255, 0.04);
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            font-size: 0.95rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-align: left;
+        }
+
+        .quiz-option:hover {
+            background-color: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .quiz-option-radio {
+            width: 1.2rem;
+            height: 1.2rem;
+            accent-color: var(--accent-red);
+        }
+
+        .quiz-option.correct {
+            background-color: rgba(16, 185, 129, 0.25);
+            border-color: var(--accent-green);
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .quiz-option.wrong {
+            background-color: rgba(239, 68, 68, 0.25);
+            border-color: var(--accent-red);
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .quiz-feedback {
+            background-color: rgba(59, 82, 246, 0.08);
+            border-left: 4px solid var(--accent-blue);
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: #f1f5f9;
+            display: none;
+        }
+
+        .quiz-results {
+            text-align: center;
+            padding: 2rem 1rem;
+            display: none;
+        }
+
+        .quiz-score-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 8px solid var(--bg-tertiary);
+            border-top-color: var(--accent-red);
+            margin: 0 auto 1.5rem auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: var(--font-header);
+        }
+
+        .quiz-score-val {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1;
+        }
+
+        .quiz-score-lbl {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 4rem;
+            background-color: #070a12;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .audio-control-btn {
+                align-self: flex-end;
+            }
+            nav {
+                top: 110px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo-area">
+                <span class="logo-badge">EMT-P Clinical Guide</span>
+                <div>
+                    <h1>張力性氣胸緊急處置與決策學習網</h1>
+                    <div class="subtitle">Tension Pneumothorax Emergency Protocols - 臨床決策與技術訓練指引</div>
+                </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <a href="./index.html" class="btn-back" style="background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); color: var(--text-primary); padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.85rem; cursor: pointer; text-decoration: none; transition: all var(--transition-speed);">⬅ 返回首頁</a>
+                <button id="audio-toggle-btn" class="audio-control-btn" onclick="toggleAudioSystem()">
+                    <span>🔊</span> <span>啟動臨床模擬音效</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-tab active" onclick="switchTab('tab-lecture')">📖 簡報與精華導讀</div>
+            <div class="nav-tab" onclick="switchTab('tab-patho')">🫁 致命病理機轉</div>
+            <div class="nav-tab" onclick="switchTab('tab-diagnostic')">🩺 感官與超音波診斷</div>
+            <div class="nav-tab" onclick="switchTab('tab-anatomy')">📍 決策三角與解剖定位</div>
+            <div class="nav-tab" onclick="switchTab('tab-scenario')">🚨 戰術急救情境跑關</div>
+            <div class="nav-tab" onclick="switchTab('tab-quiz')">✏️ EMT-P 挑戰檢定</div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main>
+
+        <!-- ================= TAB: LECTURE VIEWER ================= -->
+        <div id="tab-lecture" class="tab-content active">
+            <div class="card">
+                <div class="card-title">張力性氣胸救護教材簡報播放器</div>
+                <div class="slide-layout">
+                    <!-- Left: Slide Viewport -->
+                    <div>
+                        <div class="slide-viewport">
+                            <img id="current-slide-img" class="slide-img" src="./extracted_slides/slide_1.png" alt="Slide 1">
+                        </div>
+                        <div class="slide-navigation">
+                            <button class="btn" onclick="navigateSlide(-1)">◀ 上一頁</button>
+                            <span class="slide-counter" id="slide-num-indicator">第 1 / 10 頁</span>
+                            <button class="btn" onclick="navigateSlide(1)">下一頁 ▶</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Right: Slide Information Panel -->
+                    <div class="slide-info-panel">
+                        <div class="card" style="background: rgba(255,255,255,0.02); margin: 0; padding: 1.25rem; height: 100%;">
+                            <h3 id="slide-title-display" style="font-family: var(--font-header); font-size: 1.2rem; margin-bottom: 0.75rem; color: var(--accent-red);">
+                                載入中...
+                            </h3>
+                            <div style="margin-bottom: 1rem;">
+                                <span class="tag tag-danger" id="slide-tag">主題導讀</span>
+                            </div>
+                            
+                            <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.25rem;">🔑 EMT-P 核心考點與臨床要旨</h4>
+                            <ul id="slide-bullets-display" style="list-style-position: inside; font-size: 0.9rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem;">
+                                <!-- Bullets go here -->
+                            </ul>
+
+                            <div class="accordion">
+                                <div class="accordion-header" onclick="toggleAccordion('ocr-accordion')">
+                                    <span>🔍 查看原始簡報 OCR 辨識文字</span>
+                                    <span id="accordion-arrow">▼</span>
+                                </div>
+                                <div id="ocr-accordion" class="accordion-content">
+                                    <!-- OCR text goes here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= TAB: PATHOPHYSIOLOGY ================= -->
+        <div id="tab-patho" class="tab-content">
+            <div class="card">
+                <div class="card-title">致命病理機轉：單向活瓣效應與 5H5T 死亡螺旋</div>
+                <div class="patho-container">
+                    <!-- Left: Interactive SVG Animation -->
+                    <div class="anatomy-svg-wrapper">
+                        <!-- Pathophysiology Animated Torso SVG -->
+                        <svg width="360" height="400" viewBox="0 0 360 400" id="patho-svg">
+                            <!-- Background Body Outline -->
+                            <path d="M60,380 C60,200 90,80 180,80 C270,80 300,200 300,380 Z" fill="#131b2e" stroke="#334155" stroke-width="3"/>
+                            
+                            <!-- Trachea (氣管) -->
+                            <path id="patho-trachea" d="M172,80 L172,160 L140,210 M172,160 L204,210" fill="none" stroke="#e2e8f0" stroke-width="8" stroke-linecap="round" transition="all 0.5s"/>
+                            <path id="patho-trachea-inner" d="M172,80 L172,160 L140,210 M172,160 L204,210" fill="none" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round"/>
+
+                            <!-- Mediastinal / Heart Group -->
+                            <g id="patho-mediastinum" style="transition: transform 0.5s ease;">
+                                <!-- Heart (心臟) -->
+                                <path id="patho-heart" class="heart-beat" d="M180,250 C180,250 160,225 140,240 C120,255 140,290 180,310 C220,290 240,255 220,240 C200,225 180,250 180,250 Z" fill="#dc2626" stroke="#b91c1c" stroke-width="2"/>
+                                <!-- Superior Vena Cava (大靜脈) -->
+                                <path id="patho-vena-cava" d="M160,190 L160,250" fill="none" stroke="#2563eb" stroke-width="12" stroke-linecap="round"/>
+                            </g>
+
+                            <!-- Left Lung (Viewer's Right / Patient's Left) - Normal Side -->
+                            <g id="patho-left-lung" class="animate-breath">
+                                <path d="M200,180 C210,140 260,150 270,200 C280,250 270,320 250,330 C220,340 200,300 200,240 Z" fill="#f43f5e" opacity="0.75" stroke="#db2777" stroke-width="2"/>
+                            </g>
+
+                            <!-- Right Lung (Viewer's Left / Patient's Right) - Affected Side -->
+                            <g id="patho-right-lung" class="animate-breath-right" style="transition: all 0.5s ease; transform-origin: 140px 250px;">
+                                <path d="M160,180 C150,140 100,150 90,200 C80,250 90,320 110,330 C140,340 160,300 160,240 Z" fill="#f43f5e" opacity="0.75" stroke="#db2777" stroke-width="2"/>
+                            </g>
+
+                            <!-- Pleural Air / Pressure Indicator Overlay (Right Side) -->
+                            <path id="patho-pleural-air" d="M165,170 C160,130 90,140 80,200 C70,260 80,330 105,345 C145,355 165,310 165,240 Z" fill="#3b82f6" opacity="0" style="transition: all 0.5s ease;"/>
+                            
+                            <!-- One-way Valve Schematic (Inspiration/Expiration Arrows) -->
+                            <g id="patho-valve-graphics" style="transition: all 0.5s ease;">
+                                <!-- Arrow into pleural space -->
+                                <path id="valve-arrow" d="M70,180 Q100,180 120,200" fill="none" stroke="#38bdf8" stroke-width="4" marker-end="url(#arrow)" stroke-dasharray="5 5" style="display: none;"/>
+                                <circle id="valve-hinge" cx="100" cy="180" r="5" fill="#f59e0b" style="display: none;"/>
+                            </g>
+
+                            <defs>
+                                <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#38bdf8"/>
+                                </marker>
+                            </defs>
+                        </svg>
+
+                        <!-- Label for shifting -->
+                        <div id="patho-visual-label" style="position: absolute; bottom: 15px; background: rgba(0,0,0,0.7); padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.8rem; border: 1px solid var(--border-color);">
+                            當前狀態：生理正常
+                        </div>
+                    </div>
+
+                    <!-- Right: State Selector & Pathological Cascade -->
+                    <div class="patho-controls">
+                        <h3 style="font-family: var(--font-header); margin-bottom: 0.5rem;">選擇病理演變階段：</h3>
+                        
+                        <button class="patho-btn active" id="patho-state-normal" onclick="setPathoState('normal')">
+                            <div class="patho-btn-title">🟢 階段 1：正常呼吸生理</div>
+                            <div class="patho-btn-desc">兩側肺部正常擴張，縱膈腔居中，心臟與大靜脈未受壓迫，血液回流正常。</div>
+                        </button>
+                        
+                        <button class="patho-btn" id="patho-state-insp" onclick="setPathoState('inspiration')">
+                            <div class="patho-btn-title">🟡 階段 2：吸氣期（單向活瓣開啟）</div>
+                            <div class="patho-btn-desc">胸部外傷形成活瓣。吸氣時，空氣從肺部裂口或胸壁傷口被吸入肋膜腔，患側肺開始塌陷。</div>
+                        </button>
+                        
+                        <button class="patho-btn danger" id="patho-state-exp" onclick="setPathoState('expiration')">
+                            <div class="patho-btn-title">🔴 階段 3：呼氣期與極限受壓（致命螺旋）</div>
+                            <div class="patho-btn-desc">呼氣時，活瓣關閉空氣無法排出。肋膜腔壓力急遽攀升，縱膈腔與心臟極度偏向健側，扭曲擠壓腔靜脈，阻斷靜脈回流。</div>
+                        </button>
+
+                        <div class="card" style="background: rgba(239, 68, 68, 0.05); border: 1px solid rgba(239, 68, 68, 0.15); margin-top: 1rem;">
+                            <h4 style="color: var(--accent-red); margin-bottom: 0.5rem; font-family: var(--font-header);">5H5T 死亡螺旋作用原理：</h4>
+                            <div style="font-size: 0.85rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 0.5rem;">
+                                <div><strong>1. 肋膜腔壓力增加：</strong> 空氣只進不出，壓力大於大氣壓。</div>
+                                <div><strong>2. 縱膈腔偏移與腔靜脈受壓：</strong> 靜脈血液無法回流心臟（Venous Return 驟降）。</div>
+                                <div><strong>3. 心輸出量急墜：</strong> 心臟無血可打（Cardiac Output 驟降），導致嚴重休克。</div>
+                                <div><strong>4. 無脈搏電氣活動 (PEA)：</strong> 最終導致 OHCA，為 5H5T 關鍵 reversible cause 之一。</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= TAB: DIAGNOSTIC LAB ================= -->
+        <div id="tab-diagnostic" class="tab-content">
+            <div class="card">
+                <div class="card-title">感官診斷矩陣與進階超音波 (e-FAST) 模擬判讀</div>
+                
+                <!-- Sub-Navigation for Diagnostics -->
+                <div class="diag-mode-selector">
+                    <button class="diag-mode-btn active" onclick="setDiagMode('look')">👀 視（Look）- 觀察外觀</button>
+                    <button class="diag-mode-btn" onclick="setDiagMode('listen')">👂 聽（Listen）- 聽診呼吸音</button>
+                    <button class="diag-mode-btn" onclick="setDiagMode('feel')">🤝 觸（Feel）- 觸摸與觸診</button>
+                    <button class="diag-mode-btn" onclick="setDiagMode('percuss')">🥁 叩（Percuss）- 叩診</button>
+                    <button class="diag-mode-btn" onclick="setDiagMode('efast')">📟 超音波（e-FAST）判讀</button>
+                </div>
+
+                <div class="diag-panel">
+                    <!-- Left: Interactive Body Simulator -->
+                    <div class="diag-interactive-area">
+                        <!-- Chest Silhouette Overlay -->
+                        <div class="chest-wrapper">
+                            <!-- SVG Body Outline for Diagnosis -->
+                            <svg width="280" height="380" viewBox="0 0 280 380" style="position: absolute; top:0; left:0; pointer-events: none;">
+                                <!-- Body Outline -->
+                                <path d="M50,360 C50,180 80,70 140,70 C200,70 230,180 230,360 Z" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+                                <!-- Rib cage visual guides -->
+                                <path d="M80,150 Q140,180 200,150 M75,190 Q140,220 205,190 M70,230 Q140,260 210,230 M70,270 Q140,300 210,270" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="3"/>
+                                <!-- Trachea Deviation representation (only active when look mode and affected) -->
+                                <path id="diag-trachea-path" d="M140,70 L140,130" fill="none" stroke="#fff" stroke-width="6" opacity="0.3" transition="all 0.5s"/>
+                            </svg>
+
+                            <!-- Interactive overlay elements dynamically visible/hidden based on mode -->
+                            <div id="diag-jvd" class="jvd-indicator"></div>
+                            <div id="diag-cyanosis" class="cyanosis-overlay"></div>
+                            <div id="diag-emphysema" class="emphysema-spots" onclick="triggerEmphysemaSound()">
+                                <div class="emphysema-dot"></div>
+                                <div class="emphysema-dot"></div>
+                                <div class="emphysema-dot"></div>
+                                <div class="emphysema-dot"></div>
+                                <div class="emphysema-dot"></div>
+                                <div class="emphysema-dot"></div>
+                            </div>
+
+                            <!-- Stethoscope Targets (Visible in Listen Mode) -->
+                            <div id="steth-left" class="stethoscope-target target-left-lung" style="display: none;" onclick="listenLung('left')"></div>
+                            <div id="steth-right" class="stethoscope-target target-right-lung" style="display: none;" onclick="listenLung('right')"></div>
+
+                            <!-- Percussion Targets (Visible in Percuss Mode) -->
+                            <div id="percuss-left" class="percuss-target target-left-lung" style="display: none;" onclick="percussChest('left')"></div>
+                            <div id="percuss-right" class="percuss-target target-right-lung" style="display: none;" onclick="percussChest('right')"></div>
+
+                            <!-- e-FAST Probe Targets (Visible in e-FAST Mode) -->
+                            <div id="efast-left" class="efast-target target-left-lung" style="display: none;" onclick="scanUltrasound('left')"></div>
+                            <div id="efast-right" class="efast-target target-right-lung" style="display: none;" onclick="scanUltrasound('right')"></div>
+                        </div>
+
+                        <!-- Scan Display for e-FAST (Only shows in efast mode) -->
+                        <div id="us-monitor" class="us-screen-container" style="display: none;">
+                            <div class="us-screen-header">
+                                <span>e-FAST MODE: LUNG SLIDING</span>
+                                <span id="us-location-lbl">位置: 尚未掃描</span>
+                            </div>
+                            <canvas id="ultrasoundCanvas" class="us-canvas" width="380" height="220"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Right: Info Panel and Explanations -->
+                    <div class="slide-info-panel">
+                        <div class="card" style="background: rgba(255,255,255,0.02); margin: 0; padding: 1.25rem;">
+                            <h3 id="diag-title" style="color: var(--accent-blue); margin-bottom: 0.5rem; font-family: var(--font-header);">
+                                診斷模式：感官評估
+                            </h3>
+                            <p id="diag-instruction" style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                                請點選左側人體模型上的互動目標進行檢查。
+                            </p>
+                            
+                            <div id="diag-feedback-card" class="alert alert-info" style="display:none; font-size: 0.9rem;">
+                                <strong>檢查發現：</strong> <span id="diag-feedback-text">無</span>
+                            </div>
+
+                            <div id="diag-clinical-pearls">
+                                <!-- Filled by JS based on selected tab -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= TAB: DECISION & ANATOMY ================= -->
+        <div id="tab-anatomy" class="tab-content">
+            <div class="card">
+                <div class="card-title">針刺減壓決策三角與解剖定位地圖</div>
+                <div class="anatomy-panel">
+                    
+                    <!-- Left: Decision & Anatomical SVG -->
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+                        <svg class="anatomy-hotspot-svg" viewBox="0 0 400 450" id="anatomy-selection-svg">
+                            <!-- Upper Torso outline -->
+                            <path d="M80,420 C80,240 110,100 200,100 C290,100 320,240 320,420 Z" fill="#131b2e" stroke="#334155" stroke-width="3"/>
+                            
+                            <!-- Clavicles (鎖骨) -->
+                            <path d="M110,130 Q150,140 200,135 M290,130 Q250,140 200,135" fill="none" stroke="#64748b" stroke-width="6" stroke-linecap="round"/>
+                            <!-- Sternum (胸骨) -->
+                            <path d="M200,135 L200,240" fill="none" stroke="#64748b" stroke-width="10" stroke-linecap="round"/>
+                            
+                            <!-- Ribs 1-6 representation -->
+                            <!-- Rib 2 -->
+                            <path d="M120,170 Q160,185 200,180 M280,170 Q240,185 200,180" fill="none" stroke="#334155" stroke-width="4"/>
+                            <!-- Rib 3 -->
+                            <path d="M115,210 Q160,225 200,220 M285,210 Q240,225 200,220" fill="none" stroke="#334155" stroke-width="4"/>
+                            <!-- Rib 4 -->
+                            <path d="M110,255 Q160,270 200,265 M290,255 Q240,270 200,265" fill="none" stroke="#334155" stroke-width="4"/>
+                            <!-- Rib 5 -->
+                            <path d="M105,305 Q160,320 200,315 M295,305 Q240,320 200,315" fill="none" stroke="#334155" stroke-width="4"/>
+                            <!-- Rib 6 -->
+                            <path d="M105,355 Q160,370 200,365 M295,355 Q240,370 200,365" fill="none" stroke="#334155" stroke-width="4"/>
+
+                            <!-- Mid-Clavicular Lines (鎖骨中線) -->
+                            <line x1="150" y1="135" x2="150" y2="420" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.5"/>
+                            <line x1="250" y1="135" x2="250" y2="420" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.5"/>
+                            
+                            <!-- Mid-Axillary Line (腋中線) -->
+                            <path d="M90,200 L95,420" stroke="#ecc94b" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.5"/>
+                            <path d="M310,200 L305,420" stroke="#ecc94b" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.5"/>
+
+                            <!-- Nipples (4th ICS reference) -->
+                            <circle cx="140" cy="275" r="4" fill="#a8a29e"/>
+                            <circle cx="260" cy="275" r="4" fill="#a8a29e"/>
+
+                            <!-- Interactive Target Hotspots -->
+                            <!-- Spot 1: 2nd ICS MCL Right (Patient's Left / Viewer's Right) -->
+                            <circle class="hotspot-node" id="spot-2nd-mcl" cx="250" cy="195" r="8" fill="#f59e0b" stroke="#fff" stroke-width="2" onclick="selectAnatomySite('2nd-mcl')"/>
+                            <!-- Spot 2: 5th ICS AAL/MAL Right (Patient's Left / Viewer's Right) -->
+                            <circle class="hotspot-node" id="spot-5th-mal" cx="295" cy="335" r="8" fill="#10b981" stroke="#fff" stroke-width="2" onclick="selectAnatomySite('5th-mal')"/>
+                            
+                            <!-- Danger Spot: Rib Lower Border -->
+                            <circle class="hotspot-node" id="spot-danger" cx="295" cy="308" r="8" fill="#ef4444" stroke="#fff" stroke-width="2" onclick="selectAnatomySite('danger-border')"/>
+                        </svg>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">🟢 首選穿刺部位 | 🟡 替代/小兒部位 | 🔴 臨床致命陷阱部位</span>
+                    </div>
+
+                    <!-- Right: Decision Triangle & Site Info -->
+                    <div>
+                        <!-- Decision Triangle Calculator -->
+                        <div class="decision-triangle-box">
+                            <h3 style="color: var(--accent-red); font-family: var(--font-header); font-size: 1.15rem; display: flex; align-items: center; gap: 0.5rem;">
+                                ⚠️ 針刺減壓「決策三角」啟動計算器
+                            </h3>
+                            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.25rem;">
+                                高級救護技術員 (EMT-P) 必須<strong>同時滿足</strong>以下三項條件，方可授權執行侵入性減壓處置。
+                            </p>
+                            
+                            <div class="decision-list">
+                                <label class="decision-item">
+                                    <input type="checkbox" id="calc-cond1" class="decision-checkbox" onchange="evaluateDecisionTriangle()">
+                                    <div>
+                                        <strong style="color:#fff;">1. 嚴重呼吸窘迫 (Severe Respiratory Distress)</strong>
+                                        <div style="font-size:0.75rem; color:var(--text-secondary);">表現為呼吸急促(RR>30)、嚴重發紺、輔助肌使用。</div>
+                                    </div>
+                                </label>
+                                <label class="decision-item">
+                                    <input type="checkbox" id="calc-cond2" class="decision-checkbox" onchange="evaluateDecisionTriangle()">
+                                    <div>
+                                        <strong style="color:#fff;">2. 單側呼吸音消失 (Unilateral Absent Breath Sounds)</strong>
+                                        <div style="font-size:0.75rem; color:var(--text-secondary);">聽診患側無呼吸音，叩診呈強烈鼓音，或e-FAST見Barcode Sign。</div>
+                                    </div>
+                                </label>
+                                <label class="decision-item">
+                                    <input type="checkbox" id="calc-cond3" class="decision-checkbox" onchange="evaluateDecisionTriangle()">
+                                    <div>
+                                        <strong style="color:#fff;">3. 收縮壓 &lt; 90 mmHg (SBP &lt; 90 mmHg)</strong>
+                                        <div style="font-size:0.75rem; color:var(--text-secondary);">顯示患者已進入梗塞性休克（Obstructive Shock）代償失效期。</div>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div id="decision-result-status" class="decision-status denied">
+                                ❌ 處置授權：未滿足所有啟動條件
+                            </div>
+                        </div>
+
+                        <!-- Anatomical Site Information Card -->
+                        <div class="card" style="margin-top: 1.5rem;" id="anatomy-info-card">
+                            <div class="card-title yellow" id="anatomy-info-title">點選定位點查看解剖學細節</div>
+                            <div id="anatomy-info-body" style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7;">
+                                <p>請點擊左側解剖圖中的彩色圓點：</p>
+                                <ul style="margin-top: 0.5rem; list-style-position: inside; display:flex; flex-direction:column; gap:0.4rem;">
+                                    <li><strong>綠色圓點：</strong> 成人首選穿刺部位</li>
+                                    <li><strong>黃色圓點：</strong> 替代/小兒穿刺部位</li>
+                                    <li><strong>紅色圓點：</strong> 臨床解剖致命誤區</li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Detailed Cross Section Visual -->
+                            <div class="anatomy-cross-section" id="rib-cross-section-graphic" style="display:none; margin-top: 1rem; border-top: 1px solid var(--border-color); padding-top: 1rem;">
+                                <h4 style="font-size: 0.85rem; color: #fff; margin-bottom: 0.5rem;">肋骨與血管神經束橫切面關係：</h4>
+                                <svg width="280" height="130" viewBox="0 0 280 130">
+                                    <!-- Rib 5 Cross section -->
+                                    <rect x="30" y="10" width="220" height="30" rx="10" fill="#475569" stroke="#64748b" stroke-width="2"/>
+                                    <text x="140" y="30" fill="#fff" font-size="12" text-anchor="middle" font-weight="700">上一肋骨 (Rib 5)</text>
+                                    
+                                    <!-- Neurovascular Bundle -->
+                                    <circle cx="50" cy="48" r="6" fill="#ef4444"/> <!-- Artery -->
+                                    <circle cx="65" cy="48" r="6" fill="#3b82f6"/> <!-- Vein -->
+                                    <circle cx="80" cy="48" r="5" fill="#f59e0b"/> <!-- Nerve -->
+                                    <text x="95" y="52" fill="#ef4444" font-size="10" font-weight="700">肋間血管神經束 (危險區!)</text>
+                                    
+                                    <!-- Rib 6 Cross section -->
+                                    <rect x="30" y="80" width="220" height="30" rx="10" fill="#475569" stroke="#64748b" stroke-width="2"/>
+                                    <text x="140" y="100" fill="#fff" font-size="12" text-anchor="middle" font-weight="700">下一肋骨 (Rib 6)</text>
+                                    
+                                    <!-- Safe Insertion Path -->
+                                    <line x1="20" y1="65" x2="260" y2="65" stroke="#10b981" stroke-width="3" stroke-dasharray="5 5"/>
+                                    <polygon points="260,60 270,65 260,70" fill="#10b981"/>
+                                    <text x="140" y="77" fill="#10b981" font-size="10" font-weight="700">針刺安全路徑 (緊貼下肋骨上緣)</text>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= TAB: SCENARIO SIMULATOR ================= -->
+        <div id="tab-scenario" class="tab-content">
+            <div class="card">
+                <div class="card-title">臨床模擬跑關：外傷急救現場 (Triage & Intervention)</div>
+                <div class="scenario-box">
+                    
+                    <!-- Left: Simulation Console -->
+                    <div class="scenario-board">
+                        <!-- Patient Vitals Bar -->
+                        <div class="scenario-vitals">
+                            <div class="vital-box">
+                                <div class="vital-label">血壓 BP</div>
+                                <div class="vital-value critical" id="scene-vital-bp">78/42</div>
+                            </div>
+                            <div class="vital-box">
+                                <div class="vital-label">心跳 HR</div>
+                                <div class="vital-value critical" id="scene-vital-hr">132</div>
+                            </div>
+                            <div class="vital-box">
+                                <div class="vital-label">血氧 SpO2</div>
+                                <div class="vital-value critical" id="scene-vital-spo2">80%</div>
+                            </div>
+                            <div class="vital-box">
+                                <div class="vital-label">呼吸 RR</div>
+                                <div class="vital-value critical" id="scene-vital-rr">34</div>
+                            </div>
+                        </div>
+
+                        <!-- Scenario Console Body -->
+                        <div class="scenario-content">
+                            <div class="scenario-text" id="scene-narrative">
+                                <strong>派遣資訊：</strong> 車禍現場，一名28歲男性機車騎士被轎車撞飛，胸部重擊路沿。你抵達現場時，患者意識混亂，面部發紺，極度呼吸困難。你立即進行初步評估...
+                            </div>
+                            
+                            <!-- Interactive SVG for needle insertion in scenario -->
+                            <div class="scenario-site-select" id="scene-svg-wrapper">
+                                <svg width="220" height="260" viewBox="0 0 400 450" style="background:#0b111e; border-radius:8px; border:1px solid var(--border-color);">
+                                    <path d="M80,420 C80,240 110,100 200,100 C290,100 320,240 320,420 Z" fill="#131b2e" stroke="#334155" stroke-width="3"/>
+                                    <!-- Clavicles -->
+                                    <path d="M110,130 Q150,140 200,135 M290,130 Q250,140 200,135" fill="none" stroke="#64748b" stroke-width="4"/>
+                                    <!-- Nipples -->
+                                    <circle cx="140" cy="275" r="4" fill="#a8a29e"/>
+                                    <circle cx="260" cy="275" r="4" fill="#a8a29e"/>
+                                    <!-- Option Hotspots -->
+                                    <!-- Right 2nd MCL -->
+                                    <g class="hotspot-node" onclick="submitScenarioSite('right-2nd')">
+                                        <circle cx="150" cy="195" r="15" fill="rgba(245, 158, 11, 0.4)" stroke="#f59e0b" stroke-width="2"/>
+                                        <text x="150" y="199" fill="#fff" font-size="12" text-anchor="middle" font-weight="700">A</text>
+                                    </g>
+                                    <!-- Left 2nd MCL -->
+                                    <g class="hotspot-node" onclick="submitScenarioSite('left-2nd')">
+                                        <circle cx="250" cy="195" r="15" fill="rgba(239, 68, 68, 0.4)" stroke="#ef4444" stroke-width="2"/>
+                                        <text x="250" y="199" fill="#fff" font-size="12" text-anchor="middle" font-weight="700">B</text>
+                                    </g>
+                                    <!-- Right 5th MAL (Ideal) -->
+                                    <g class="hotspot-node" onclick="submitScenarioSite('right-5th')">
+                                        <circle cx="105" cy="335" r="15" fill="rgba(16, 185, 129, 0.4)" stroke="#10b981" stroke-width="2"/>
+                                        <text x="105" y="339" fill="#fff" font-size="12" text-anchor="middle" font-weight="700">C</text>
+                                    </g>
+                                    <!-- Left 5th MAL -->
+                                    <g class="hotspot-node" onclick="submitScenarioSite('left-5th')">
+                                        <circle cx="295" cy="335" r="15" fill="rgba(239, 68, 68, 0.4)" stroke="#ef4444" stroke-width="2"/>
+                                        <text x="295" y="339" fill="#fff" font-size="12" text-anchor="middle" font-weight="700">D</text>
+                                    </g>
+                                </svg>
+                            </div>
+
+                            <!-- Needle Selector Graphic -->
+                            <div class="scenario-needle-select" id="scene-needle-wrapper">
+                                <div class="needle-card" id="needle-opt-1" onclick="selectScenarioNeedle('small')">
+                                    <div class="needle-title" style="color:var(--accent-yellow);">24G 留置針</div>
+                                    <div class="needle-desc">長度 1.9 公分 (0.75英吋)<br>常用於小兒靜脈注射</div>
+                                </div>
+                                <div class="needle-card" id="needle-opt-2" onclick="selectScenarioNeedle('correct')">
+                                    <div class="needle-title" style="color:var(--accent-green);">10G 減壓針</div>
+                                    <div class="needle-desc">長度 8.3 公分 (3.25英吋)<br>特製大口徑減壓專用針</div>
+                                </div>
+                                <div class="needle-card" id="needle-opt-3" onclick="selectScenarioNeedle('short')">
+                                    <div class="needle-title" style="color:var(--accent-red);">18G 注射針</div>
+                                    <div class="needle-desc">長度 3.2 公分 (1.25英吋)<br>標準靜脈輸液導針</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Interaction Actions -->
+                        <div class="scenario-actions" id="scene-action-buttons">
+                            <!-- Populated dynamically by JS -->
+                        </div>
+
+                        <!-- Clinical Event Log -->
+                        <div class="scenario-log" id="scene-log-box">
+                            [00:00] 抵達現場，患者呈現瀕死呼吸狀態。
+                        </div>
+                    </div>
+
+                    <!-- Right: Performance Assessment & Badges -->
+                    <div class="slide-info-panel">
+                        <div class="card" style="background: rgba(255,255,255,0.02); margin: 0; padding: 1.25rem; min-height: 100%;">
+                            <h3 style="color: var(--accent-red); margin-bottom: 0.5rem; font-family: var(--font-header);">模擬考評指標</h3>
+                            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1rem;">你的處置決策將被即時評分，不當的侵入性處置或定位錯誤將會扣分並觸發併發症。</p>
+                            
+                            <div class="alert alert-info" style="display:flex; flex-direction:column; gap:0.25rem; margin-bottom: 1.5rem;">
+                                <div><strong>當前積分：</strong> <span id="scene-score" style="font-size:1.2rem; font-weight:700; color:var(--accent-yellow);">100</span> / 100</div>
+                                <div style="font-size:0.75rem; color:var(--text-secondary);">扣分原因：尚未有失誤紀錄。</div>
+                            </div>
+
+                            <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.25rem;">戰術救護勳章解鎖進度</h4>
+                            <div style="display:flex; flex-direction:column; gap:0.5rem;" id="scene-badge-list">
+                                <div style="opacity:0.3; display:flex; align-items:center; gap:0.5rem; font-size:0.85rem; padding: 0.5rem; background:rgba(0,0,0,0.2); border-radius:6px;">
+                                    <span style="font-size:1.5rem;">🔍</span>
+                                    <div>
+                                        <strong>精準評估大師</strong>
+                                        <div style="font-size:0.7rem; color:var(--text-secondary);">完成視聽觸叩與e-FAST完整診斷。</div>
+                                    </div>
+                                </div>
+                                <div style="opacity:0.3; display:flex; align-items:center; gap:0.5rem; font-size:0.85rem; padding: 0.5rem; background:rgba(0,0,0,0.2); border-radius:6px;">
+                                    <span style="font-size:1.5rem;">📐</span>
+                                    <div>
+                                        <strong>解剖定位標竿</strong>
+                                        <div style="font-size:0.7rem; color:var(--text-secondary);">首選部位且針刺於肋骨上緣。</div>
+                                    </div>
+                                </div>
+                                <div style="opacity:0.3; display:flex; align-items:center; gap:0.5rem; font-size:0.85rem; padding: 0.5rem; background:rgba(0,0,0,0.2); border-radius:6px;">
+                                    <span style="font-size:1.5rem;">⚡</span>
+                                    <div>
+                                        <strong>打斷死亡螺旋</strong>
+                                        <div style="font-size:0.7rem; color:var(--text-secondary);">成功執行減壓並恢復生命徵象。</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= TAB: QUIZ ================= -->
+        <div id="tab-quiz" class="tab-content">
+            <div class="card quiz-container">
+                <div class="card-title">EMT-P 高級救護技術員 - 國家執照級知識檢定</div>
+                
+                <div class="quiz-progress">
+                    <div id="quiz-progressbar" class="quiz-progress-bar"></div>
+                </div>
+
+                <!-- Quiz Questions (Loop dynamically or statically rendered) -->
+                <div id="quiz-questions-container">
+                    <!-- Questions will be loaded dynamically by javascript to maintain state cleaner -->
+                </div>
+
+                <!-- Quiz Result Panel -->
+                <div id="quiz-results-panel" class="quiz-results">
+                    <div class="quiz-score-circle">
+                        <span class="quiz-score-val" id="quiz-score-display">0</span>
+                        <span class="quiz-score-lbl">得分 (滿分 100)</span>
+                    </div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;" id="quiz-evaluation-title">合格評估中...</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;" id="quiz-evaluation-desc">
+                        答對題數：3/5 題。
+                    </p>
+                    <button class="btn btn-primary" onclick="restartQuiz()">重新挑戰</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 臨床決策模擬學習平台. 專為 EMT-P 教育訓練與課後複習設計.</p>
+        <p style="font-size: 0.75rem;">課程出處：孫仁堂醫師課程報告 — 張力性氣胸救護決策流程</p>
+    </footer>
+
+    <!-- Audio assets synthesis using Web Audio API -->
+    <script>
+        // Data derived from PPTX slides
+        const slideData = [
+            {
+                title: "張力性氣胸：從致命危機到精準急救",
+                tag: "封面導讀",
+                bullets: [
+                    "本教材專為高級救護技術員 (EMT-P)、醫學生及第一線急救人員設計。",
+                    "涵蓋懷疑、評估、診斷與針刺減壓的整體救護決策流程。",
+                    "著重於張力性氣胸的病理生理機制、e-FAST 超音波判讀及實戰解剖定位。"
+                ],
+                ocr: `張力性氣胸：\n從致命危機到精準\n準救護\n懷疑、評估、診斷與針刺減壓\n的整體救護決策流程\n- TENSION PNEUMOTHCRAK DIAGRAM-8IGHT SIOE\nMEDIASTINAL SHIFT\n專為高級救護技術員 （EMT-P）、醫學生及\n第一線急救人員設計之臨床決策指引\nPROTOCOL REVISION: v2.1 - TACTICAL MEDICINE MANUAL`
+            },
+            {
+                title: "致命連鎖反應與 5H5T 關聯",
+                tag: "病理生理",
+                bullets: [
+                    "張力性氣胸是心跳停止（OHCA）處置中 5H5T 的關鍵「5T (Tension Pneumothorax)」之一。",
+                    "致命惡化連鎖反應：肋膜腔積氣 ➔ 縱膈腔與大靜脈受壓 ➔ 靜脈回流減少心輸出量驟降 ➔ 休克與 PEA 心跳停止。",
+                    "及時減壓即可打斷此死亡螺旋，是「可逆轉的致命危機」。"
+                ],
+                ocr: `致命連鎖反應與 5H5T\n關聯\nDeterioration Cascade\nStep 1：\n肋膜腔積氣\nAir accumulation in\npleural space\nStep 2：\n縱膈腔與大靜脈\n受壓\nMediastinal & Vena Cava\ncompression\n「可逆轉的致命危機」\n張力性氣胸是心跳停止（OHCA）處置中 5H5T 的關\n鍵「5T」之一。及時減壓即可打斷死亡螺旋。\nStep 3：\n靜脈回流減少\n心輸出量驟降\nDecreased venous return &\nplunging cardiac output\nStep 4：\n休克與無脈搏\n電氣活動（PEA）\nShock & Cardiac Arrest`
+            },
+            {
+                title: "病理機轉：致命的「單向活瓣」效應",
+                tag: "病理生理",
+                bullets: [
+                    "吸氣（Inspiration）：肺部裂口或胸壁傷口活瓣開啟，空氣進入肋膜腔，患側肺部完全塌陷，縱膈腔及氣管開始偏向對側。",
+                    "呼氣（Expiration）：活瓣受壓關閉，空氣無法排出，肋膜腔壓力急遽攀升，嚴重阻斷心臟靜脈回流。"
+                ],
+                ocr: `病理機轉：致命的「單向活瓣」效應\n吸氣 （Inspiration）\n呼氣 （Expiration）\n活瓣開啟，空氣進入肋膜腔\n患側肺部完全塌陷\n氣管偏向對側\n活瓣關閉，空氣無法排出，壓力急遽攀升\n阻斷心臟血流回流`
+            },
+            {
+                title: "快速臨床評估：感官診斷矩陣",
+                tag: "臨床診斷",
+                bullets: [
+                    "視（Look）：頸靜脈怒張（JVD）、患側胸部擴張且無呼吸起伏、嚴重發紺或氣管偏移（氣管偏移為晚期徵象）。",
+                    "聽（Listen）：患側呼吸音減弱或完全消失。",
+                    "觸（Feel）：橈動脈摸不到或脈搏快且弱（休克表徵）、皮下氣腫（握雪感）。",
+                    "叩（Percuss）：患側叩診呈強烈鼓音（Hyperresonance）。"
+                ],
+                ocr: `|快速臨床評估：感官診斷矩陣\n視（Look）\n• 頸靜脈怒張（JVD）\n•患側胸部擴張且無呼吸起伏\n• 嚴重發紺/氣管偏移（晚期徵象）\niFeel\n。橈動脈摸不到或脈搏快且弱\n•皮下氣腫\n聽 （Listen）\n•患側呼吸音減弱或完全消失\n叩 （Percuss）\n•患側叩診呈強烈鼓音`
+            },
+            {
+                title: "進階診斷工具：e-FAST 超音波判讀",
+                tag: "影像診斷",
+                bullets: [
+                    "正常肺臟（Normal Lung）：在 M-mode 超音波下呈現「濱海徵候（Seashore Sign）」，顯示正常的肺滑動（Lung Sliding）。",
+                    "張力性氣胸（Tension Pneumothorax）：肺滑動徵消失，M-mode 呈現「條碼徵候（Barcode Sign）」或「平流層徵候」。",
+                    "e-FAST 是院前或急診快速確診氣胸極具價值且無創的工具。"
+                ],
+                ocr: `進階診斷工具：e-FAST 超音波判讀\n• 正常肺臟（Normal Lung）\n• 張力性氣胸（Tension Pneumothorax）\n「濱海徾候」\n（Seashore Sign）\n「條碼徵候」\n（Barcode Sign）\n10\n20\n-30\n-10\n-20\n-30\n顯示正常的肺滑動徾\n肺滑動徵消失，強烈暗示氣胸`
+            },
+            {
+                title: "啟動條件：針刺減壓的「決策三角」",
+                tag: "處置決策",
+                bullets: [
+                    "EMT-P 啟動針刺減壓必須同時滿足以下三項臨床條件：",
+                    "1. 嚴重呼吸窘迫 (Severe respiratory distress)。",
+                    "2. 單側呼吸音消失 (Unilateral absent breath sounds)。",
+                    "3. 休克 (收縮壓 SBP < 90 mmHg)。",
+                    "⚠️ 注意：必須同時滿足以上三項條件，方可授權執行侵入性針刺減壓。"
+                ],
+                ocr: `啟動條件：針刺減壓的「決策三角」\n1.嚴重呼吸窘迫\n2.單側呼吸音消失\n立即啟動\n針刺減壓\n3.收縮壓<\n90 mmHg\nA 必須同時滿足以上三項條件，方可授權執行侵入性減壓處置。`
+            },
+            {
+                title: "戰術執行：針刺減壓定位地圖",
+                tag: "解剖定位",
+                bullets: [
+                    "成人首選部位：患側第五肋間與腋中線交匯處前側 (5th Intercostal Space, Anterior/Mid-Axillary Line)。",
+                    "替代或小兒部位：患側第二肋間鎖骨中線處 (2nd Intercostal Space, Mid-Clavicular Line)。",
+                    "建議器材：使用 10~14G 或 14~16G 大管徑空針，長度必須 ≥ 8公分（3.5英吋）以確保能成功穿透肥厚胸壁。"
+                ],
+                ocr: `戰術執行：針刺減壓定位地圖\n首選部位（成人）：\n患側第五肋間與腋中線交匯處前側\n替代/小兒部位：\n患側第二肋間鎖骨中線處\n建議使用10~14G或\n14~16G大管徑空針。\n長度必須≥8公分（3.5\n英吋）以確保穿透胊壁。`
+            },
+            {
+                title: "標準操作程序（SOP）",
+                tag: "技術操作",
+                bullets: [
+                    "1. 定位與清消：確認正確肋間，於下位肋骨的上緣進行消毒，目的是避開肋骨下緣的血管神經束（Intercostal Neurovascular Bundle）。",
+                    "2. 垂直穿刺：將減壓針垂直刺入胸壁，感受刺破肋膜時「阻力消失感」（Pop-feel）。",
+                    "3. 確認排氣：停留 3-5 秒，聆聽是否有高壓氣體排出的「嘶嘶聲」（Hissing sound）。",
+                    "4. 推進與固定：將導管向前推進肋膜腔，拔出硬針，將導管妥善固定於胸壁。"
+                ],
+                ocr: `標準操作程序 （SOP）\n1.定位與清消\n確認正確肋間，於下肋骨\n上綠處進行大範 消毒\n（避開肋骨下綠的血管神\n經束）。\n2.垂直穿刺\n將空針垂直刺入胸壁，\n感受刺破肋膜的阻力消\n失感。\n3. 確認排氣\n停留 3-5秒，聆聽是否\n有高壓氣體排出的「嘶\n哳」聲。\n4. 推進與固定\n將管向前推入肋膜腔，\n拔出硬針，將導管妥善\n固定於胸壁。`
+            },
+            {
+                title: "臨床盲點與致命陷阱",
+                tag: "臨床陷阱",
+                bullets: [
+                    "正壓通氣風險：給予正壓呼吸（如 BVM）會加速空氣積聚在肋膜腔，極速惡化張力性氣胸。在完成減壓前應極度謹慎使用正壓通氣。",
+                    "開放性氣胸處置：若傷患已使用不透氣敷料（三邊固定）且病情惡化，應先執行「打飽嗝」（Burping）撕開敷料釋放壓力，若無效再考慮針刺。",
+                    "插管誤判：已插管病患出現單側呼吸音消失，可能為誤入右側主支氣管的單側插管，應先確認內管深度，避免誤判執行針刺。"
+                ],
+                ocr: `臨床盲點與致命陷阱\n正壓通氣風險\n給予正壓呼吸（如BVM）會加速空氣積聚在肋膜腔，\n極速惡化張力性氣胸。\n在減壓前應極度謹慎。\n開放性氣胸處理\n若傷患有開放性傷口並已使用不透氣敷料（三邊固定），\n病情若突然惡化，應先執行「打飽嗝」（Burping）\n撕開敷料釋放壓力。若無效再考慮針刺。\n插管誤判\n在已插管病患中，單側插管（如誤入右主支氣管）可能\n導致單側呼吸音消失，容易被誤判為張力性氣胸。減壓前\n務必先確認氣管內管深度與位置。`
+            },
+            {
+                title: "總結：張力性氣胸救護決策流程圖",
+                tag: "處置決策",
+                bullets: [
+                    "遭遇胸部外傷/呼吸窘迫病患 ➔ 執行感官評估（視聽觸叩）與超音波 e-FAST 評估。",
+                    "是否同時滿足決策三角？",
+                    "➔ 否：維持氧氣治療，持續監測，考慮其他胸部急症（如血胸、心包填塞）。",
+                    "➔ 是：立即執行針刺減壓（選擇正確部位 ➔ 垂直入針排氣 ➔ 固定導管）。",
+                    "後續：密切重新評估生命徵象。若為外傷 OHCA，優先考量雙側減壓並儘速通報送醫。"
+                ],
+                ocr: `總結：張力性氣胸救護決策流程圖\n遭遇胸部外傷/呼吸窘迫病患\n執行感官評估（視聽觸叩）&超音波（e-FAST）確認肺滑動徵\nNO\n是否同時滿足：\n1. 嚴重呼吸窘迫\n2. 單側呼吸音消失\n3.休克（SBP <90）3\n維持氧氣治療，持續監測，考慮其他胸部急症\n立即執行針刺減壓\n1.選擇正確部位（第五或第二肋間）•2.垂直入針排氣：3.固定導管\n密切重新評估，若為外傷OHCA 優先考量雙側減壓，儘速通報後送`
+            }
+        ];
+
+        // 1. Tab Switching
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            document.getElementById(tabId).classList.add('active');
+            
+            // Find nav-tab index matching tabId
+            let navIndex = 0;
+            if (tabId === 'tab-lecture') navIndex = 0;
+            else if (tabId === 'tab-patho') navIndex = 1;
+            else if (tabId === 'tab-diagnostic') navIndex = 2;
+            else if (tabId === 'tab-anatomy') navIndex = 3;
+            else if (tabId === 'tab-scenario') navIndex = 4;
+            else if (tabId === 'tab-quiz') navIndex = 5;
+
+            document.querySelectorAll('.nav-tab')[navIndex].classList.add('active');
+
+            // Hook for stopping diagnostic loops or resetting animations
+            if (tabId !== 'tab-diagnostic') {
+                stopAllAudioLoops();
+                if (usAnimationId) {
+                    cancelAnimationFrame(usAnimationId);
+                    usAnimationId = null;
+                }
+            } else {
+                // Initialize default diagnostic state
+                setDiagMode('look');
+            }
+
+            if (tabId === 'tab-patho') {
+                setPathoState('normal');
+            }
+
+            if (tabId === 'tab-scenario') {
+                initScenario();
+            }
+            
+            if (tabId === 'tab-quiz') {
+                loadQuizQuestion(currentQuizIndex);
+            }
+        }
+
+        // Accordion
+        function toggleAccordion(id) {
+            const content = document.getElementById(id);
+            const arrow = document.getElementById('accordion-arrow');
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+                arrow.textContent = '▼';
+            } else {
+                content.style.display = 'block';
+                arrow.textContent = '▲';
+            }
+        }
+
+        // --- WEB AUDIO API CLINICAL SYNTHESIZER ---
+        const AudioEngine = {
+            ctx: null,
+            heartbeatInterval: null,
+            breathNode: null,
+            breathTimeout: null,
+            isActive: false,
+
+            init() {
+                if (this.ctx) return;
+                try {
+                    this.ctx = new (window.AudioContext || window.webkitAudioContext)();
+                    this.isActive = true;
+                    document.getElementById('audio-toggle-btn').classList.add('active');
+                    document.getElementById('audio-toggle-btn').innerHTML = "<span>🔊</span> <span>臨床模擬音效已啟動</span>";
+                } catch (e) {
+                    console.error("Failed to initialize Web Audio Context", e);
+                }
+            },
+
+            createNoiseBuffer() {
+                const bufferSize = 2 * this.ctx.sampleRate;
+                const noiseBuffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
+                const output = noiseBuffer.getChannelData(0);
+                for (let i = 0; i < bufferSize; i++) {
+                    output[i] = Math.random() * 2 - 1;
+                }
+                return noiseBuffer;
+            },
+
+            playBreathSoundLoop(isNormal) {
+                this.init();
+                this.stopBreathSound();
+                if (!this.isActive) return;
+
+                if (this.ctx.state === 'suspended') {
+                    this.ctx.resume();
+                }
+
+                if (!isNormal) {
+                    // Diminished/absent - extremely low lowpass rumble
+                    const noise = this.ctx.createBufferSource();
+                    noise.buffer = this.createNoiseBuffer();
+                    noise.loop = true;
+
+                    const filter = this.ctx.createBiquadFilter();
+                    filter.type = 'lowpass';
+                    filter.frequency.setValueAtTime(80, this.ctx.currentTime);
+
+                    const gain = this.ctx.createGain();
+                    gain.gain.setValueAtTime(0.005, this.ctx.currentTime);
+
+                    noise.connect(filter);
+                    filter.connect(gain);
+                    gain.connect(this.ctx.destination);
+
+                    noise.start(0);
+                    this.breathNode = { source: noise, gain: gain };
+                    return;
+                }
+
+                // Normal breath sound: Modulated bandpass filter white noise
+                const noise = this.ctx.createBufferSource();
+                noise.buffer = this.createNoiseBuffer();
+                noise.loop = true;
+
+                const filter = this.ctx.createBiquadFilter();
+                filter.type = 'bandpass';
+                filter.Q.setValueAtTime(1.5, this.ctx.currentTime);
+
+                const gain = this.ctx.createGain();
+                gain.gain.setValueAtTime(0.01, this.ctx.currentTime);
+
+                noise.connect(filter);
+                filter.connect(gain);
+                gain.connect(this.ctx.destination);
+
+                noise.start(0);
+                this.breathNode = { source: noise, gain: gain };
+
+                const breathCycle = () => {
+                    if (!this.breathNode) return;
+                    const now = this.ctx.currentTime;
+                    
+                    // Inhale (duration: 1.5s, pitch sweeps up, gain swells)
+                    filter.frequency.setValueAtTime(200, now);
+                    filter.frequency.exponentialRampToValueAtTime(450, now + 1.4);
+                    gain.gain.setValueAtTime(0.01, now);
+                    gain.gain.linearRampToValueAtTime(0.08, now + 1.4);
+
+                    // Pause
+                    gain.gain.setValueAtTime(0.08, now + 1.6);
+
+                    // Exhale (duration: 1.8s, pitch sweeps down, gain fades slowly)
+                    filter.frequency.setValueAtTime(380, now + 1.8);
+                    filter.frequency.exponentialRampToValueAtTime(180, now + 3.4);
+                    gain.gain.setValueAtTime(0.06, now + 1.8);
+                    gain.gain.linearRampToValueAtTime(0.005, now + 3.4);
+
+                    this.breathTimeout = setTimeout(breathCycle, 3800);
+                };
+
+                breathCycle();
+            },
+
+            stopBreathSound() {
+                if (this.breathNode) {
+                    try {
+                        this.breathNode.source.stop();
+                    } catch(e){}
+                    this.breathNode = null;
+                }
+                if (this.breathTimeout) {
+                    clearTimeout(this.breathTimeout);
+                    this.breathTimeout = null;
+                }
+            },
+
+            playPercussionSound(isHyperresonant) {
+                this.init();
+                if (!this.isActive) return;
+                if (this.ctx.state === 'suspended') {
+                    this.ctx.resume();
+                }
+
+                const osc = this.ctx.createOscillator();
+                const gain = this.ctx.createGain();
+
+                osc.connect(gain);
+                gain.connect(this.ctx.destination);
+                const now = this.ctx.currentTime;
+
+                if (isHyperresonant) {
+                    // Hyperresonance: Hollow, booming drum sound (low pitch, longer decay)
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(85, now);
+                    osc.frequency.exponentialRampToValueAtTime(45, now + 0.35);
+
+                    gain.gain.setValueAtTime(0.7, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+
+                    osc.start(now);
+                    osc.stop(now + 0.4);
+                } else {
+                    // Normal chest: flat dull thud (higher pitch, fast decay)
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(130, now);
+                    osc.frequency.exponentialRampToValueAtTime(70, now + 0.15);
+
+                    gain.gain.setValueAtTime(0.35, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+
+                    osc.start(now);
+                    osc.stop(now + 0.2);
+                }
+            },
+
+            playEmphysemaCrackles() {
+                this.init();
+                if (!this.isActive) return;
+                if (this.ctx.state === 'suspended') {
+                    this.ctx.resume();
+                }
+
+                // Subcutaneous emphysema sounds like crackles (crepitus)
+                // We generate several short high-frequency noise bursts
+                const now = this.ctx.currentTime;
+                for (let i = 0; i < 8; i++) {
+                    const delay = i * 0.05 + Math.random() * 0.03;
+                    const burstTime = now + delay;
+                    
+                    const osc = this.ctx.createOscillator();
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(2000 + Math.random() * 1000, burstTime);
+
+                    const filter = this.ctx.createBiquadFilter();
+                    filter.type = 'bandpass';
+                    filter.frequency.setValueAtTime(3000, burstTime);
+                    filter.Q.setValueAtTime(10, burstTime);
+
+                    const gain = this.ctx.createGain();
+                    gain.gain.setValueAtTime(0.06, burstTime);
+                    gain.gain.exponentialRampToValueAtTime(0.001, burstTime + 0.015);
+
+                    osc.connect(filter);
+                    filter.connect(gain);
+                    gain.connect(this.ctx.destination);
+
+                    osc.start(burstTime);
+                    osc.stop(burstTime + 0.02);
+                }
+            },
+
+            playNeedleHissSound() {
+                this.init();
+                if (!this.isActive) return;
+                if (this.ctx.state === 'suspended') {
+                    this.ctx.resume();
+                }
+
+                const noise = this.ctx.createBufferSource();
+                noise.buffer = this.createNoiseBuffer();
+
+                const filter = this.ctx.createBiquadFilter();
+                filter.type = 'highpass';
+                filter.frequency.setValueAtTime(2200, this.ctx.currentTime);
+
+                const gain = this.ctx.createGain();
+                const now = this.ctx.currentTime;
+                
+                // Sudden high pressure hiss, decays exponentially over 4 seconds
+                gain.gain.setValueAtTime(0.35, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 3.5);
+
+                noise.connect(filter);
+                filter.connect(gain);
+                gain.connect(this.ctx.destination);
+
+                noise.start(now);
+                noise.stop(now + 3.5);
+            },
+
+            playSingleHeartbeat(rateBpm, isWeak) {
+                if (!this.isActive || !this.ctx) return;
+                const now = this.ctx.currentTime;
+
+                // LUB (low pitch)
+                const osc1 = this.ctx.createOscillator();
+                const gain1 = this.ctx.createGain();
+                const filter1 = this.ctx.createBiquadFilter();
+
+                osc1.frequency.setValueAtTime(isWeak ? 45 : 55, now);
+                osc1.frequency.linearRampToValueAtTime(25, now + 0.08);
+
+                filter1.type = 'lowpass';
+                filter1.frequency.setValueAtTime(isWeak ? 70 : 120, now);
+
+                gain1.gain.setValueAtTime(isWeak ? 0.12 : 0.45, now);
+                gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+
+                osc1.connect(filter1);
+                filter1.connect(gain1);
+                gain1.connect(this.ctx.destination);
+
+                osc1.start(now);
+                osc1.stop(now + 0.15);
+
+                // DUB (approx 0.15s later, slightly higher pitch)
+                setTimeout(() => {
+                    if (!this.isActive || !this.ctx) return;
+                    try {
+                        const osc2 = this.ctx.createOscillator();
+                        const gain2 = this.ctx.createGain();
+                        const filter2 = this.ctx.createBiquadFilter();
+                        const now2 = this.ctx.currentTime;
+
+                        osc2.frequency.setValueAtTime(isWeak ? 55 : 65, now2);
+                        osc2.frequency.linearRampToValueAtTime(30, now2 + 0.08);
+
+                        filter2.type = 'lowpass';
+                        filter2.frequency.setValueAtTime(isWeak ? 80 : 140, now2);
+
+                        gain2.gain.setValueAtTime(isWeak ? 0.08 : 0.35, now2);
+                        gain2.gain.exponentialRampToValueAtTime(0.001, now2 + 0.12);
+
+                        osc2.connect(filter2);
+                        filter2.connect(gain2);
+                        gain2.connect(this.ctx.destination);
+
+                        osc2.start(now2);
+                        osc2.stop(now2 + 0.15);
+                    } catch(e){}
+                }, 140);
+            },
+
+            startHeartbeatLoop(rateBpm, isWeak) {
+                this.stopHeartbeatLoop();
+                if (!this.isActive) return;
+                
+                const intervalMs = (60 / rateBpm) * 1000;
+                this.playSingleHeartbeat(rateBpm, isWeak);
+
+                this.heartbeatInterval = setInterval(() => {
+                    this.playSingleHeartbeat(rateBpm, isWeak);
+                }, intervalMs);
+            },
+
+            stopHeartbeatLoop() {
+                if (this.heartbeatInterval) {
+                    clearInterval(this.heartbeatInterval);
+                    this.heartbeatInterval = null;
+                }
+            }
+        };
+
+        function toggleAudioSystem() {
+            if (AudioEngine.isActive) {
+                stopAllAudioLoops();
+                AudioEngine.ctx = null;
+                AudioEngine.isActive = false;
+                document.getElementById('audio-toggle-btn').classList.remove('active');
+                document.getElementById('audio-toggle-btn').innerHTML = "<span>🔊</span> <span>啟動臨床模擬音效</span>";
+            } else {
+                AudioEngine.init();
+            }
+        }
+
+        function stopAllAudioLoops() {
+            AudioEngine.stopBreathSound();
+            AudioEngine.stopHeartbeatLoop();
+        }
+
+
+        // --- MODULE 1: SLIDE VIEWER LOGIC ---
+        let currentSlideIdx = 1;
+        function updateSlideViewer() {
+            const data = slideData[currentSlideIdx - 1];
+            
+            // Image source update
+            document.getElementById('current-slide-img').src = `./extracted_slides/slide_${currentSlideIdx}.png`;
+            document.getElementById('current-slide-img').alt = `Slide ${currentSlideIdx}`;
+            
+            // Text panel updates
+            document.getElementById('slide-num-indicator').textContent = `第 ${currentSlideIdx} / 10 頁`;
+            document.getElementById('slide-title-display').textContent = data.title;
+            document.getElementById('slide-tag').textContent = data.tag;
+            
+            // Render bullet points
+            const bulletsContainer = document.getElementById('slide-bullets-display');
+            bulletsContainer.innerHTML = '';
+            data.bullets.forEach(bullet => {
+                const li = document.createElement('li');
+                li.textContent = bullet;
+                bulletsContainer.appendChild(li);
+            });
+            
+            // Render OCR text
+            document.getElementById('ocr-accordion').textContent = data.ocr;
+        }
+
+        function navigateSlide(direction) {
+            currentSlideIdx += direction;
+            if (currentSlideIdx < 1) currentSlideIdx = 10;
+            if (currentSlideIdx > 10) currentSlideIdx = 1;
+            updateSlideViewer();
+        }
+
+        // Initial load of slide viewer
+        updateSlideViewer();
+
+        // Keyboard navigation for slides
+        window.addEventListener('keydown', (e) => {
+            const isLectureTab = document.getElementById('tab-lecture').classList.contains('active');
+            const activeEl = document.activeElement;
+            const isInputFocused = activeEl && (activeEl.tagName === 'INPUT' || activeEl.tagName === 'TEXTAREA' || activeEl.isContentEditable);
+            
+            if (isLectureTab && !isInputFocused) {
+                if (e.key === 'ArrowLeft') {
+                    navigateSlide(-1);
+                } else if (e.key === 'ArrowRight') {
+                    navigateSlide(1);
+                }
+            }
+        });
+
+
+        // --- MODULE 2: PATHOPHYSIOLOGY DIAGRAM LOGIC ---
+        function setPathoState(state) {
+            // Reset active classes
+            document.getElementById('patho-state-normal').classList.remove('active');
+            document.getElementById('patho-state-insp').classList.remove('active');
+            document.getElementById('patho-state-exp').classList.remove('active');
+
+            const heart = document.getElementById('patho-heart');
+            const leftLung = document.getElementById('patho-left-lung');
+            const rightLung = document.getElementById('patho-right-lung');
+            const airOverlay = document.getElementById('patho-pleural-air');
+            const trachea = document.getElementById('patho-trachea');
+            const tracheaInner = document.getElementById('patho-trachea-inner');
+            const mediastinum = document.getElementById('patho-mediastinum');
+            const valveArrow = document.getElementById('valve-arrow');
+            const valveHinge = document.getElementById('valve-hinge');
+            const label = document.getElementById('patho-visual-label');
+
+            // Reset animations and positions
+            leftLung.style.animation = 'breathL 4s ease-in-out infinite';
+            rightLung.style.animation = 'breathR 4s ease-in-out infinite';
+            rightLung.style.transform = 'scale(1)';
+            leftLung.style.transform = 'scale(1)';
+            heart.className = 'heart-beat';
+            trachea.setAttribute('d', 'M172,80 L172,160 L140,210 M172,160 L204,210');
+            tracheaInner.setAttribute('d', 'M172,80 L172,160 L140,210 M172,160 L204,210');
+            mediastinum.style.transform = 'translateX(0px)';
+            airOverlay.style.opacity = '0';
+            valveArrow.style.display = 'none';
+            valveHinge.style.display = 'none';
+
+            if (state === 'normal') {
+                document.getElementById('patho-state-normal').classList.add('active');
+                label.textContent = "當前狀態：生理正常";
+                AudioEngine.stopHeartbeatLoop();
+                AudioEngine.stopBreathSound();
+                if (AudioEngine.isActive) {
+                    AudioEngine.startHeartbeatLoop(72, false);
+                    AudioEngine.playBreathSoundLoop(true);
+                }
+            } 
+            else if (state === 'inspiration') {
+                document.getElementById('patho-state-insp').classList.add('active');
+                label.textContent = "當前狀態：吸氣期（氣體單向進入）";
+                
+                // Animate lung collapse and shift
+                rightLung.style.animation = 'none';
+                rightLung.style.transform = 'scale(0.55)';
+                airOverlay.style.opacity = '0.35';
+                airOverlay.setAttribute('fill', '#38bdf8');
+                
+                // Shift trachea and heart
+                trachea.setAttribute('d', 'M172,80 L185,160 L160,210 M185,160 L219,210');
+                tracheaInner.setAttribute('d', 'M172,80 L185,160 L160,210 M185,160 L219,210');
+                mediastinum.style.transform = 'translateX(20px)';
+                
+                // Display valve arrows
+                valveArrow.style.display = 'block';
+                valveHinge.style.display = 'block';
+
+                AudioEngine.stopHeartbeatLoop();
+                AudioEngine.stopBreathSound();
+                if (AudioEngine.isActive) {
+                    AudioEngine.startHeartbeatLoop(100, true);
+                    AudioEngine.playBreathSoundLoop(true);
+                }
+            } 
+            else if (state === 'expiration') {
+                document.getElementById('patho-state-exp').classList.add('active');
+                label.textContent = "當前狀態：呼氣期與大靜脈扭曲受壓（休克/PEA）";
+                
+                // Severe lung collapse and pleural pressure swell
+                rightLung.style.animation = 'none';
+                rightLung.style.transform = 'scale(0.2)';
+                airOverlay.style.opacity = '0.65';
+                airOverlay.setAttribute('fill', '#ef4444');
+                
+                // Trachea/mediastinum extreme shift
+                trachea.setAttribute('d', 'M172,80 L195,160 L175,210 M195,160 L229,210');
+                tracheaInner.setAttribute('d', 'M172,80 L195,160 L175,210 M195,160 L229,210');
+                mediastinum.style.transform = 'translateX(35px) scaleY(0.85)';
+                
+                heart.className = 'heart-beat-fast';
+
+                AudioEngine.stopHeartbeatLoop();
+                AudioEngine.stopBreathSound();
+                if (AudioEngine.isActive) {
+                    AudioEngine.startHeartbeatLoop(135, true); // Extremely fast and weak
+                    AudioEngine.playBreathSoundLoop(false); // Diminished sound
+                }
+            }
+        }
+
+
+        // --- MODULE 3: DIAGNOSTIC LAB LOGIC ---
+        let activeDiagMode = 'look';
+        let usAnimationId = null;
+
+        const diagData = {
+            look: {
+                title: "視診（Look）：觀察患者外觀與胸廓動態",
+                instruction: "觀察患者頸部與胸廓。張力性氣胸會導致健側代償性過度膨脹，患側（右胸）無起伏，且伴隨頸靜脈怒張（JVD）與面部發紺。",
+                pearls: `
+                    <h4 style="color:var(--accent-blue); margin-bottom:0.5rem;">視診臨床珍珠 (Clinical Pearls)</h4>
+                    <p><strong>1. 胸廓不對稱起伏：</strong> 患側因積氣高壓導致胸壁固定在膨脹狀態，但無有效通氣起伏。</p>
+                    <p style="margin-top:0.4rem;"><strong>2. 頸靜脈怒張 (JVD)：</strong> 胸腔高壓阻礙上腔靜脈血液回流心臟，導致頸靜脈異常飽滿。</p>
+                    <p style="margin-top:0.4rem;"><strong>3. 氣管偏移 (Tracheal Deviation)：</strong> 縱膈腔受壓偏移的晚期表徵，在健側鎖骨上凹可觸及。注意：切勿等待氣管偏移出現才進行針刺，那是瀕死徵兆！</p>
+                `
+            },
+            listen: {
+                title: "聽診（Listen）：評估兩側肺野呼吸音",
+                instruction: "點擊左右兩側肺野（🩺 標示）來聽診呼吸音。仔細比對兩側的聲音強弱與頻率。",
+                pearls: `
+                    <h4 style="color:var(--accent-blue); margin-bottom:0.5rem;">聽診臨床珍珠 (Clinical Pearls)</h4>
+                    <p><strong>1. 單側呼吸音消失：</strong> 張力性氣胸之患側肺部完全塌陷，空氣無法進入，聽診會呈現呼吸音極度減弱或完全消失。</p>
+                    <p style="margin-top:0.4rem;"><strong>2. 健側呼吸音：</strong> 健側肺為了代償通常會聽診到強烈且清晰的呼吸音。</p>
+                    <p style="margin-top:0.4rem;"><strong>3. 臨床陷阱：</strong> 在喧囂的救護車或戰地現場，聽診極度困難。此時必須仰賴視、觸、叩診或超音波確診。</p>
+                `
+            },
+            feel: {
+                title: "觸診（Feel）：脈搏與皮下氣腫評估",
+                instruction: "點擊患者右側胸壁的點狀區（皮下氣腫）來進行觸診，並評估脈搏狀態。",
+                pearls: `
+                    <h4 style="color:var(--accent-blue); margin-bottom:0.5rem;">觸診臨床珍珠 (Clinical Pearls)</h4>
+                    <p><strong>1. 皮下氣腫 (Subcutaneous Emphysema)：</strong> 氣體漏入皮下組織，觸診時有特殊的「握雪感」（Crepitus/爆裂聲）。</p>
+                    <p style="margin-top:0.4rem;"><strong>2. 脈搏快而弱：</strong> 因心輸出量驟減，橈動脈常摸不到，僅能摸到快速且微弱的頸動脈或股動脈，預示休克代償失效。</p>
+                `
+            },
+            percuss: {
+                title: "叩診（Percuss）：辨識胸腔回音",
+                instruction: "點擊左右兩側肺野（👉 標示）進行叩診。聆聽兩側的回音差異。",
+                pearls: `
+                    <h4 style="color:var(--accent-blue); margin-bottom:0.5rem;">叩診臨床珍珠 (Clinical Pearls)</h4>
+                    <p><strong>1. 患側強烈鼓音 (Hyperresonance)：</strong> 患側胸腔內充滿高壓空氣，如同一個中空的鼓，敲擊時會發出明亮、空洞的鼓音。</p>
+                    <p style="margin-top:0.4rem;"><strong>2. 正常叩診音 (Resonance)：</strong> 正常含氣肺組織呈清音；若為血胸或塌陷無氣的實體組織，叩診呈濁音（Dullness）。</p>
+                `
+            },
+            efast: {
+                title: "進階影像：e-FAST 焦點式肺部超音波掃描",
+                instruction: "將超音波探頭（📟 標示）放置於左右兩側胸壁，在下方螢幕觀察 M-Mode 掃描圖像。",
+                pearls: `
+                    <h4 style="color:var(--accent-blue); margin-bottom:0.5rem;">超音波診斷珍珠 (Ultrasound Pearls)</h4>
+                    <p><strong>1. 濱海徵候 (Seashore Sign)：</strong> 正常肺部在 M-Mode 下，胸壁是靜止的（呈現平行的海平面線條），而滑動的胸膜與肺實質會產生運動偽影（呈現顆粒狀的沙灘）。這兩者結合即為濱海徵候，代表肺部正常滑動，無氣胸。</p>
+                    <p style="margin-top:0.4rem;"><strong>2. 條碼徵候 (Barcode/Stratosphere Sign)：</strong> 當肋膜腔積氣時，壁層和臟層肋膜分離，超音波束無法穿透氣體探測到滑動的肺部。M-Mode 僅能探測到靜止的胸壁，使整個畫面呈現一致的垂直線條（如同條碼），強烈暗示氣胸。</p>
+                `
+            }
+        };
+
+        function setDiagMode(mode) {
+            activeDiagMode = mode;
+            
+            // Update active button state
+            document.querySelectorAll('.diag-mode-btn').forEach(btn => btn.classList.remove('active'));
+            // Match active button by text or order
+            const idx = ['look', 'listen', 'feel', 'percuss', 'efast'].indexOf(mode);
+            if (idx !== -1) {
+                document.querySelectorAll('.diag-mode-btn')[idx].classList.add('active');
+            }
+
+            // Update title & instructions
+            document.getElementById('diag-title').textContent = diagData[mode].title;
+            document.getElementById('diag-instruction').textContent = diagData[mode].instruction;
+            document.getElementById('diag-clinical-pearls').innerHTML = diagData[mode].pearls;
+            document.getElementById('diag-feedback-card').style.display = 'none';
+
+            // Reset overlays & targets
+            document.getElementById('diag-jvd').classList.remove('active');
+            document.getElementById('diag-cyanosis').classList.remove('active');
+            document.getElementById('diag-emphysema').classList.remove('active');
+            document.getElementById('steth-left').style.display = 'none';
+            document.getElementById('steth-right').style.display = 'none';
+            document.getElementById('percuss-left').style.display = 'none';
+            document.getElementById('percuss-right').style.display = 'none';
+            document.getElementById('efast-left').style.display = 'none';
+            document.getElementById('efast-right').style.display = 'none';
+            document.getElementById('us-monitor').style.display = 'none';
+            
+            const trachea = document.getElementById('diag-trachea-path');
+            trachea.setAttribute('d', 'M140,70 L140,130'); // centered
+
+            stopAllAudioLoops();
+            if (usAnimationId) {
+                cancelAnimationFrame(usAnimationId);
+                usAnimationId = null;
+            }
+
+            // Enable elements based on mode
+            if (mode === 'look') {
+                document.getElementById('diag-jvd').classList.add('active');
+                document.getElementById('diag-cyanosis').classList.add('active');
+                trachea.setAttribute('d', 'M140,70 Q150,100 160,130'); // shifted to patient's left (viewer's right)
+                showDiagFeedback("👀 觀察發現：患者右頸靜脈極度怒張，面部發紺。右胸部被固定在擴張狀態且無呼吸起伏。氣管出現向左側（健側）偏移之晚期徵兆。");
+            } 
+            else if (mode === 'listen') {
+                document.getElementById('steth-left').style.display = 'flex';
+                document.getElementById('steth-right').style.display = 'flex';
+            } 
+            else if (mode === 'feel') {
+                document.getElementById('diag-emphysema').classList.add('active');
+                showDiagFeedback("🤝 觸診發現：右側胸部皮下有明顯的「握雪感」皮下氣腫。橈動脈脈搏極其微弱且快速（約130次/分），提示休克。");
+            } 
+            else if (mode === 'percuss') {
+                document.getElementById('percuss-left').style.display = 'flex';
+                document.getElementById('percuss-right').style.display = 'flex';
+            } 
+            else if (mode === 'efast') {
+                document.getElementById('efast-left').style.display = 'flex';
+                document.getElementById('efast-right').style.display = 'flex';
+                document.getElementById('us-monitor').style.display = 'block';
+                initUltrasoundCanvas();
+            }
+        }
+
+        function showDiagFeedback(text) {
+            const card = document.getElementById('diag-feedback-card');
+            card.style.display = 'flex';
+            document.getElementById('diag-feedback-text').textContent = text;
+        }
+
+        function listenLung(side) {
+            stopAllAudioLoops();
+            if (side === 'left') {
+                // Left lung is healthy (normal breath sound)
+                showDiagFeedback("🩺 左肺聽診：呼吸音清晰且強烈，呈現正常的氣流代償。");
+                AudioEngine.playBreathSoundLoop(true);
+            } else {
+                // Right lung is affected (absent breath sound)
+                showDiagFeedback("🩺 右肺聽診：呼吸音完全消失，聽不到任何氣流聲。");
+                AudioEngine.playBreathSoundLoop(false);
+            }
+        }
+
+        function percussChest(side) {
+            if (side === 'left') {
+                showDiagFeedback("🥁 左胸叩診：呈現正常的「清音」(Resonance)。");
+                AudioEngine.playPercussionSound(false);
+            } else {
+                showDiagFeedback("🥁 右胸叩診：呈現空洞的「強烈鼓音」(Hyperresonance)，暗示氣體高壓積聚。");
+                AudioEngine.playPercussionSound(true);
+            }
+        }
+
+        function triggerEmphysemaSound() {
+            showDiagFeedback("🤝 右胸壁觸診：皮下氣腫 crepitus 觸感，伴隨細微爆裂摩擦聲。");
+            AudioEngine.playEmphysemaCrackles();
+        }
+
+        // --- e-FAST ULTRASOUND CANVAS ANIMATOR ---
+        let usCanvas = null;
+        let usCtx = null;
+        let usMode = 'none'; // 'left' (normal) or 'right' (barcode)
+
+        function initUltrasoundCanvas() {
+            usCanvas = document.getElementById('ultrasoundCanvas');
+            usCtx = usCanvas.getContext('2d');
+            usMode = 'none';
+            drawStaticUltrasound();
+        }
+
+        function drawStaticUltrasound() {
+            usCtx.fillStyle = '#050505';
+            usCtx.fillRect(0, 0, usCanvas.width, usCanvas.height);
+            
+            usCtx.fillStyle = '#888';
+            usCtx.font = '14px monospace';
+            usCtx.textAlign = 'center';
+            usCtx.fillText("請點擊上方探頭目標進行掃描", usCanvas.width/2, usCanvas.height/2);
+        }
+
+        function scanUltrasound(side) {
+            usMode = side;
+            document.getElementById('us-location-lbl').textContent = side === 'left' ? "位置: 左側第二肋間鎖骨中線 (正常肺)" : "位置: 右側第二肋間鎖骨中線 (氣胸)";
+            
+            if (side === 'left') {
+                showDiagFeedback("📟 e-FAST超音波 (左胸)：可見明顯的肺滑動徵 (Lung Sliding)。M-Mode 下呈現典型的「濱海徵候」(Seashore Sign) — 上半部平滑線條（海），下半部顆粒噪點（沙灘）。");
+            } else {
+                showDiagFeedback("📟 e-FAST超音波 (右胸)：肺滑動徵完全消失。M-Mode 下呈現異常的「條碼徵候」(Barcode Sign) — 畫面上下一律為平行垂直條紋。");
+            }
+
+            if (usAnimationId) {
+                cancelAnimationFrame(usAnimationId);
+            }
+            animateUltrasound();
+        }
+
+        let sandOffset = 0;
+        function animateUltrasound() {
+            if (!usCanvas) return;
+            const w = usCanvas.width;
+            const h = usCanvas.height;
+            const pleuraY = 90;
+
+            usCtx.fillStyle = '#050505';
+            usCtx.fillRect(0, 0, w, h);
+
+            // Draw 2D Ultrasound View (Top 40%)
+            usCtx.fillStyle = '#111';
+            usCtx.fillRect(0, 0, w, pleuraY);
+            
+            // Rib shadows (dark vertical bars)
+            usCtx.fillStyle = '#000';
+            usCtx.fillRect(40, 0, 50, pleuraY);
+            usCtx.fillRect(290, 0, 50, pleuraY);
+
+            // Speckle noise in 2D part
+            const imgData2D = usCtx.getImageData(0, 0, w, pleuraY);
+            const data2D = imgData2D.data;
+            for (let i = 0; i < data2D.length; i += 4) {
+                const noiseVal = Math.random() * 40;
+                data2D[i] += noiseVal;
+                data2D[i+1] += noiseVal;
+                data2D[i+2] += noiseVal;
+            }
+            usCtx.putImageData(imgData2D, 0, 0);
+
+            // Draw Pleural Line (glowing)
+            usCtx.beginPath();
+            usCtx.moveTo(0, pleuraY);
+            usCtx.lineTo(w, pleuraY);
+            usCtx.lineWidth = 4;
+            
+            if (usMode === 'left') {
+                // Normal sliding: pleural line has a moving ripple
+                const shimmer = Math.sin(Date.now() * 0.01) * 30;
+                usCtx.strokeStyle = 'rgba(100, 220, 255, 0.9)';
+                usCtx.shadowColor = 'rgba(100, 220, 255, 0.5)';
+                usCtx.shadowBlur = 8;
+            } else {
+                // Absent sliding: static flat line
+                usCtx.strokeStyle = 'rgba(150, 150, 150, 0.8)';
+                usCtx.shadowBlur = 0;
+            }
+            usCtx.stroke();
+            usCtx.shadowBlur = 0; // reset
+
+            // Draw M-Mode View (Bottom 60%)
+            if (usMode === 'left') {
+                // Seashore Sign:
+                // Upper part (static parallel lines)
+                usCtx.strokeStyle = '#333';
+                usCtx.lineWidth = 1;
+                for (let y = pleuraY + 8; y < pleuraY + 45; y += 4) {
+                    usCtx.beginPath();
+                    usCtx.moveTo(0, y);
+                    usCtx.lineTo(w, y);
+                    usCtx.stroke();
+                }
+
+                // Lower part: Sand texture
+                const sandHeight = h - (pleuraY + 45);
+                const sandY = pleuraY + 45;
+                
+                // Draw sandy noise scroll
+                const imgDataSand = usCtx.createImageData(w, sandHeight);
+                const dataSand = imgDataSand.data;
+                for (let x = 0; x < w; x++) {
+                    // Generate noise based on column to give horizontal scroll effect
+                    for (let y = 0; y < sandHeight; y++) {
+                        const pixelIdx = (y * w + x) * 4;
+                        const randomValue = Math.floor(Math.random() * 120) + 30;
+                        dataSand[pixelIdx] = randomValue;     // R
+                        dataSand[pixelIdx + 1] = randomValue; // G
+                        dataSand[pixelIdx + 2] = randomValue; // B
+                        dataSand[pixelIdx + 3] = 255;         // Alpha
+                    }
+                }
+                usCtx.putImageData(imgDataSand, 0, sandY);
+                
+                // Add some scan lines on top of sand
+                usCtx.fillStyle = 'rgba(0, 255, 0, 0.05)';
+                usCtx.fillRect(0, sandY, w, sandHeight);
+            } 
+            else if (usMode === 'right') {
+                // Barcode Sign: Continuous vertical stripes across the whole height
+                const barHeight = h - pleuraY;
+                const barcodeY = pleuraY;
+
+                // Let's pre-generate random column colors or generate on the fly
+                usCtx.lineWidth = 2;
+                for (let x = 0; x < w; x += 2) {
+                    // Seeded random vertical stripe gray shade
+                    const shade = Math.floor((Math.sin(x * 0.1) * 0.5 + 0.5) * 150) + 20;
+                    usCtx.strokeStyle = `rgb(${shade}, ${shade}, ${shade})`;
+                    usCtx.beginPath();
+                    usCtx.moveTo(x, barcodeY);
+                    usCtx.lineTo(x, h);
+                    usCtx.stroke();
+                }
+            }
+
+            // Draw scanning sweep line (oscillating green vertical line)
+            const sweepX = (Date.now() * 0.15) % w;
+            usCtx.strokeStyle = 'rgba(0, 255, 0, 0.4)';
+            usCtx.lineWidth = 2;
+            usCtx.beginPath();
+            usCtx.moveTo(sweepX, 0);
+            usCtx.lineTo(sweepX, h);
+            usCtx.stroke();
+
+            usAnimationId = requestAnimationFrame(animateUltrasound);
+        }
+
+
+        // --- MODULE 4: DECISION & ANATOMY MAP ---
+        function evaluateDecisionTriangle() {
+            const cond1 = document.getElementById('calc-cond1').checked;
+            const cond2 = document.getElementById('calc-cond2').checked;
+            const cond3 = document.getElementById('calc-cond3').checked;
+            const statusBox = document.getElementById('decision-result-status');
+
+            if (cond1 && cond2 && cond3) {
+                statusBox.className = "decision-status authorized";
+                statusBox.innerHTML = "✅ 處置授權：已滿足所有啟動條件，請立即執行針刺減壓！";
+                if (AudioEngine.isActive) {
+                    // Trigger a warning pulse sound
+                }
+            } else {
+                statusBox.className = "decision-status denied";
+                statusBox.innerHTML = "❌ 處置授權：未滿足所有啟動條件 (須同時具備呼吸窘迫、單側音消失、休克)";
+            }
+        }
+
+        const anatomyDetails = {
+            '2nd-mcl': {
+                title: "替代/小兒部位：第二肋間鎖骨中線 (2nd ICS, MCL)",
+                body: `
+                    <p><strong>定位方法：</strong> 鎖骨下方，沿鎖骨中線垂直向下，在第二肋骨與第三肋骨之間中點進針。</p>
+                    <p style="margin-top:0.4rem;"><strong>適用對象：</strong> 小兒患者、或第五肋間位置受阻（如大面積壓砸傷、嚴重皮下氣腫、防彈衣阻擋）。</p>
+                    <p style="margin-top:0.4rem;"><strong>解剖優缺：</strong></p>
+                    <ul style="list-style-position: inside; margin-left: 0.5rem; margin-top:0.2rem;">
+                        <li>優點：定位明顯，對小兒或薄壁患者極為有效。</li>
+                        <li>缺點：成人此處胸壁脂肪與肌肉較厚（可能需要長達8.3公分針頭才能刺入）；且靠近鎖骨下大血管，進針角度偏差可能造成嚴重血胸。</li>
+                    </ul>
+                `,
+                color: "yellow",
+                showCrossSection: false
+            },
+            '5th-mal': {
+                title: "成人首選部位：第五肋間與腋中線前側 (5th ICS, AAL/MAL)",
+                body: `
+                    <p><strong>定位方法：</strong> 患側腋下（腋中線）前側，與乳頭高度平行（第五肋間），緊貼下肋骨上緣垂直進針。</p>
+                    <p style="margin-top:0.4rem;"><strong>臨床共識：</strong> 美國外科學會（ACS-COT）與戰術戰傷救護（TCCC）皆建議成人患者應首選此處進針。</p>
+                    <p style="margin-top:0.4rem;"><strong>解剖優勢：</strong></p>
+                    <ul style="list-style-position: inside; margin-left: 0.5rem; margin-top:0.2rem;">
+                        <li>管壁厚度較薄（成人此處平均胸壁厚度比第二肋間薄），減壓成功率高。</li>
+                        <li>遠離大血管，解剖安全邊際大。</li>
+                    </ul>
+                `,
+                color: "green",
+                showCrossSection: true
+            },
+            'danger-border': {
+                title: "⚠️ 致命臨床陷阱：肋骨下緣進針 (Inferior Rib Border)",
+                body: `
+                    <p style="color: #f87171;"><strong>解剖危機：</strong> 肋間動脈、靜脈與神經（Neurovascular Bundle）皆緊貼在每根肋骨的「下緣」凹槽內跑行。</p>
+                    <p style="margin-top:0.4rem;"><strong>後果：</strong> 若進針時選擇在肋骨下緣穿刺，針頭會直接刺破肋間動脈，導致大量內出血，造成血胸（Hemothorax），患者將由氣胸休克瞬間轉變為出血性休克死亡！</p>
+                    <p style="margin-top:0.4rem; font-weight:700; color:#fff;">👉 EMT-P 金科玉律：進針時，針頭尖端必須垂直「緊貼下方肋骨的上緣」滑入肋膜腔。</p>
+                `,
+                color: "red",
+                showCrossSection: true
+            }
+        };
+
+        function selectAnatomySite(siteId) {
+            const data = anatomyDetails[siteId];
+            const titleEl = document.getElementById('anatomy-info-title');
+            const bodyEl = document.getElementById('anatomy-info-body');
+            const crossSectionEl = document.getElementById('rib-cross-section-graphic');
+
+            titleEl.textContent = data.title;
+            titleEl.className = "card-title " + data.color;
+            bodyEl.innerHTML = data.body;
+            
+            if (data.showCrossSection) {
+                crossSectionEl.style.display = 'flex';
+            } else {
+                crossSectionEl.style.display = 'none';
+            }
+        }
+
+
+        // --- MODULE 5: EMERGENCY SCENARIO SIMULATOR ---
+        let sceneStep = 1;
+        let sceneScore = 100;
+        let sceneBadges = {
+            assess: false,
+            locate: false,
+            save: false
+        };
+        let sceneCompletedActions = {
+            look: false,
+            listen: false,
+            feel: false,
+            efast: false
+        };
+        let selectedNeedle = '';
+        let selectedSite = '';
+
+        function initScenario() {
+            sceneStep = 1;
+            sceneScore = 100;
+            sceneBadges = { assess: false, locate: false, save: false };
+            sceneCompletedActions = { look: false, listen: false, feel: false, efast: false };
+            selectedNeedle = '';
+            selectedSite = '';
+            
+            document.getElementById('scene-score').textContent = "100";
+            document.getElementById('scene-log-box').innerHTML = "[00:00] 抵達現場，患者呈現瀕死呼吸狀態。";
+            
+            // Critical vitals
+            setScenarioVitals(78, 132, 80, 34, true);
+            
+            document.getElementById('scene-svg-wrapper').style.display = 'none';
+            document.getElementById('scene-needle-wrapper').style.display = 'none';
+            
+            updateScenarioStep();
+            
+            // Loop heart beat fast
+            if (AudioEngine.isActive) {
+                AudioEngine.startHeartbeatLoop(132, true);
+            }
+        }
+
+        function setScenarioVitals(bp, hr, spo2, rr, isCritical) {
+            const bpEl = document.getElementById('scene-vital-bp');
+            const hrEl = document.getElementById('scene-vital-hr');
+            const spo2El = document.getElementById('scene-vital-spo2');
+            const rrEl = document.getElementById('scene-vital-rr');
+
+            bpEl.textContent = bp ? `${bp}/${Math.round(bp*0.6)}` : '0';
+            hrEl.textContent = hr;
+            spo2El.textContent = spo2 ? `${spo2}%` : '0%';
+            rrEl.textContent = rr;
+
+            const addClass = (el, isCrit) => {
+                if (isCrit) el.classList.add('critical');
+                else el.classList.remove('critical');
+            };
+
+            addClass(bpEl, isCritical);
+            addClass(hrEl, isCritical);
+            addClass(spo2El, isCritical);
+            addClass(rrEl, isCritical);
+        }
+
+        function logScenario(actionText) {
+            const logBox = document.getElementById('scene-log-box');
+            const timeStr = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            logBox.innerHTML += `<br>[${timeStr}] ${actionText}`;
+            logBox.scrollTop = logBox.scrollHeight;
+        }
+
+        function deductScore(points, reason) {
+            sceneScore = Math.max(0, sceneScore - points);
+            document.getElementById('scene-score').textContent = sceneScore;
+            logScenario(`<span style="color:var(--accent-red);">[扣分 -${points}分] ${reason}</span>`);
+        }
+
+        function updateScenarioStep() {
+            const narrative = document.getElementById('scene-narrative');
+            const actionContainer = document.getElementById('scene-action-buttons');
+            actionContainer.innerHTML = '';
+
+            if (sceneStep === 1) {
+                // Assessment Phase
+                narrative.innerHTML = `<strong>步驟 1：感官與影像評估。</strong><br>病患呼吸極度喘促，胸部有外傷。你必須先使用感官診斷或超音波評估病患狀況。請執行下列檢查：`;
+                
+                const btnLook = document.createElement('button');
+                btnLook.className = "btn";
+                btnLook.innerHTML = "👀 視診 (Look)";
+                btnLook.onclick = () => {
+                    sceneCompletedActions.look = true;
+                    logScenario("執行視診：患者右胸膨脹且無起伏，頸靜脈高度怒張，臉部呈紫紺色。");
+                    checkAssessmentProgress();
+                };
+                actionContainer.appendChild(btnLook);
+
+                const btnListen = document.createElement('button');
+                btnListen.className = "btn";
+                btnListen.innerHTML = "👂 聽診 (Listen)";
+                btnListen.onclick = () => {
+                    sceneCompletedActions.listen = true;
+                    logScenario("執行聽診：左肺呼吸音清晰，但右肺呼吸音完全消失！");
+                    if (AudioEngine.isActive) AudioEngine.playBreathSoundLoop(false);
+                    checkAssessmentProgress();
+                };
+                actionContainer.appendChild(btnListen);
+
+                const btnFeel = document.createElement('button');
+                btnFeel.className = "btn";
+                btnFeel.innerHTML = "🤝 觸診 (Feel)";
+                btnFeel.onclick = () => {
+                    sceneCompletedActions.feel = true;
+                    logScenario("執行觸診：橈動脈摸不到，股動脈微弱。右側胸部觸摸有大面積皮下氣腫（握雪感）。");
+                    if (AudioEngine.isActive) AudioEngine.playEmphysemaCrackles();
+                    checkAssessmentProgress();
+                };
+                actionContainer.appendChild(btnFeel);
+
+                const btnUS = document.createElement('button');
+                btnUS.className = "btn";
+                btnUS.innerHTML = "📟 超音波 (e-FAST)";
+                btnUS.onclick = () => {
+                    sceneCompletedActions.efast = true;
+                    logScenario("執行超音波：左胸可見肺滑動，右胸出現 Barcode Sign 條碼徵候（暗示氣胸）。");
+                    checkAssessmentProgress();
+                };
+                actionContainer.appendChild(btnUS);
+            } 
+            else if (sceneStep === 2) {
+                // Decision Phase
+                narrative.innerHTML = `<strong>步驟 2：臨床處置決策。</strong><br>你已完成初步診斷。病患生命徵象持續惡化（BP: 78/42, HR: 132）。請根據「決策三角」評估，是否在此處啟動侵入性針刺減壓？`;
+                
+                const btnDecompress = document.createElement('button');
+                btnDecompress.className = "btn btn-primary";
+                btnDecompress.innerHTML = "⚡ 立即啟動針刺減壓";
+                btnDecompress.onclick = () => {
+                    logScenario("決策成立：啟動針刺減壓處置。");
+                    sceneStep = 3;
+                    updateScenarioStep();
+                };
+                actionContainer.appendChild(btnDecompress);
+
+                const btnBVM = document.createElement('button');
+                btnBVM.className = "btn";
+                btnBVM.innerHTML = "💨 先給予正壓通氣 (BVM)";
+                btnBVM.onclick = () => {
+                    deductScore(20, "致命錯誤：在張力性氣胸減壓前給予正壓通氣（如BVM），會使氣體加速被逼入肋膜腔，惡化高壓，加速心跳停止！");
+                    logScenario("錯誤處置：給予正壓通氣（BVM），患者口唇發紺加重，血壓下降至 60/30。");
+                    setScenarioVitals(60, 140, 72, 38, true);
+                };
+                actionContainer.appendChild(btnBVM);
+            }
+            else if (sceneStep === 3) {
+                // Equipment Selection
+                narrative.innerHTML = `<strong>步驟 3：選擇減壓穿刺器材。</strong><br>穿刺針具的規格決定了是否能有效穿透病患的胸壁。請選擇合適的空針規格：`;
+                document.getElementById('scene-needle-wrapper').style.display = 'grid';
+            }
+            else if (sceneStep === 4) {
+                // Site Selection SVG
+                document.getElementById('scene-needle-wrapper').style.display = 'none';
+                narrative.innerHTML = `<strong>步驟 4：選擇針刺減壓位置。</strong><br>請在左側人體解剖圖中，選擇最佳的進針點：<br><strong>A:</strong> 右第二肋間鎖骨中線 | <strong>B:</strong> 左第二肋間鎖骨中線 | <strong>C:</strong> 右第五肋間腋中線前側 | <strong>D:</strong> 左第五肋間腋中線`;
+                document.getElementById('scene-svg-wrapper').style.display = 'flex';
+            }
+            else if (sceneStep === 5) {
+                // Execution Procedure
+                document.getElementById('scene-svg-wrapper').style.display = 'none';
+                narrative.innerHTML = `<strong>步驟 5：執行穿刺與減壓確認。</strong><br>你已消毒皮膚，準備進針。請按照SOP依序執行處置步驟：`;
+                
+                const btnPuncture = document.createElement('button');
+                btnPuncture.className = "btn btn-primary";
+                btnPuncture.id = "scene-puncture-btn";
+                btnPuncture.innerHTML = "💉 垂直刺入胸壁 (聽診排氣)";
+                btnPuncture.onclick = () => {
+                    logScenario("執行垂直穿刺：針尖刺破肋膜，感覺到阻力消失（Pop-feel）！");
+                    if (AudioEngine.isActive) {
+                        AudioEngine.playNeedleHissSound();
+                    }
+                    logScenario("🌬️ 聽診到大量高壓氣體排出的『嘶嘶聲』！持續3秒。");
+                    btnPuncture.disabled = true;
+                    btnPuncture.style.opacity = 0.5;
+                    
+                    // Enable next step
+                    btnAdvance.style.display = 'inline-flex';
+                };
+                actionContainer.appendChild(btnPuncture);
+
+                const btnAdvance = document.createElement('button');
+                btnAdvance.className = "btn btn-green";
+                btnAdvance.id = "scene-advance-btn";
+                btnAdvance.innerHTML = "📂 推進導管並移除鋼針";
+                btnAdvance.style.display = 'none';
+                btnAdvance.onclick = () => {
+                    logScenario("將塑料導管向前推入肋膜腔，拔出硬金屬硬針，防止硬針在搬運中刺傷肺臟。");
+                    btnAdvance.disabled = true;
+                    btnAdvance.style.opacity = 0.5;
+                    
+                    // Enable secure step
+                    btnSecure.style.display = 'inline-flex';
+                };
+                actionContainer.appendChild(btnAdvance);
+
+                const btnSecure = document.createElement('button');
+                btnSecure.className = "btn";
+                btnSecure.id = "scene-secure-btn";
+                btnSecure.innerHTML = "🩹 固定導管並重新評估";
+                btnSecure.style.display = 'none';
+                btnSecure.onclick = () => {
+                    logScenario("使用無菌敷料妥善固定導管於胸壁上。");
+                    sceneStep = 6;
+                    updateScenarioStep();
+                };
+                actionContainer.appendChild(btnSecure);
+            }
+            else if (sceneStep === 6) {
+                // Success / Review
+                narrative.innerHTML = `<strong>情境結束：成功打斷死亡螺旋！</strong><br>針刺減壓成功釋放了肋膜腔積氣。縱膈腔移位解除，心臟舒張充盈恢復，靜脈血液大量回流。<br><br><strong>重新評估生命徵象：</strong><br>氣胸側（右胸）呼吸音恢復，心跳降至 82 次/分，血壓回升至 112/75，SpO2 上升至 98%！你成功挽救了這名患者！`;
+                
+                setScenarioVitals(112, 82, 98, 16, false);
+                
+                if (AudioEngine.isActive) {
+                    AudioEngine.stopHeartbeatLoop();
+                    AudioEngine.startHeartbeatLoop(82, false); // Normal heartbeat
+                    AudioEngine.playBreathSoundLoop(true); // Normal lung sound
+                }
+
+                // Unlock Badge 3
+                unlockBadge('save');
+
+                const btnRestart = document.createElement('button');
+                btnRestart.className = "btn btn-primary";
+                btnRestart.innerHTML = "🔄 重新演練情境";
+                btnRestart.onclick = () => {
+                    initScenario();
+                };
+                actionContainer.appendChild(btnRestart);
+            }
+        }
+
+        function checkAssessmentProgress() {
+            if (sceneCompletedActions.look && sceneCompletedActions.listen && sceneCompletedActions.feel && sceneCompletedActions.efast) {
+                // Unlock Badge 1
+                unlockBadge('assess');
+                logScenario("✨ 【解鎖勳章】精準評估大師：你完成了最詳實的感官與超音波檢查！");
+                
+                const actionContainer = document.getElementById('scene-action-buttons');
+                actionContainer.innerHTML = '';
+                const btnNext = document.createElement('button');
+                btnNext.className = "btn btn-green";
+                btnNext.innerHTML = "繼續前進 ➔";
+                btnNext.onclick = () => {
+                    sceneStep = 2;
+                    updateScenarioStep();
+                };
+                actionContainer.appendChild(btnNext);
+            }
+        }
+
+        function selectScenarioNeedle(needleType) {
+            // Remove selection borders
+            document.querySelectorAll('.needle-card').forEach(c => c.classList.remove('selected'));
+            
+            if (needleType === 'small') {
+                document.getElementById('needle-opt-1').classList.add('selected');
+                deductScore(15, "選擇錯誤：24G留置針長度（1.9cm）過短且管徑過小，無法刺透胸壁，且極易被血液或氣體氣泡堵塞。");
+                selectedNeedle = 'small';
+            } 
+            else if (needleType === 'correct') {
+                document.getElementById('needle-opt-2').classList.add('selected');
+                logScenario("選擇正確：10G 8.3公分減壓專用針，大管徑且長度足以穿透成人胸壁。");
+                selectedNeedle = 'correct';
+            } 
+            else if (needleType === 'short') {
+                document.getElementById('needle-opt-3').classList.add('selected');
+                deductScore(10, "錯誤：18G注射針長度（3.2cm）通常不足以穿透成人的肋間肌肉與皮下脂肪層，容易減壓失敗。");
+                selectedNeedle = 'short';
+            }
+
+            // Show confirmation button
+            const actionContainer = document.getElementById('scene-action-buttons');
+            actionContainer.innerHTML = '';
+            const btnConfirm = document.createElement('button');
+            btnConfirm.className = "btn btn-green";
+            btnConfirm.innerHTML = "確認使用此針具";
+            btnConfirm.onclick = () => {
+                if (!selectedNeedle) return;
+                sceneStep = 4;
+                updateScenarioStep();
+            };
+            actionContainer.appendChild(btnConfirm);
+        }
+
+        function submitScenarioSite(siteCode) {
+            if (siteCode === 'right-5th') {
+                // Correct首選
+                logScenario("選擇進針部位：右側第五肋間腋中線前側 (首選位置，安全且肋壁較薄)。");
+                selectedSite = 'right-5th';
+                unlockBadge('locate');
+                logScenario("✨ 【解鎖勳章】解剖定位標竿：你精確鎖定了成人針刺減壓首選之第五肋間！");
+            } 
+            else if (siteCode === 'right-2nd') {
+                // Acceptable alternative
+                logScenario("選擇進針部位：右側第二肋間鎖骨中線 (替代位置，壁較厚，但可接受)。");
+                selectedSite = 'right-2nd';
+            } 
+            else if (siteCode === 'left-2nd' || siteCode === 'left-5th') {
+                // Wrong side!
+                deductScore(30, "致命錯誤：針刺了健康的左胸！這將會導致健側肺部也塌陷，引發雙側氣胸，患者將立即死亡！");
+                logScenario("處置失誤：針刺進入健康的左胸，患者SpO2下降至 50% 瀕臨死亡。");
+                setScenarioVitals(40, 160, 50, 42, true);
+                return; // Must re-select correct side
+            }
+
+            // Proceed to step 5
+            sceneStep = 5;
+            updateScenarioStep();
+        }
+
+        function unlockBadge(badgeType) {
+            sceneBadges[badgeType] = true;
+            const badgeList = document.getElementById('scene-badge-list');
+            
+            const badgesHTML = `
+                <div style="opacity: ${sceneBadges.assess ? 1 : 0.3}; display:flex; align-items:center; gap:0.5rem; font-size:0.85rem; padding: 0.5rem; background:rgba(16, 185, 129, 0.1); border-radius:6px; border: 1px solid ${sceneBadges.assess ? 'var(--accent-green)' : 'transparent'};">
+                    <span style="font-size:1.5rem;">🔍</span>
+                    <div>
+                        <strong style="${sceneBadges.assess ? 'color:var(--accent-green);' : ''}">精準評估大師</strong>
+                        <div style="font-size:0.7rem; color:var(--text-secondary);">完成視聽觸叩與e-FAST完整診斷。</div>
+                    </div>
+                </div>
+                <div style="opacity: ${sceneBadges.locate ? 1 : 0.3}; display:flex; align-items:center; gap:0.5rem; font-size:0.85rem; padding: 0.5rem; background:rgba(16, 185, 129, 0.1); border-radius:6px; border: 1px solid ${sceneBadges.locate ? 'var(--accent-green)' : 'transparent'};">
+                    <span style="font-size:1.5rem;">📐</span>
+                    <div>
+                        <strong style="${sceneBadges.locate ? 'color:var(--accent-green);' : ''}">解剖定位標竿</strong>
+                        <div style="font-size:0.7rem; color:var(--text-secondary);">首選部位且針刺於肋骨上緣。</div>
+                    </div>
+                </div>
+                <div style="opacity: ${sceneBadges.save ? 1 : 0.3}; display:flex; align-items:center; gap:0.5rem; font-size:0.85rem; padding: 0.5rem; background:rgba(16, 185, 129, 0.1); border-radius:6px; border: 1px solid ${sceneBadges.save ? 'var(--accent-green)' : 'transparent'};">
+                    <span style="font-size:1.5rem;">⚡</span>
+                    <div>
+                        <strong style="${sceneBadges.save ? 'color:var(--accent-green);' : ''}">打斷死亡螺旋</strong>
+                        <div style="font-size:0.7rem; color:var(--text-secondary);">成功執行減壓並恢復生命徵象。</div>
+                    </div>
+                </div>
+            `;
+            badgeList.innerHTML = badgesHTML;
+        }
+
+
+        // --- MODULE 6: EMT-P KNOWLEDGE QUIZ ---
+        const quizQuestions = [
+            {
+                q: "下列何者不是張力性氣胸造成心跳停止（OHCA）的致命生理連鎖反應之一？",
+                options: [
+                    "A. 肋膜腔內高壓積氣",
+                    "B. 縱膈腔偏移與大靜脈扭曲受壓",
+                    "C. 心肌細胞直接壞死",
+                    "D. 靜脈血液回流受阻與心輸出量驟減"
+                ],
+                correct: 2,
+                reason: "張力性氣胸造成的心跳停止屬於梗塞性休克（Obstructive Shock），其機轉是物理性的高壓阻斷靜脈回流，而非心肌細胞直接壞死。及時針刺減壓即可立即解除物理壓迫，逆轉休克。"
+            },
+            {
+                q: "根據高級救護技術員（EMT-P）執行針刺減壓的「決策三角」，必須「同時滿足」哪三項條件才可執行處置？",
+                options: [
+                    "A. 嚴重呼吸窘迫、單側呼吸音消失、收縮壓 < 90 mmHg",
+                    "B. 嚴重呼吸窘迫、雙側瞳孔不等大、收縮壓 < 100 mmHg",
+                    "C. 胸部穿刺傷、皮下氣腫、意識不清",
+                    "D. 單側呼吸音減弱、氣管偏移、血氧飽和度 < 90%"
+                ],
+                correct: 0,
+                reason: "EMT-P 執行針刺減壓的法定決策三角為：(1) 嚴重呼吸窘迫，(2) 單側呼吸音消失（或減弱），(3) 收縮壓 < 90 mmHg（休克表現）。必須三者同時具備，方可授權執行侵入性減壓。"
+            },
+            {
+                q: "在進行針刺減壓時，成人首選的穿刺解剖部位為下列何者？",
+                options: [
+                    "A. 患側第二肋間鎖骨中線處 (2nd ICS, MCL)",
+                    "B. 患側第五肋間與腋中線交匯處前側 (5th ICS, AAL/MAL)",
+                    "C. 健側第二肋間鎖骨中線處 (2nd ICS, MCL)",
+                    "D. 患側第五肋間肋骨下緣處"
+                ],
+                correct: 1,
+                reason: "根據最新的 TCCC 與 ACS-COT 臨床指引，成人針刺減壓的首選部位為患側第五肋間與腋中線交匯處前側（5th ICS, AAL/MAL），此處胸壁較薄且遠離心臟大血管。第二肋間鎖骨中線目前為替代/小兒部位。"
+            },
+            {
+                q: "關於針刺減壓的避讓解剖結構，進針時應選擇在肋骨的何處，以避免傷及血管神經束？",
+                options: [
+                    "A. 上一根肋骨的下緣",
+                    "B. 下一根肋骨的上緣",
+                    "C. 肋間隙的正中央直接穿刺",
+                    "D. 避開所有肋骨，垂直快速刺入即可"
+                ],
+                correct: 1,
+                reason: "肋間動、靜脈及神經（血管神經束）皆跑行在肋骨的「下緣」凹槽內。為避免刺破血管造成大量血胸，進針時必須將針尖緊貼「下一根肋骨的上緣」滑入肋膜腔。"
+            },
+            {
+                q: "在已建立氣管內管（插管）的病患中，若突然出現單側呼吸音消失，在執行針刺減壓前，最先應排除的致命陷阱是？",
+                options: [
+                    "A. 正壓通氣壓力不足",
+                    "B. 氣管內管誤入單側支氣管（單側插管）",
+                    "C. 開放性氣胸敷料三邊固定失效",
+                    "D. 針刺減壓導管阻塞"
+                ],
+                correct: 1,
+                reason: "已插管患者若管路滑入過深（通常誤入偏直的右側主支氣管），會造成左側肺部聽不到呼吸音，容易被誤判為左側張力性氣胸。在進針前必須先確認氣管插管的刻度，排除單側插管，以防造成不必要的侵入性穿刺傷害。"
+            }
+        ];
+
+        let currentQuizIndex = 0;
+        let quizAnswersLog = [];
+
+        function renderQuiz() {
+            const container = document.getElementById('quiz-questions-container');
+            container.innerHTML = '';
+            
+            quizQuestions.forEach((item, qIdx) => {
+                const qBox = document.createElement('div');
+                qBox.className = `quiz-question-box ${qIdx === currentQuizIndex ? 'active' : ''}`;
+                qBox.id = `quiz-q-${qIdx}`;
+                
+                let optionsHTML = '';
+                item.options.forEach((opt, oIdx) => {
+                    optionsHTML += `
+                        <button class="quiz-option" id="q-${qIdx}-opt-${oIdx}" onclick="selectQuizOption(${qIdx}, ${oIdx})">
+                            <input type="radio" name="q-${qIdx}" class="quiz-option-radio" id="radio-q-${qIdx}-${oIdx}">
+                            <span>${opt}</span>
+                        </button>
+                    `;
+                });
+
+                qBox.innerHTML = `
+                    <div class="quiz-question-num">問題 ${qIdx + 1} / ${quizQuestions.length}</div>
+                    <div class="quiz-question-text">${item.q}</div>
+                    <div class="quiz-options">${optionsHTML}</div>
+                    <div class="quiz-feedback" id="q-${qIdx}-feedback">
+                        <strong>解析：</strong> ${item.reason}
+                    </div>
+                    <div style="display:flex; justify-content:flex-end;">
+                        <button class="btn btn-blue" id="q-${qIdx}-next-btn" style="display:none;" onclick="nextQuizQuestion()">下一題 ➔</button>
+                    </div>
+                `;
+                
+                container.appendChild(qBox);
+            });
+
+            // Update Progress bar
+            const percent = (currentQuizIndex / quizQuestions.length) * 100;
+            document.getElementById('quiz-progressbar').style.width = `${percent}%`;
+            document.getElementById('quiz-results-panel').style.display = 'none';
+        }
+
+        function selectQuizOption(qIdx, oIdx) {
+            const item = quizQuestions[qIdx];
+            const feedbackEl = document.getElementById(`q-${qIdx}-feedback`);
+            const nextBtn = document.getElementById(`q-${qIdx}-next-btn`);
+            
+            // Disable all options
+            item.options.forEach((_, optIdx) => {
+                const optBtn = document.getElementById(`q-${qIdx}-opt-${optIdx}`);
+                optBtn.style.pointerEvents = 'none';
+                
+                // Highlight correct and wrong answers
+                if (optIdx === item.correct) {
+                    optBtn.classList.add('correct');
+                } else if (optIdx === oIdx) {
+                    optBtn.classList.add('wrong');
+                }
+            });
+
+            // Log answer
+            quizAnswersLog[qIdx] = (oIdx === item.correct);
+
+            // Display feedback
+            feedbackEl.style.display = 'block';
+            nextBtn.style.display = 'inline-flex';
+
+            if (qIdx === quizQuestions.length - 1) {
+                nextBtn.textContent = "查看檢定結果 ➔";
+            }
+        }
+
+        function nextQuizQuestion() {
+            if (currentQuizIndex < quizQuestions.length - 1) {
+                // Next question
+                currentQuizIndex++;
+                renderQuiz();
+            } else {
+                // Show results
+                showQuizResults();
+            }
+        }
+
+        function showQuizResults() {
+            // Hide questions
+            document.querySelectorAll('.quiz-question-box').forEach(q => q.classList.remove('active'));
+            
+            const resultsPanel = document.getElementById('quiz-results-panel');
+            resultsPanel.style.display = 'block';
+
+            // Calculate Score
+            const correctCount = quizAnswersLog.filter(x => x === true).length;
+            const score = (correctCount / quizQuestions.length) * 100;
+
+            document.getElementById('quiz-progressbar').style.width = '100%';
+            document.getElementById('quiz-score-display').textContent = score;
+
+            const titleEl = document.getElementById('quiz-evaluation-title');
+            const descEl = document.getElementById('quiz-evaluation-desc');
+
+            descEl.textContent = `答對題數：${correctCount} / ${quizQuestions.length} 題。`;
+
+            if (score === 100) {
+                titleEl.textContent = "🥇 完美通關！神級高級救護技術員 (EMT-P)";
+                titleEl.style.color = "var(--accent-green)";
+            } else if (score >= 80) {
+                titleEl.textContent = "🥈 合格！具備優異的臨床決策能力";
+                titleEl.style.color = "var(--accent-blue)";
+            } else {
+                titleEl.textContent = "❌ 未合格，建議重新複習簡報核心內容";
+                titleEl.style.color = "var(--accent-red)";
+            }
+        }
+
+        function restartQuiz() {
+            currentQuizIndex = 0;
+            quizAnswersLog = [];
+            renderQuiz();
+        }
+
+        function loadQuizQuestion(idx) {
+            currentQuizIndex = idx;
+            renderQuiz();
+        }
+
+        // Initialize quiz
+        renderQuiz();
+
+    </script>
+</body>
+</html>

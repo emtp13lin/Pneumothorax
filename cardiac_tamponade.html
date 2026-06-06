@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>心包膜填塞：貝克氏三徵與搖擺心 | EMT-P 臨床決策學習網站</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #0b0f19;
+            --bg-secondary: #131b2e;
+            --bg-tertiary: #1e293b;
+            --accent-red: #ef4444;
+            --accent-red-hover: #dc2626;
+            --accent-purple: #8b5cf6;
+            --accent-purple-hover: #7c3aed;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-yellow: #f59e0b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --glow-purple: 0 0 15px rgba(139, 92, 246, 0.5);
+            --font-main: 'Inter', 'Noto Sans TC', sans-serif;
+            --font-header: 'Outfit', 'Noto Sans TC', sans-serif;
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1d0f2b 0%, var(--bg-secondary) 100%);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-badge {
+            background-color: var(--accent-purple);
+            color: white;
+            font-family: var(--font-header);
+            font-weight: 800;
+            font-size: 0.8rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: var(--glow-purple);
+        }
+
+        h1 {
+            font-family: var(--font-header);
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #fff, #f3e8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn-back {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all var(--transition-speed);
+        }
+
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-purple);
+        }
+
+        nav {
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 77px;
+            z-index: 99;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .nav-tab {
+            padding: 1.2rem 1.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-tab:hover {
+            color: var(--text-primary);
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        .nav-tab.active {
+            color: var(--accent-purple);
+            border-bottom-color: var(--accent-purple);
+            background-color: rgba(139, 92, 246, 0.05);
+        }
+
+        main {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            min-height: 70vh;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-title {
+            font-family: var(--font-header);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--accent-purple);
+            padding-left: 0.75rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 992px) {
+            .grid-2 {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .btn {
+            background-color: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-purple);
+            border-color: transparent;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-purple-hover);
+            box-shadow: var(--glow-purple);
+        }
+
+        .bullet-list {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .bullet-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Patho SVG & Pulsing Heart */
+        .anatomy-svg-wrapper {
+            background-color: #0b111e;
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        @keyframes heart-beat-normal {
+            0% { transform: scale(1); }
+            15% { transform: scale(1.12); }
+            30% { transform: scale(0.96); }
+            45% { transform: scale(1.06); }
+            60% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+
+        .svg-heart-normal {
+            animation: heart-beat-normal 1.0s infinite ease-in-out;
+            transform-origin: 160px 240px;
+        }
+
+        @keyframes heart-beat-constricted {
+            0% { transform: scale(0.97); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(0.97); }
+        }
+
+        .svg-heart-constricted {
+            animation: heart-beat-constricted 0.45s infinite ease-in-out;
+            transform-origin: 160px 240px;
+        }
+
+        .patho-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .patho-btn {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: left;
+            transition: all var(--transition-speed);
+        }
+
+        .patho-btn.active {
+            background: rgba(139, 92, 246, 0.08);
+            border-color: var(--accent-purple);
+            color: var(--text-primary);
+        }
+
+        /* Diag Matrix Layout */
+        .diag-split-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 992px) {
+            .diag-split-layout {
+                grid-template-columns: 1.1fr 0.9fr;
+            }
+        }
+
+        .diag-matrix-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: left;
+            transition: all var(--transition-speed);
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .diag-matrix-card.active {
+            background: rgba(139, 92, 246, 0.08);
+            border-color: var(--accent-purple);
+            color: var(--text-primary);
+            box-shadow: var(--glow-purple);
+        }
+
+        .diag-interactive-area {
+            background-color: #0b111e;
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            position: relative;
+            min-height: 420px;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .chest-wrapper {
+            position: relative;
+            width: 280px;
+            height: 380px;
+        }
+
+        .interactive-spot {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(139, 92, 246, 0.2);
+            border: 2px dashed var(--accent-purple);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            transition: all 0.2s ease-in-out;
+            z-index: 10;
+        }
+
+        .interactive-spot:hover {
+            background: rgba(139, 92, 246, 0.4);
+            transform: scale(1.15);
+            box-shadow: var(--glow-purple);
+        }
+
+        .us-screen-container {
+            width: 100%;
+            max-width: 400px;
+            background: #000;
+            border: 4px solid var(--bg-tertiary);
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        .us-canvas {
+            width: 100%;
+            height: 220px;
+            background-color: #050505;
+            display: block;
+        }
+
+        /* Quiz Contrast Fix */
+        .quiz-option {
+            background-color: rgba(255, 255, 255, 0.04);
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            font-size: 0.95rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-align: left;
+            width: 100%;
+        }
+
+        .quiz-option:hover {
+            background-color: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .quiz-option.correct {
+            background-color: rgba(16, 185, 129, 0.25);
+            border-color: var(--accent-green);
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .quiz-option.wrong {
+            background-color: rgba(239, 68, 68, 0.25);
+            border-color: var(--accent-red);
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .quiz-feedback {
+            background-color: rgba(59, 82, 246, 0.08);
+            border-left: 4px solid var(--accent-blue);
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: #f1f5f9;
+            display: none;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .audio-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all var(--transition-speed);
+            margin-bottom: 1rem;
+        }
+
+        .audio-btn.active {
+            background: rgba(139, 92, 246, 0.15);
+            border-color: var(--accent-purple);
+            box-shadow: var(--glow-purple);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-area">
+                <span class="logo-badge">EMT-P</span>
+                <h1>心包膜填塞：Beck's 三徵與心包穿刺術</h1>
+            </div>
+            <div style="display:flex; align-items:center; gap:1rem;">
+                <a href="./index.html" class="btn-back">⬅ 返回首頁</a>
+                <button class="audio-btn" id="btn-enable-audio" onclick="toggleClinicalAudio()" style="margin-bottom:0;">🔊 啟動臨床模擬音效</button>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <div class="nav-tab active" onclick="switchTab('lecture')">📖 學理與臨床導讀</div>
+            <div class="nav-tab" onclick="switchTab('patho')">🫁 心舒張阻礙病理模擬</div>
+            <div class="nav-tab" onclick="switchTab('diag')">🩺 感官與超音波診斷</div>
+            <div class="nav-tab" onclick="switchTab('treatment')">🩹 劍突下心包穿刺處置</div>
+            <div class="nav-tab" onclick="switchTab('quiz')">✏️ EMT-P 挑戰檢定</div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Tab 1: Lecture -->
+        <section id="tab-lecture" class="tab-content active">
+            <div class="card">
+                <div class="card-title">心包膜填塞學理與臨床重點</div>
+                <p style="margin-bottom: 1rem;">心包膜填塞（Cardiac Tamponade）多因穿透性胸部創傷引起心臟壁破裂，血液流入彈性有限的心包膜腔。由於心包腔內壓力驟增，直接壓迫心房與心室，導致心臟舒張充盈受阻，心輸出量急降，引發嚴重的梗塞性休克。</p>
+                <div class="grid-2">
+                    <div>
+                        <h4 style="color: var(--accent-purple); margin-bottom: 0.5rem;">🔑 診斷關鍵：貝克氏三徵 (Beck's Triad)</h4>
+                        <ul class="bullet-list">
+                            <li><strong>低血壓 (Hypotension)</strong>：心臟無血可打，收縮壓驟降且脈壓差變窄。</li>
+                            <li><strong>頸靜脈怒張 (JVD)</strong>：右心室受壓無法接受回心血流，導致靜脈血在頸部淤積。</li>
+                            <li><strong>心音遙遠 (Muffled Heart Sounds)</strong>：積血液體阻隔了瓣膜關閉聲音傳導，聽診呈現極其低沉遙遠的心音。</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--accent-purple); margin-bottom: 0.5rem;">⚡ 奇脈與一線處置</h4>
+                        <ul class="bullet-list">
+                            <li><strong>奇脈 (Pulsus Paradoxus)</strong>：吸氣時收縮壓下降 >10 mmHg。觸診橈動脈在吸氣時搏動明顯減弱甚至消失。</li>
+                            <li><strong>e-FAST 確診</strong>：超音波在劍突下切面可見心包膜內存在黑色無迴音的積液環。</li>
+                            <li><strong>急救決策</strong>：院前若病人發生 OHCA 或嚴重休克且超音波證實心包積液，應執行緊急<strong>「心包膜穿刺術 (Pericardiocentesis)」</strong>。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 2: Pathophysiology Simulator -->
+        <section id="tab-patho" class="tab-content">
+            <div class="card">
+                <div class="card-title">心包腔高壓阻礙心舒張模擬</div>
+                <div class="grid-2" style="align-items: center;">
+                    <div class="anatomy-svg-wrapper">
+                        <!-- Pericardium SVG -->
+                        <svg width="320" height="400" viewBox="0 0 320 400" id="patho-svg">
+                            <!-- Body Outline background -->
+                            <path d="M60,360 C60,200 90,80 160,80 C230,80 260,200 260,360 Z" fill="#131b2e" stroke="#334155" stroke-width="2"/>
+                            
+                            <!-- Pericardium layer (bright circle around heart) -->
+                            <circle cx="160" cy="240" r="75" fill="none" stroke="#64748b" stroke-width="3" id="svg-pericardium-border"/>
+                            
+                            <!-- Blood in Pericardium (fills the circle surrounding the heart) -->
+                            <circle cx="160" cy="240" r="73" fill="#990011" opacity="0" id="svg-pericardial-blood" transform-origin="160px 240px" style="transform: scale(0.1); transition: opacity 1.5s ease-in-out, transform 2.5s ease-in-out;"/>
+                            
+                            <!-- Heart - Animated scaling -->
+                            <path d="M160,270 C160,270 145,250 130,260 C115,270 130,295 160,310 C190,295 205,270 190,260 C175,250 160,270 160,270 Z" fill="#991b1b" stroke="#ef4444" stroke-width="2" id="svg-heart" class="svg-heart-normal" style="transition: transform 0.5s;"/>
+                        </svg>
+                    </div>
+                    <div class="patho-controls">
+                        <div class="patho-btn active" id="patho-btn-normal" onclick="setTamponadeState('normal')">
+                            <div class="patho-btn-title">🟢 正常生理狀態 (Normal Filling)</div>
+                            <div class="patho-btn-desc">心臟搏動均勻有力（收縮舒張幅度正常）。心包腔無多餘液體，回心血量充盈。</div>
+                        </div>
+                        <div class="patho-btn" id="patho-btn-tamponade" onclick="setTamponadeState('tamponade')">
+                            <div class="patho-btn-title">🔴 心包膜填塞 (Constricted Diastole)</div>
+                            <div class="patho-btn-desc">心包腔充血積液（紅色充盈區）。高壓緊箍心臟，導致舒張嚴重受限（心跳代償性極速跳動但震幅扁小）。回心血流斷絕。</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 3: Diagnostic Lab (Side by Side) -->
+        <section id="tab-diag" class="tab-content">
+            <div class="card">
+                <div class="card-title">感官與超音波診斷</div>
+                <div class="diag-split-layout">
+                    <!-- Left Column: Visual/Canvas Screen -->
+                    <div>
+                        <div class="diag-interactive-area">
+                            <div class="chest-wrapper" id="diag-visual-container">
+                                <svg width="280" height="380" viewBox="0 0 280 380" style="background:#090d16; border-radius:8px;">
+                                    <path d="M40,340 C40,200 60,60 140,60 C220,60 240,200 240,340 Z" fill="#1e293b" stroke="#475569" stroke-width="3"/>
+                                    <!-- JVD representation (distended jugular vein) -->
+                                    <line x1="205" y1="50" x2="205" y2="100" stroke="#3b82f6" stroke-width="2" id="visual-jvd-vein" style="display:none;"/>
+                                </svg>
+                                
+                                <!-- Listen spot (Heart) -->
+                                <div class="interactive-spot" id="spot-listen-heart" style="top:190px; left:115px; display:none;" onclick="triggerDiagnosticFeedback('listen-heart')">🩺</div>
+                                <!-- Feel spot (Radial pulse) -->
+                                <div class="interactive-spot" id="spot-feel-pulse" style="top:320px; left:30px; display:none;" onclick="triggerDiagnosticFeedback('feel-pulse')">✋</div>
+                                <!-- US spot (Subxiphoid) -->
+                                <div class="interactive-spot" id="spot-us-subxiphoid" style="top:250px; left:115px; display:none;" onclick="triggerDiagnosticFeedback('us-subxiphoid')">📟</div>
+                            </div>
+
+                            <!-- US Monitor Screen -->
+                            <div class="us-screen-container" id="us-screen-panel" style="display:none;">
+                                <div style="display:flex; justify-content:space-between; color:#00ff00; font-family:monospace; font-size:11px; margin-bottom:5px;">
+                                    <span>e-FAST: SUBXIPHOID FOUR-CHAMBER VIEW</span>
+                                    <span id="us-lbl">LOC: SUBXIPHOID</span>
+                                </div>
+                                <canvas class="us-canvas" id="usCanvas"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Options & Report -->
+                    <div>
+                        <div class="diag-matrix-container" style="display:grid; grid-template-columns:1fr; gap:0.5rem; margin-bottom:1.5rem;">
+                            <div class="diag-matrix-card active" id="diag-btn-look" onclick="setDiagMethod('look')">👀 視診 (Look) - 頸靜脈怒張與血壓評估</div>
+                            <div class="diag-matrix-card" id="diag-btn-listen" onclick="setDiagMethod('listen')">👂 聽診 (Listen) - 心音聽筒定位</div>
+                            <div class="diag-matrix-card" id="diag-btn-feel" onclick="setDiagMethod('feel')">✋ 觸診 (Feel) - 橈動脈奇脈判定</div>
+                            <div class="diag-matrix-card" id="diag-btn-us" onclick="setDiagMethod('us')">📟 e-FAST 超音波 - 劍突下四腔室掃描</div>
+                        </div>
+
+                        <div class="card" style="background:rgba(255,255,255,0.01); border-color:var(--border-color); margin-bottom:0;">
+                            <div class="card-title" id="diag-report-title" style="border-left-color:var(--accent-purple)">診斷評估報告</div>
+                            <p id="diag-report-desc" style="color:var(--text-primary); font-size:0.95rem;">
+                                點選上方的檢查方式，並在左側人體圖上進行點擊操作。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 4: Treatment -->
+        <section id="tab-treatment" class="tab-content">
+            <div class="card">
+                <div class="card-title">🩹 針刺心包膜穿刺術 (Pericardiocentesis) 操作決策</div>
+                <p style="margin-bottom: 1.5rem;">在院前環境下，如果心包膜填塞病患病情急劇惡化（SBP < 70 mmHg 且出現 PEA 或瀕死），且超音波確認大量心包積液，EMT-P 應考慮執行穿刺引流。此為高風險操作，必須遵循精確的解剖學進針幾何學。</p>
+                <div class="grid-2">
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 12px; display:flex; flex-direction:column; justify-content:center;">
+                        <h3 style="color:var(--accent-purple); margin-bottom: 0.5rem;">解剖進針參數：</h3>
+                        <ul class="bullet-list" style="font-size:0.9rem;">
+                            <li><strong>穿刺定位點</strong>：劍突 (Xiphoid Process) 與左側肋弓交角下方 0.5 - 1 公分處。</li>
+                            <li><strong>進針角度與方向</strong>：針頭呈 45 度角斜向刺入，朝向<strong>「左側肩膀 (Left Shoulder)」</strong>。</li>
+                            <li><strong>操作深度</strong>：一邊進針一邊抽吸，一旦抽吸出暗紅色「不凝固血液」即停止推進，立即回抽排液（通常回抽 5-10 mL 即可使心輸出量顯著回升）。</li>
+                        </ul>
+                    </div>
+
+                    <div style="background:#090d16; border-radius:12px; padding:1.5rem; text-align:center; border:1px solid var(--border-color);">
+                        <h4 style="color:#fff; margin-bottom:1rem;">針刺心包穿刺引流模擬器</h4>
+                        <div style="position:relative; width:200px; height:200px; margin:0 auto; background:#1e293b; border-radius:50%; border:3px solid #475569;">
+                            <!-- Pericardium circle -->
+                            <circle cx="100" cy="100" r="60" fill="none" stroke="#ef4444" stroke-width="4" id="sim-pericardium" style="position:absolute; top:40px; left:40px; width:120px; height:120px; border-radius:50%; border:4px solid #ef4444; background:rgba(239, 68, 68, 0.2); display:flex; align-items:center; justify-content:center; transition:background 0.5s;"></circle>
+                            <button class="btn btn-primary" id="btn-pericardial-draw" onclick="performSimulateDraw()" style="position:absolute; top:80px; left:45px; z-index:20;">💉 抽吸積液</button>
+                        </div>
+                        <div id="sim-draw-status" style="margin-top:1rem; font-weight:bold; color:var(--accent-yellow);">狀態：心腔受壓中</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 5: Quiz -->
+        <section id="tab-quiz" class="tab-content">
+            <div class="card">
+                <div class="card-title">✏️ EMT-P 心包膜填塞專業考題檢定</div>
+                <div id="quiz-progress-container" style="background:rgba(255,255,255,0.05); height:6px; border-radius:3px; margin-bottom:1.5rem; overflow:hidden;">
+                    <div id="quiz-progressbar" style="background:var(--accent-purple); width:0%; height:100%; transition:width 0.3s;"></div>
+                </div>
+
+                <div id="quiz-question-panel">
+                    <!-- Dynamic question rendering -->
+                </div>
+
+                <div id="quiz-results-panel" style="display:none; text-align:center; padding:2rem 0;">
+                    <h3 style="font-size:2rem; color:var(--accent-purple); margin-bottom:1rem;">🎉 測驗完成</h3>
+                    <p style="font-size:1.2rem; margin-bottom:1.5rem;" id="quiz-score-text">您的得分為：0 / 5</p>
+                    <button class="btn btn-primary" onclick="restartQuiz()">重新挑戰</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            event.currentTarget.classList.add('active');
+            document.getElementById(`tab-${tabId}`).classList.add('active');
+            
+            if (tabId === 'diag') {
+                setDiagMethod('look');
+            }
+        }
+
+        // Web Audio Synthesizer
+        let audioCtx = null;
+        let mainVolume = null;
+        let isAudioOn = false;
+
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                mainVolume = audioCtx.createGain();
+                mainVolume.gain.value = 0.5;
+                mainVolume.connect(audioCtx.destination);
+            }
+        }
+
+        function toggleClinicalAudio() {
+            initAudio();
+            const btn = document.getElementById('btn-enable-audio');
+            if (!isAudioOn) {
+                audioCtx.resume();
+                isAudioOn = true;
+                btn.classList.add('active');
+                btn.textContent = "🔊 臨床音效已開啟";
+                playNormalHeartBeatLoop();
+            } else {
+                isAudioOn = false;
+                btn.classList.remove('active');
+                btn.textContent = "🔊 啟動臨床模擬音效";
+            }
+        }
+
+        function playNormalHeartBeatLoop() {
+            if (!isAudioOn) return;
+            // Lub-dub
+            const playBeat = () => {
+                if (!isAudioOn) return;
+                
+                // Lub
+                const osc1 = audioCtx.createOscillator();
+                const gain1 = audioCtx.createGain();
+                osc1.frequency.setValueAtTime(55, audioCtx.currentTime);
+                gain1.gain.setValueAtTime(0.3, audioCtx.currentTime);
+                gain1.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.15);
+                osc1.connect(gain1);
+                gain1.connect(mainVolume);
+                osc1.start();
+                osc1.stop(audioCtx.currentTime + 0.2);
+
+                // Dub
+                setTimeout(() => {
+                    if (!isAudioOn) return;
+                    const osc2 = audioCtx.createOscillator();
+                    const gain2 = audioCtx.createGain();
+                    osc2.frequency.setValueAtTime(45, audioCtx.currentTime);
+                    gain2.gain.setValueAtTime(0.25, audioCtx.currentTime);
+                    gain2.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.15);
+                    osc2.connect(gain2);
+                    gain2.connect(mainVolume);
+                    osc2.start();
+                    osc2.stop(audioCtx.currentTime + 0.2);
+                }, 150);
+
+                setTimeout(playBeat, 1000); // HR: 60
+            };
+            playBeat();
+        }
+
+        function playMuffledHeartSound() {
+            if (!isAudioOn) return;
+            // Simulate muffled heartbeat by filtering out high frequencies with a lowpass filter (e.g., 80Hz limit)
+            const playMuffledBeat = () => {
+                const osc1 = audioCtx.createOscillator();
+                const gain1 = audioCtx.createGain();
+                const filter = audioCtx.createBiquadFilter();
+                
+                filter.type = 'lowpass';
+                filter.frequency.setValueAtTime(80, audioCtx.currentTime);
+
+                osc1.frequency.setValueAtTime(55, audioCtx.currentTime);
+                gain1.gain.setValueAtTime(0.15, audioCtx.currentTime); // quieter
+                gain1.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.12);
+
+                osc1.connect(filter);
+                filter.connect(gain1);
+                gain1.connect(mainVolume);
+                
+                osc1.start();
+                osc1.stop(audioCtx.currentTime + 0.15);
+
+                setTimeout(() => {
+                    const osc2 = audioCtx.createOscillator();
+                    const gain2 = audioCtx.createGain();
+                    const filter2 = audioCtx.createBiquadFilter();
+                    
+                    filter2.type = 'lowpass';
+                    filter2.frequency.setValueAtTime(80, audioCtx.currentTime);
+
+                    osc2.frequency.setValueAtTime(45, audioCtx.currentTime);
+                    gain2.gain.setValueAtTime(0.1, audioCtx.currentTime);
+                    gain2.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.12);
+
+                    osc2.connect(filter2);
+                    filter2.connect(gain2);
+                    gain2.connect(mainVolume);
+                    
+                    osc2.start();
+                    osc2.stop(audioCtx.currentTime + 0.15);
+                }, 110);
+            };
+            playMuffledBeat();
+        }
+
+        // Patho
+        function setTamponadeState(state) {
+            document.querySelectorAll('.patho-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`patho-btn-${state}`).classList.add('active');
+            
+            const heart = document.getElementById('svg-heart');
+            const blood = document.getElementById('svg-pericardial-blood');
+
+            if (state === 'normal') {
+                blood.style.opacity = '0';
+                blood.style.transform = 'scale(0.1)';
+                heart.className.baseVal = "svg-heart-normal";
+            } else {
+                // Gradually accumulate fluid
+                blood.style.opacity = '0.85';
+                blood.style.transform = 'scale(1)';
+                
+                // Keep heart beating normal first, then restrict it after fluid accumulates
+                setTimeout(() => {
+                    if (document.getElementById('patho-btn-tamponade').classList.contains('active')) {
+                        heart.className.baseVal = "svg-heart-constricted";
+                    }
+                }, 2000);
+            }
+        }
+
+        // Diag Method
+        function setDiagMethod(method) {
+            document.querySelectorAll('.diag-matrix-card').forEach(c => c.classList.remove('active'));
+            document.getElementById(`diag-btn-${method}`).classList.add('active');
+            
+            const reportTitle = document.getElementById('diag-report-title');
+            const reportDesc = document.getElementById('diag-report-desc');
+            const container = document.getElementById('diag-visual-container');
+            const usPanel = document.getElementById('us-screen-panel');
+            const jvd = document.getElementById('visual-jvd-vein');
+
+            // Hide spots
+            document.getElementById('spot-listen-heart').style.display = 'none';
+            document.getElementById('spot-feel-pulse').style.display = 'none';
+            document.getElementById('spot-us-subxiphoid').style.display = 'none';
+
+            container.style.display = 'block';
+            usPanel.style.display = 'none';
+            jvd.style.display = 'none';
+
+            if (method === 'look') {
+                reportTitle.textContent = "👀 視診評估";
+                reportDesc.innerHTML = "<strong>外觀指標檢查：</strong><br>1. <strong>頸靜脈怒張 (JVD)</strong>：由於右心房回流受阻，靜脈壓顯著升高，頸部靜脈隆起怒張。<br>2. <strong>低血壓與窄脈壓</strong>：血壓計讀數顯示 80/64 mmHg，顯示心臟每搏輸出量嚴重受限。<br>3. 病人表情痛苦、發紺、皮膚濕冷。";
+                jvd.style.display = 'block';
+                jvd.style.strokeWidth = '6'; // engorged
+            } else if (method === 'listen') {
+                reportTitle.textContent = "👂 心音聽診 (請點選心臟 🩺 圖案)";
+                reportDesc.innerHTML = "請使用聽筒置於左胸前心前區聽診：<br>• <strong>心音遙遠 (Muffled Heart Sounds)</strong>：由於心包腔內積聚大量液體阻隔聲音傳導，聽到的 Lub-Dub 音非常小且低沉，像隔著水封袋聽音。";
+                document.getElementById('spot-listen-heart').style.display = 'flex';
+            } else if (method === 'feel') {
+                reportTitle.textContent = "✋ 觸診評估 (請點選左側橈動脈 ✋ 圖案)";
+                reportDesc.innerHTML = "請觸摸病患的左側橈動脈搏動：<br>• <strong>奇脈 (Pulsus Paradoxus)</strong>：當病患吸氣時，感覺到橈動脈搏動突然明顯減弱，甚至完全觸摸不到；呼氣時再度恢復搏動，證實回心血容量在吸氣期因室間隔偏移進一步受限。";
+                document.getElementById('spot-feel-pulse').style.display = 'flex';
+            } else if (method === 'us') {
+                container.style.display = 'none';
+                usPanel.style.display = 'block';
+                reportTitle.textContent = "📟 e-FAST 劍突下超音波定位檢查 (點選 📟 以渲染螢幕)";
+                reportDesc.innerHTML = "探頭放置於劍突下方朝向左肩 (Subxiphoid View)：<br>• <strong>搖擺心 (Swinging Heart)</strong>：在心臟外側可見一圈寬闊的黑色無迴音「心包積液腔」，心臟在此腔體內前後搖擺、劇烈跳動，呈現典型的 Swinging Heart。";
+                document.getElementById('spot-us-subxiphoid').style.display = 'flex';
+                initUSCanvas();
+            }
+        }
+
+        // Action Feedback
+        function triggerDiagnosticFeedback(action) {
+            const reportDesc = document.getElementById('diag-report-desc');
+            if (action === 'listen-heart') {
+                reportDesc.innerHTML = "🔊 <strong>聽診心臟：</strong> 心音極度遙遠、微弱 (Muffled Heart Sounds)，呼吸音正常。這正是貝克氏三徵中最具特異性的聽診表現。";
+                playMuffledHeartSound();
+            } else if (action === 'feel-pulse') {
+                reportDesc.innerHTML = "✋ <strong>觸診橈動脈：</strong> 脈搏每分鐘 130 次，細快且微弱。在患者<strong>吸氣時脈搏幾乎完全消失 (奇脈)</strong>，呼氣時恢復。";
+            } else if (action === 'us-subxiphoid') {
+                setUSMode('swing');
+                reportDesc.innerHTML = "📟 <strong>超音波劍突下四腔室切面：</strong> 探頭揭示了心臟四周寬達 2.5cm 的黑色無迴音心包積液帶。心房與右心室壁在舒張期呈受壓扁塌（Collapse）狀態，心臟隨心跳在液體中搖擺晃動。";
+            }
+        }
+
+        // US Canvas Swinging Heart
+        let usCanvas = null;
+        let usCtx = null;
+        let usAnimId = null;
+        let swingOffset = 0;
+
+        function initUSCanvas() {
+            usCanvas = document.getElementById('usCanvas');
+            usCtx = usCanvas.getContext('2d');
+            if (usAnimId) cancelAnimationFrame(usAnimId);
+            drawUS();
+        }
+
+        function setUSMode(mode) {
+            // Hardcoded to swing for tamponade
+        }
+
+        function drawUS() {
+            usCtx.fillStyle = '#050505';
+            usCtx.fillRect(0, 0, 400, 220);
+
+            // Draw Pericardium boundary
+            usCtx.strokeStyle = '#64748b';
+            usCtx.lineWidth = 3;
+            usCtx.beginPath();
+            usCtx.arc(200, 110, 80, 0, Math.PI * 2);
+            usCtx.stroke();
+
+            // Black anechoic space (Fluid)
+            usCtx.fillStyle = 'rgba(0, 0, 25, 0.4)';
+            usCtx.beginPath();
+            usCtx.arc(200, 110, 78, 0, Math.PI * 2);
+            usCtx.fill();
+
+            // Heart outline (swinging left-right)
+            swingOffset += 0.08;
+            let heartSway = Math.sin(swingOffset) * 20;
+            let heartScale = 0.95 + Math.sin(swingOffset * 2) * 0.05;
+
+            usCtx.save();
+            usCtx.translate(200 + heartSway, 110);
+            usCtx.scale(heartScale, heartScale);
+
+            // Simple 4-chamber heart diagram representation
+            usCtx.strokeStyle = '#fff';
+            usCtx.lineWidth = 2;
+            usCtx.fillStyle = '#1e293b';
+            
+            // Draw heart outer
+            usCtx.beginPath();
+            usCtx.arc(0, 0, 40, 0, Math.PI * 2);
+            usCtx.fill();
+            usCtx.stroke();
+
+            // Cross dividers for 4 chambers
+            usCtx.beginPath();
+            usCtx.moveTo(-40, 0);
+            usCtx.lineTo(40, 0);
+            usCtx.moveTo(0, -40);
+            usCtx.lineTo(0, 40);
+            usCtx.stroke();
+
+            usCtx.fillStyle = '#fff';
+            usCtx.font = '8px sans-serif';
+            usCtx.fillText("LV", 10, 15);
+            usCtx.fillText("RV", -20, 15);
+            usCtx.fillText("LA", 10, -15);
+            usCtx.fillText("RA", -20, -15);
+
+            usCtx.restore();
+
+            usCtx.fillStyle = 'rgba(255,255,255,0.3)';
+            usCtx.font = '10px monospace';
+            usCtx.fillText("ANECOIC PERICARDIAL FLUID", 10, 20);
+            usCtx.fillText("SWINGING HEART SIGN", 10, 205);
+
+            usAnimId = requestAnimationFrame(drawUS);
+        }
+
+        // Treatment simulation
+        function performSimulateDraw() {
+            const status = document.getElementById('sim-draw-status');
+            const peri = document.getElementById('sim-pericardium');
+            status.textContent = "狀態：已抽出 10 mL 血液，心包高壓釋放！心肌恢復舒張！";
+            status.style.color = 'var(--accent-green)';
+            peri.style.backgroundColor = 'rgba(16, 185, 129, 0.1)';
+            peri.style.borderColor = 'var(--accent-green)';
+            
+            if (isAudioOn) {
+                // Play pressure hiss release
+                const noise = audioCtx.createBufferSource();
+                const bufferSize = audioCtx.sampleRate * 0.6;
+                const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+                const data = buffer.getChannelData(0);
+                for (let i = 0; i < bufferSize; i++) {
+                    data[i] = Math.random() * 2 - 1;
+                }
+                noise.buffer = buffer;
+                const filter = audioCtx.createBiquadFilter();
+                filter.type = 'bandpass';
+                filter.frequency.value = 1000;
+                const gain = audioCtx.createGain();
+                gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.5);
+                noise.connect(filter);
+                filter.connect(gain);
+                gain.connect(mainVolume);
+                noise.start();
+            }
+        }
+
+        // Quiz
+        const quizQuestions = [
+            {
+                q: "貝克氏三徵 (Beck's Triad) 是診斷急性心包膜填塞的重要臨床指標，它包括？",
+                options: [
+                    "A. 呼吸音消失、叩診實音、氣管偏移",
+                    "B. 低血壓、頸靜脈怒張、心音遙遠",
+                    "C. 高血壓、頸靜脈塌陷、雙側鼓音",
+                    "D. 呼吸急促、皮下氣腫、氣胸"
+                ],
+                correct: 1,
+                reason: "貝克氏三徵包含：低血壓 (Hypotension)、頸靜脈怒張 (JVD) 與心音遙遠 (Muffled Heart Sounds)。"
+            },
+            {
+                q: "心包膜填塞時出現的「奇脈」(Pulsus Paradoxus) 特徵是？",
+                options: [
+                    "A. 呼氣時收縮壓突然下降 >10 mmHg，橈動脈搏動變弱",
+                    "B. 吸氣時收縮壓下降超過 10 mmHg，觸診感覺橈動脈搏動明顯減弱或消失",
+                    "C. 心率在吸氣時自發下降到每分鐘 40 次",
+                    "D. 病患在被動抬腿後血壓立刻升高 20 mmHg"
+                ],
+                correct: 1,
+                reason: "奇脈定義為吸氣時收縮壓下降 >10 mmHg，臨床表現為吸氣時橈動脈搏動變弱或消失，這是由於吸氣期右心室充盈擠壓左心室所致。"
+            },
+            {
+                q: "在進行劍突下超音波掃描時，心包膜填塞最特異的影像表現被稱為？",
+                options: [
+                    "A. 濱海徵候 (Seashore Sign)",
+                    "B. 搖擺心 (Swinging Heart) 與無迴音心包積液腔",
+                    "C. 條碼徵候 (Barcode Sign)",
+                    "D. 雙軌肺滑動消失徵"
+                ],
+                correct: 1,
+                reason: "在心包填塞超音波中，心臟懸浮於大量黑色心包積液中，隨心搏前後搖擺，被稱為「搖擺心 (Swinging Heart)」。"
+            },
+            {
+                q: "院前對瀕死心包膜填塞患者進行「心包膜穿刺術」，進針的幾何角度與定位點為？",
+                options: [
+                    "A. 第二肋間鎖骨中線，垂直刺入",
+                    "B. 劍突與左側肋弓交角下方，呈 45 度角指向左側肩膀",
+                    "C. 腋前線第五肋間，平行刺入",
+                    "D. 劍突正下方，呈 90 度垂直刺入心臟"
+                ],
+                correct: 1,
+                reason: "心包膜穿刺安全定位點為劍突左肋角下方，以 45 度角朝向左側肩膀進針，可最大程度避開肺臟與冠狀動脈。"
+            },
+            {
+                q: "心包膜腔內積液阻礙心臟搏動，主要導致下列何種血流動力學惡化？",
+                options: [
+                    "A. 冠狀動脈血流增加，引發心肌肥大",
+                    "B. 心臟舒張期充盈嚴重受限，回心血量中斷，心輸出量崩潰",
+                    "C. 主動脈瓣膜完全鎖死",
+                    "D. 肺部毛細血管血流壓力下降至零"
+                ],
+                correct: 1,
+                reason: "心包積液形成的高壓主要妨礙心臟舒張（尤其是壓力較低的右心系統），造成靜脈血無法回流，心臟因充盈受限而無法泵出血流。"
+            }
+        ];
+
+        let currentQuizIdx = 0;
+        let score = 0;
+
+        function loadQuizQuestion() {
+            const questionPanel = document.getElementById('quiz-question-panel');
+            if (currentQuizIdx >= quizQuestions.length) {
+                questionPanel.style.display = 'none';
+                document.getElementById('quiz-results-panel').style.display = 'block';
+                document.getElementById('quiz-score-text').textContent = `您的得分為：${score} / ${quizQuestions.length}`;
+                return;
+            }
+
+            const question = quizQuestions[currentQuizIdx];
+            const progress = ((currentQuizIdx) / quizQuestions.length) * 100;
+            document.getElementById('quiz-progressbar').style.width = `${progress}%`;
+
+            let optionsHTML = '';
+            question.options.forEach((opt, idx) => {
+                optionsHTML += `
+                    <button class="quiz-option" id="opt-${idx}" onclick="checkAnswer(${idx})">
+                        <span>${opt}</span>
+                    </button>
+                `;
+            });
+
+            questionPanel.innerHTML = `
+                <div style="font-weight:bold; color:var(--accent-purple); margin-bottom:0.5rem;">問題 ${currentQuizIdx + 1} / ${quizQuestions.length}</div>
+                <div style="font-size:1.15rem; font-weight:700; margin-bottom:1.5rem; color:#fff;">${question.q}</div>
+                <div class="quiz-options">${optionsHTML}</div>
+                <div class="quiz-feedback" id="quiz-feedback-box">
+                    <strong>💡 詳解報告：</strong> <span id="quiz-feedback-text"></span>
+                    <div style="margin-top:1rem; text-align:right;">
+                        <button class="btn btn-primary" onclick="nextQuestion()">下一題 ➔</button>
+                    </div>
+                </div>
+            `;
+            questionPanel.style.display = 'block';
+        }
+
+        function checkAnswer(selectedIdx) {
+            const question = quizQuestions[currentQuizIdx];
+            const feedbackBox = document.getElementById('quiz-feedback-box');
+            const feedbackText = document.getElementById('quiz-feedback-text');
+
+            question.options.forEach((_, idx) => {
+                const optBtn = document.getElementById(`opt-${idx}`);
+                optBtn.style.pointerEvents = 'none';
+                if (idx === question.correct) {
+                    optBtn.classList.add('correct');
+                } else if (idx === selectedIdx) {
+                    optBtn.classList.add('wrong');
+                }
+            });
+
+            if (selectedIdx === question.correct) {
+                score++;
+            }
+
+            feedbackText.textContent = question.reason;
+            feedbackBox.style.display = 'block';
+        }
+
+        function nextQuestion() {
+            currentQuizIdx++;
+            loadQuizQuestion();
+        }
+
+        function restartQuiz() {
+            currentQuizIdx = 0;
+            score = 0;
+            document.getElementById('quiz-results-panel').style.display = 'none';
+            loadQuizQuestion();
+        }
+
+        loadQuizQuestion();
+    </script>
+</body>
+</html>
