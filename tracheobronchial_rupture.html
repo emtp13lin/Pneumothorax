@@ -463,6 +463,34 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        .btn-learned {
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .btn-learned:hover {
+            background: var(--accent-green);
+            color: white;
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-learned.active {
+            background: var(--accent-green) !important;
+            color: white !important;
+            border-color: transparent !important;
+            box-shadow: 0 0 12px rgba(16, 185, 129, 0.4);
+        }
     </style>
 </head>
 <body>
@@ -473,6 +501,7 @@
                 <h1>氣管支氣管破裂：皮下氣腫與持續漏氣水封瓶</h1>
             </div>
             <div style="display:flex; align-items:center; gap:1rem;">
+                <button class="btn-learned" id="btn-learned" onclick="markAsLearned()">✓ 我學會了</button>
                 <a href="./index.html" class="btn-back">⬅ 返回首頁</a>
                 <button class="audio-btn" id="btn-enable-audio" onclick="toggleClinicalAudio()" style="margin-bottom:0;">🔊 啟動心肺聽診音效</button>
             </div>
@@ -1056,6 +1085,33 @@
         }
 
         loadQuizQuestion();
+
+        // Mark as learned logic
+        const moduleId = 'tracheobronchial_rupture';
+        function initLearnedState() {
+            const btn = document.getElementById('btn-learned');
+            if (!btn) return;
+            const learned = JSON.parse(localStorage.getItem('learned_modules') || '[]');
+            if (learned.includes(moduleId)) {
+                btn.classList.add('active');
+                btn.innerHTML = "✓ 已學會";
+            }
+        }
+        function markAsLearned() {
+            const btn = document.getElementById('btn-learned');
+            let learned = JSON.parse(localStorage.getItem('learned_modules') || '[]');
+            if (learned.includes(moduleId)) {
+                learned = learned.filter(id => id !== moduleId);
+                btn.classList.remove('active');
+                btn.innerHTML = "✓ 我學會了";
+            } else {
+                learned.push(moduleId);
+                btn.classList.add('active');
+                btn.innerHTML = "✓ 已學會";
+            }
+            localStorage.setItem('learned_modules', JSON.stringify(learned));
+        }
+        window.addEventListener('DOMContentLoaded', initLearnedState);
     </script>
 </body>
 </html>

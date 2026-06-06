@@ -288,11 +288,144 @@
         footer {
             text-align: center;
             padding: 2.5rem;
-            color: var(--text-muted);
+            color: var(--text-secondary);
             font-size: 0.85rem;
             border-top: 1px solid var(--border-color);
             background-color: rgba(11, 15, 25, 0.8);
             margin-top: 4rem;
+        }
+
+        /* Progress Dashboard styling */
+        .progress-container-dashboard {
+            background: linear-gradient(135deg, rgba(30, 27, 75, 0.6) 0%, rgba(19, 27, 46, 0.8) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @media (min-width: 992px) {
+            .progress-container-dashboard {
+                grid-template-columns: 1.2fr 1fr;
+            }
+        }
+
+        .progress-details-dashboard {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .progress-text-dashboard h3 {
+            font-family: var(--font-header);
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .progress-text-dashboard p {
+            font-size: 1rem;
+            color: var(--accent-green);
+            font-weight: 700;
+        }
+
+        .progress-bar-outer-dashboard {
+            background-color: var(--bg-tertiary);
+            height: 12px;
+            border-radius: 6px;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .progress-bar-inner-dashboard {
+            background: linear-gradient(90deg, var(--accent-green) 0%, #34d399 100%);
+            height: 100%;
+            width: 0%;
+            transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+        }
+
+        .quiz-promo-box {
+            background: rgba(59, 130, 246, 0.05);
+            border: 1px dashed rgba(59, 130, 246, 0.3);
+            border-radius: 12px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            align-items: flex-start;
+            transition: all var(--transition-speed);
+            width: 100%;
+        }
+
+        .quiz-promo-box.unlocked {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.12) 0%, rgba(139, 92, 246, 0.12) 100%);
+            border: 1px solid var(--accent-blue);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.25);
+        }
+
+        .btn-quiz-start {
+            background-color: var(--accent-blue);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all var(--transition-speed);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            align-self: stretch;
+            text-align: center;
+        }
+
+        @media (min-width: 576px) {
+            .btn-quiz-start {
+                align-self: flex-start;
+            }
+        }
+
+        .btn-quiz-start:hover {
+            background-color: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Card checkmark and learned states */
+        .topic-card.learned {
+            border-color: var(--accent-green) !important;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(16, 185, 129, 0.15) !important;
+        }
+
+        .topic-card.learned::before {
+            background: var(--accent-green) !important;
+        }
+
+        .learned-badge {
+            background-color: rgba(16, 185, 129, 0.2);
+            color: var(--accent-green);
+            border: 1px solid var(--accent-green);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.2rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -307,11 +440,35 @@
     </header>
 
     <main>
+        <!-- Progress Tracking & Quiz Section -->
+        <div class="progress-container-dashboard">
+            <div class="progress-details-dashboard">
+                <div class="progress-text-dashboard">
+                    <h3>📚 課程學習進度</h3>
+                    <p id="progress-desc-text">已學會 0 / 6 個核心創傷模組 (0%)</p>
+                </div>
+                <div class="progress-bar-outer-dashboard">
+                    <div class="progress-bar-inner-dashboard" id="progress-bar-dashboard"></div>
+                </div>
+            </div>
+            <div class="quiz-promo-box" id="quiz-promo-box">
+                <div style="flex: 1;">
+                    <h3 style="color: var(--text-primary); font-family: var(--font-header); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; font-size: 1.15rem;">
+                        🏆 臨床急症綜合模擬檢定 (Comprehensive Exam)
+                    </h3>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0;" id="quiz-promo-desc">
+                        載入學習狀態中...
+                    </p>
+                </div>
+                <a href="./comprehensive_quiz.html" class="btn-quiz-start" id="btn-quiz-start">進入模擬檢定 ➔</a>
+            </div>
+        </div>
+
         <div class="section-title">選擇您的學習主題</div>
         
         <div class="grid-portal">
             <!-- 1. 張力性氣胸 -->
-            <a href="./tension_pneumothorax.html" class="topic-card" style="--card-accent: var(--accent-red); --card-glow: rgba(239, 68, 68, 0.25);">
+            <a href="./tension_pneumothorax.html" id="card-tension_pneumothorax" class="topic-card" style="--card-accent: var(--accent-red); --card-glow: rgba(239, 68, 68, 0.25);">
                 <div>
                     <div class="topic-header">
                         <div class="topic-icon">🫁</div>
@@ -330,7 +487,7 @@
             </a>
 
             <!-- 2. 開放性氣胸 -->
-            <a href="./open_pneumothorax.html" class="topic-card" style="--card-accent: var(--accent-orange); --card-glow: rgba(249, 115, 22, 0.25);">
+            <a href="./open_pneumothorax.html" id="card-open_pneumothorax" class="topic-card" style="--card-accent: var(--accent-orange); --card-glow: rgba(249, 115, 22, 0.25);">
                 <div>
                     <div class="topic-header">
                         <div class="topic-icon">💨</div>
@@ -349,7 +506,7 @@
             </a>
 
             <!-- 3. 大量血胸 -->
-            <a href="./massive_hemothorax.html" class="topic-card" style="--card-accent: #b91c1c; --card-glow: rgba(185, 28, 28, 0.25);">
+            <a href="./massive_hemothorax.html" id="card-massive_hemothorax" class="topic-card" style="--card-accent: #b91c1c; --card-glow: rgba(185, 28, 28, 0.25);">
                 <div>
                     <div class="topic-header">
                         <div class="topic-icon">🩸</div>
@@ -368,7 +525,7 @@
             </a>
 
             <!-- 4. 心包膜填塞 -->
-            <a href="./cardiac_tamponade.html" class="topic-card" style="--card-accent: var(--accent-purple); --card-glow: rgba(139, 92, 246, 0.25);">
+            <a href="./cardiac_tamponade.html" id="card-cardiac_tamponade" class="topic-card" style="--card-accent: var(--accent-purple); --card-glow: rgba(139, 92, 246, 0.25);">
                 <div>
                     <div class="topic-header">
                         <div class="topic-icon">❤️</div>
@@ -387,7 +544,7 @@
             </a>
 
             <!-- 5. 肺栓塞 -->
-            <a href="./pulmonary_embolism.html" class="topic-card" style="--card-accent: var(--accent-blue); --card-glow: rgba(59, 82, 246, 0.25);">
+            <a href="./pulmonary_embolism.html" id="card-pulmonary_embolism" class="topic-card" style="--card-accent: var(--accent-blue); --card-glow: rgba(59, 82, 246, 0.25);">
                 <div>
                     <div class="topic-header">
                         <div class="topic-icon">⚠️</div>
@@ -406,7 +563,7 @@
             </a>
 
             <!-- 6. 呼吸道破裂 -->
-            <a href="./tracheobronchial_rupture.html" class="topic-card" style="--card-accent: var(--accent-yellow); --card-glow: rgba(245, 158, 11, 0.25);">
+            <a href="./tracheobronchial_rupture.html" id="card-tracheobronchial_rupture" class="topic-card" style="--card-accent: var(--accent-yellow); --card-glow: rgba(245, 158, 11, 0.25);">
                 <div>
                     <div class="topic-header">
                         <div class="topic-icon">🧬</div>
@@ -429,5 +586,67 @@
     <footer>
         <p>© 2026 EMT-P 臨床模擬教學系統 - 高階緊急救護訓練教材</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const learned = JSON.parse(localStorage.getItem('learned_modules') || '[]');
+            const modules = [
+                { id: 'tension_pneumothorax', cardId: 'card-tension_pneumothorax' },
+                { id: 'open_pneumothorax', cardId: 'card-open_pneumothorax' },
+                { id: 'massive_hemothorax', cardId: 'card-massive_hemothorax' },
+                { id: 'cardiac_tamponade', cardId: 'card-cardiac_tamponade' },
+                { id: 'pulmonary_embolism', cardId: 'card-pulmonary_embolism' },
+                { id: 'tracheobronchial_rupture', cardId: 'card-tracheobronchial_rupture' }
+            ];
+
+            let learnedCount = 0;
+            modules.forEach(m => {
+                const card = document.getElementById(m.cardId);
+                if (!card) return;
+
+                if (learned.includes(m.id)) {
+                    learnedCount++;
+                    card.classList.add('learned');
+                    
+                    // Add badge to header
+                    const header = card.querySelector('.topic-header');
+                    if (header) {
+                        const badge = document.createElement('span');
+                        badge.className = 'learned-badge';
+                        badge.innerHTML = '✓ 已學會';
+                        header.appendChild(badge);
+                    }
+                }
+            });
+
+            // Update Progress Bar
+            const pct = Math.round((learnedCount / modules.length) * 100);
+            const progressBar = document.getElementById('progress-bar-dashboard');
+            const progressText = document.getElementById('progress-desc-text');
+            if (progressBar) progressBar.style.width = `${pct}%`;
+            if (progressText) progressText.textContent = `已學會 ${learnedCount} / ${modules.length} 個核心創傷模組 (${pct}%)`;
+
+            // Update Quiz Promo Box state
+            const promoBox = document.getElementById('quiz-promo-box');
+            const promoDesc = document.getElementById('quiz-promo-desc');
+            const btnQuiz = document.getElementById('btn-quiz-start');
+            
+            if (learnedCount === modules.length) {
+                if (promoBox) promoBox.classList.add('unlocked');
+                if (promoDesc) {
+                    promoDesc.innerHTML = '🎉 <strong>解鎖成功！您已讀完所有模組！</strong> 立即進入「臨床急症綜合模擬檢定」檢驗您的 EMT-P 決策與感官評估能力！';
+                }
+                if (btnQuiz) {
+                    btnQuiz.innerHTML = '🔥 進入模擬檢定 ➔';
+                    btnQuiz.style.background = 'linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%)';
+                    btnQuiz.style.boxShadow = '0 0 15px rgba(139, 92, 246, 0.4)';
+                }
+            } else {
+                if (promoDesc) {
+                    promoDesc.innerHTML = `學習進度：<strong>${learnedCount}/${modules.length}</strong>。建議完成所有 6 個模組（在各頁面點擊「✓ 我學會了」按鈕）以解鎖最佳狀態的綜合檢定！`;
+                }
+            }
+        });
+    </script>
 </body>
 </html>
