@@ -504,6 +504,7 @@
             margin-top: 4rem;
         }
     </style>
+    <script src="quiz_cases.js"></script>
 </head>
 <body>
     <header>
@@ -574,10 +575,6 @@
                     <span class="action-icon">📈</span>
                     <span>心電圖 (ECG)</span>
                 </button>
-                <button class="action-btn" onclick="performExamination('xray')">
-                    <span class="action-icon">🩻</span>
-                    <span>胸部 X 光</span>
-                </button>
             </div>
 
             <!-- Findings Card -->
@@ -635,118 +632,6 @@
     </footer>
 
     <script>
-        // Quiz Data - 6 Cases mapping to the 6 modules
-        const allCases = [
-            {
-                id: 'tension_pneumothorax',
-                title: '案例 A',
-                desc: '一位 28 歲男性在街頭鬥毆中右胸遭受尖刀刺傷。現場評估見病人極度呼吸困難、發紺、躁動不安且大汗淋漓。如果您是現場的 EMT-P，應如何逐步評估並找出病因？',
-                exams: {
-                    vitals: '生命徵象：血壓 82/50 mmHg（低血壓，脈壓差窄），心跳 135 bpm（竇性心搏過速），呼吸 34 bpm（急促淺快），SpO2 78%（嚴重低血氧）。',
-                    look: '視診：右側胸壁有小穿透傷口但無空氣逸出聲，右胸起伏顯著減弱；雙側頸靜脈極度怒張；氣管明顯偏向健側（左側）。',
-                    listen: '聽診：右肺呼吸音完全消失，左肺呼吸音清晰。心音正常但因喘息聲顯得雜亂。',
-                    feel: '觸診：右側頸部可摸到輕微皮下氣腫（握雪感）；橈動脈搏動極其微弱。',
-                    percuss: '叩診：右胸叩診呈強烈鼓音（Hyperresonance），左胸叩診為正常的清音（Resonance）。',
-                    us: 'e-FAST超音波：右肺前胸切面掃描見肺滑動（Lung Sliding）完全消失，呈現 Barcode Sign（條碼徵，亦稱 Seashore sign 消失）；左肺前胸掃描見正常的砂灘徵（Seashore Sign）。未見心包膜積液。',
-                    ecg: '心電圖：竇性心搏過速 (Sinus Tachycardia)，心率 135 bpm，無缺血性變化。',
-                    xray: '胸部X光：右側肋膜腔大量積氣、右肺葉完全塌陷萎縮；縱膈腔與氣管偏向左側；右側橫膈膜高度被壓扁平坦（典型張力性氣胸表徵）。'
-                },
-                diagnosis: 'tension_pneumothorax',
-                diagName: '張力性氣胸 (Tension Pneumothorax)',
-                feedback: '【正確診斷：張力性氣胸】\n這是一位典型的右側張力性氣胸病患。診斷要點為：單側呼吸音消失（右側）+ 叩診鼓音 + 頸靜脈怒張 + 收縮壓 < 90 mmHg（梗塞性休克表現）。超音波檢查呈現 Barcode Sign（肺滑動消失）能快速確診。此時應立即執行右側針刺減壓或指尖造口術，以挽救生命，否則病患將迅速惡化為 PEA 死亡螺旋。'
-            },
-            {
-                id: 'cardiac_tamponade',
-                title: '案例 B',
-                desc: '一位 42 歲女性在槍擊案中胸部正中央（胸骨區）遭子彈擊中。救護車抵達時，患者面色蒼白、冷汗直流，且意識狀態呈混亂模糊狀態。請進行理學檢查以判斷主要致命傷。',
-                exams: {
-                    vitals: '生命徵象：血壓 75/55 mmHg（嚴重低血壓且脈壓差極窄），心跳 122 bpm（弱），呼吸 28 bpm，SpO2 90%（經鼻導管給氧下）。',
-                    look: '視診：胸骨正中可見一彈孔，有少量出血；雙側頸靜脈極度充盈怒張。氣管維持在居中位置。',
-                    listen: '聽診：雙側肺部呼吸音皆清晰且對等。但聽診心音時，心跳聲顯得極其遙遠且模糊不清（Muffled Heart Sounds）。',
-                    feel: '觸診：氣管居中無偏移，胸壁無皮下氣腫。橈動脈搏動在患者吸氣時有顯著的減弱甚至摸不到的現象（奇脈 Pulsus Paradoxus）。',
-                    percuss: '叩診：雙側胸部叩診皆呈清音，無鼓音或實音。',
-                    us: 'e-FAST超音波：劍突下切面（Subxiphoid view）可見心包膜內存在一層厚度約 2.5 cm 的無迴音暗區（黑影），代表心包膜大量積血（Pericardial Effusion），且心臟在液體中隨心跳呈現前後擺動（搖擺心 Swinging Heart），右心房於舒張期發生塌陷。',
-                    ecg: '心電圖：呈現低電壓 QRS 波（Low Voltage），且 QRS 波振幅隨心跳呈高矮交替現象（電氣交替 Electrical Alternans）。',
-                    xray: '胸部X光：肺野清晰（無氣胸或血胸），但心臟陰影顯著擴大呈現球形（燒瓶心 Water-bottle heart）。'
-                },
-                diagnosis: 'cardiac_tamponade',
-                diagName: '心包膜填塞 (Cardiac Tamponade)',
-                feedback: '【正確診斷：心包膜填塞】\n病患表現出了極其經典的貝克氏三徵（Beck\'s Triad）：低血壓 + 頸靜脈怒張 + 心音遙遠，搭配吸氣時脈搏減弱的「奇脈」。超音波劍突下切面看見心包膜大量積水與心臟擺動是確診的黃金標準。此時一線處置應為緊急心包穿刺引流，只需抽吸出 5~10 mL 血液，即可顯著解除心室壓迫並使血壓回升。'
-            },
-            {
-                id: 'massive_hemothorax',
-                title: '案例 C',
-                desc: '一位 19 歲男大生騎重機高速撞擊護欄，左側胸廓直接撞擊硬物。現場病人臉色慘白、全身濕冷，主訴左胸極度疼痛後隨即陷入神志不清，呼吸微弱。',
-                exams: {
-                    vitals: '生命徵象：血壓 68/40 mmHg（重度低血容量休克），心跳 142 bpm（細微快速），呼吸 30 bpm，SpO2 85%（非重吸面罩給氧下）。',
-                    look: '視診：左側胸廓有大片瘀傷與變形，起伏顯著落後於右側；氣管微偏向右側（或居中）；雙側頸靜脈扁平，幾乎摸不到、看不見。',
-                    listen: '聽診：左側肺部呼吸音完全消失，右側呼吸音清晰。心音快速但清晰無遙遠感。',
-                    feel: '觸診：左胸壁有明顯的多發性肋骨骨折與皮下撕裂感，平躺時頸靜脈完全無充盈；四肢極端冰冷。氣管微偏右側。',
-                    percuss: '叩診：左側胸部叩診呈顯著的實音（Dullness），右側呈清音。',
-                    us: 'e-FAST超音波：左側胸膜腔切面掃描見大量黑色液體積聚區（胸水），其中伴隨少許血塊漂浮的顆粒狀迴音；左側肺尖部仍可見少許肺滑動。右側無異常。心包膜無積液。',
-                    ecg: '心電圖：竇性心搏過速，心率 142 bpm，QRS波振幅因嚴重缺血呈全導極低電壓。',
-                    xray: '胸部X光：左側胸腔呈現完全白化（White-out），左側縱膈腔與氣管向右側偏移（大量血胸壓迫表徵）。'
-                },
-                diagnosis: 'massive_hemothorax',
-                diagName: '大量血胸 (Massive Hemothorax)',
-                feedback: '【正確診斷：大量血胸】\n病患左胸壁嚴重鈍傷，患側呼吸音消失，關鍵特徵在於叩診呈「實音」而非氣胸的鼓音，且頸靜脈「扁平」顯示為低血容量性休克，而非梗塞性休克（無 JVD）。超音波與X光均確認胸腔內有大量積液（積血）。院前救護應以維持生命徵象、靜脈輸液（血容量支持）與快速送醫為主。'
-            },
-            {
-                id: 'open_pneumothorax',
-                title: '案例 D',
-                desc: '一名 31 歲男性工人在工地高空墜落，胸部被一根直徑約 3 公分的鋼筋穿透，鋼筋已被現場人員拔出。病患雙手壓住右胸口，大口喘氣，表情痛苦。',
-                exams: {
-                    vitals: '生命徵象：血壓 94/60 mmHg，心跳 118 bpm，呼吸 26 bpm（表淺且費力），SpO2 88%（未給氧狀態）。',
-                    look: '視診：右側胸壁前外側可見一約 4 公分寬的穿透性開放傷口。隨著病患呼吸，空氣自該傷口大聲進出，發出嘶嘶與帶血泡的吮吸聲（Sucking Chest Wound）。右胸起伏小。',
-                    listen: '聽診：右肺呼吸音顯著減弱，伴隨有傷口處的空氣進出氣流聲；左肺呼吸音正常。',
-                    feel: '觸診：傷口周圍皮膚可摸到局部皮下氣腫（捻髮音）。氣管在中線位置，無明顯偏移。',
-                    percuss: '叩診：右側胸部叩診呈鼓音，左側呈清音。',
-                    us: 'e-FAST超音波：右前胸切面掃描見肺滑動消失。左側肺滑動正常。腹腔未見積液。',
-                    ecg: '心電圖：竇性心搏過速，HR 118 bpm。',
-                    xray: '胸部X光：右側肋膜腔可見氣胸線，右肺局部萎陷約 50%；右側胸壁肋骨有明顯缺損。'
-                },
-                diagnosis: 'open_pneumothorax',
-                diagName: '開放性氣胸 (Open Pneumothorax)',
-                feedback: '【正確診斷：開放性氣胸】\n當胸壁傷口大於氣管直徑的 2/3 時，空氣會優先自胸壁傷口進出，形成「吮吸性胸部傷口」（Sucking Chest Wound），導致患側肺塌陷與縱膈撲動。一線急救處置必須立即使用「三邊固定密封敷料」（如 Chest Seal貼片）封閉傷口，阻止空氣繼續由胸壁進入，同時容許呼氣時氣體排出，並需嚴密監控是否轉變為張力性氣胸。'
-            },
-            {
-                id: 'pulmonary_embolism',
-                title: '案例 E',
-                desc: '一位 65 歲女性，在兩週前剛接受過全人工髖關節置換手術。今天下午坐在沙發上時，突然感到一陣劇烈胸痛，隨後出現嚴重的氣喘與呼吸困難，被家屬緊急送醫。',
-                exams: {
-                    vitals: '生命徵象：血壓 85/50 mmHg（低血壓休克），心跳 125 bpm，呼吸 28 bpm，SpO2 82%（在高流量面罩給氧下仍難以提升）。',
-                    look: '視診：病患嘴唇及指甲床明顯發紺，神情極度焦慮。頸靜脈輕微怒張。氣管居中，胸壁無任何外傷。',
-                    listen: '聽診：雙側肺部呼吸音皆清晰且對等，沒有聽到氣胸的呼吸音減弱，也沒有聽到濕囉音或氣喘音。心音快速，無遙遠感。',
-                    feel: '觸診：氣管居中。理學檢查發現其「右下肢」相較左下肢有顯著的腫脹、發紅，且壓痛明顯（腓腸肌有壓痛，Homans sign 陽性）。',
-                    percuss: '叩診：雙側叩診均為正常的清音。',
-                    us: 'e-FAST超音波：雙側肺滑動完全正常（排除氣胸）；胸腔與腹腔無積液。但劍突下切面發現右心室腔顯著擴大，且室間隔向左心室一側偏移（D-shape RV，右心室壓力過載表現）。',
-                    ecg: '心電圖：呈現典型的 S1Q3T3 變化（I 導極有深 S 波，III 導極有明顯 Q 波及倒置 T 波），且伴隨竇性心搏過速。',
-                    xray: '胸部X光：肺野兩側顯影完全正常，沒有看到氣胸、胸水或肺實變（臨床表現為「嚴重的缺氧，但胸部X光卻完全正常」之落差）。'
-                },
-                diagnosis: 'pulmonary_embolism',
-                diagName: '急性肺栓塞 (Pulmonary Embolism)',
-                feedback: '【正確診斷：急性肺栓塞】\n這是一位高風險患者（剛動完髖關節大手術、下肢深部靜脈血栓 DVT 症狀）併發急性大面積肺栓塞（PE）的案例。特徵是突發性胸痛與氣喘、低血氧，聽診呼吸音卻「完全對等且乾淨」。心電圖呈現 S1Q3T3 與超音波見右心室擴大超載，均高度支持肺栓塞診斷。處置為高濃度氧氣治療、支持血壓，並儘快進行抗凝血或血栓溶解治療。'
-            },
-            {
-                id: 'tracheobronchial_rupture',
-                title: '案例 F',
-                desc: '一名前胸遭受重型機械夾傷的 24 歲男性工廠員工。現場救護人員已因其呼吸困難伴隨嚴重的氣胸，在其左胸放置了胸部引流管（胸管），但病患的呼吸狀況依然沒有改善，SpO2持續低下。',
-                exams: {
-                    vitals: '生命徵象：血壓 90/55 mmHg，心跳 130 bpm，呼吸 32 bpm，SpO2 80%（已放置胸管並給予高濃度氧氣）。',
-                    look: '視診：病患的面部、頸部與上胸部呈現高度腫脹（外觀看起來像吹氣氣球）。左側胸管水封瓶引流箱內，在病患吸氣與呼氣時，皆可見「持續性、大量且不止」的氣泡冒出（Continuous Massive Air Leak）。氣管微偏右。',
-                    listen: '聽診：雙側肺部呼吸音皆減弱，伴隨雙肺大量的粗濕囉音。在心臟前壁可聽到與心跳同步的摩擦擠壓音（Hamman\'s Crunch Sign，縱膈腔氣腫表現）。',
-                    feel: '觸診：觸摸患者的面部、頸部、兩側鎖骨上方及整個胸壁，可摸到大面積皮下氣腫，感覺如同按壓「氣泡包裝紙」（捻髮感、握雪感極為嚴重）。',
-                    percuss: '叩診：雙側叩診皆呈過度清音/鼓音。',
-                    us: 'e-FAST超音波：由於皮下組織內積聚大量空氣（皮下氣腫），超音波探頭放上去時只看到嚴重的空腔聲影遮蔽（Dirty Shadowing），無法清晰判讀有無肺滑動。',
-                    ecg: '心電圖：竇性心搏過速，HR 130 bpm。',
-                    xray: '胸部X光：可見「縱膈腔氣腫」（Pneumomediastinum，縱膈兩側有空氣線圍繞心臟）、大面積頸胸部皮下氣腫，以及左側氣胸，胸管在位但肺依然無法完全復張。'
-                },
-                diagnosis: 'tracheobronchial_rupture',
-                diagName: '氣管支氣管破裂 (Tracheobronchial Rupture)',
-                feedback: '【正確診斷：氣管支氣管破裂】\n患者經歷嚴重的胸部擠壓鈍傷。其關鍵臨床特徵包括：極端嚴重的「頸胸面部皮下氣腫」 + 「心臟聽診 Hamman\'s Sign」 + 「置入胸管後水封瓶仍持續大量冒氣泡且肺無法復張」。這代表氣道大支氣管發生了破裂，空氣直接灌入縱膈腔與皮下組織。此時需要立即採取氣管內插管，將氣管內管氣囊越過破裂口（或進行雙腔氣管插管），並緊急安排外科修補手術。'
-            }
-        ];
-
         // State variables
         let quizCases = [];
         let currentCaseIndex = 0;
@@ -767,8 +652,8 @@
 
         // Initial setup
         function initQuiz() {
-            // Select 3 random cases from all 6 available
-            quizCases = shuffleArray(allCases).slice(0, 3);
+            // Select 5 random cases from all 30 available
+            quizCases = shuffleArray(allCases).slice(0, 5);
             currentCaseIndex = 0;
             score = 0;
             loadCase();
@@ -781,11 +666,11 @@
             hasCheckedThisTurn = false;
 
             // Update Header labels
-            document.getElementById('case-counter-lbl').textContent = `案例挑戰: 第 ${currentCaseIndex + 1} / 3 案`;
+            document.getElementById('case-counter-lbl').textContent = `案例挑戰: 第 ${currentCaseIndex + 1} / 5 案`;
             document.getElementById('score-counter-lbl').textContent = `累計得分: ${score} 分`;
             
             // Progress Fill
-            const progressPct = (currentCaseIndex / 3) * 100;
+            const progressPct = (currentCaseIndex / 5) * 100;
             document.getElementById('progress-fill').style.width = `${progressPct}%`;
 
             // Reset action buttons states
@@ -863,21 +748,16 @@
                 currentCasePerformedChecks.push(examType);
             }
 
-            // Find button element and add class
-            const btns = document.querySelectorAll('.action-btn');
-            const icons = {
-                vitals: '📊', look: '👀', listen: '👂', feel: '✋', percuss: '🥁', us: '📟', ecg: '📈', xray: '🩻'
-            };
-            
             // Highlight current button
             document.querySelectorAll('.action-btn').forEach(btn => {
-                if (btn.querySelector('span:last-child').textContent.includes(examType === 'vitals' ? '生命徵象' : 
-                                                                             examType === 'look' ? '視診' : 
-                                                                             examType === 'listen' ? '聽診' : 
-                                                                             examType === 'feel' ? '觸診' : 
-                                                                             examType === 'percuss' ? '叩診' : 
-                                                                             examType === 'us' ? '超音波' : 
-                                                                             examType === 'ecg' ? '心電圖' : 'X 光')) {
+                const btnText = btn.querySelector('span:last-child').textContent;
+                if ((examType === 'vitals' && btnText.includes('生命徵象')) ||
+                    (examType === 'look' && btnText.includes('視診')) ||
+                    (examType === 'listen' && btnText.includes('聽診')) ||
+                    (examType === 'feel' && btnText.includes('觸診')) ||
+                    (examType === 'percuss' && btnText.includes('叩診')) ||
+                    (examType === 'us' && btnText.includes('超音波')) ||
+                    (examType === 'ecg' && btnText.includes('心電圖'))) {
                     btn.classList.add('performed');
                 }
             });
@@ -890,8 +770,7 @@
                 feel: '✋ 觸診評估發現',
                 percuss: '🥁 叩診檢查發現',
                 us: '📟 e-FAST 超音波掃描結果',
-                ecg: '📈 心電圖判讀',
-                xray: '🩻 簡易胸部 X 光結果'
+                ecg: '📈 心電圖判讀'
             };
 
             document.getElementById('finding-title').innerHTML = `<span>${titles[examType]}</span>`;
@@ -941,7 +820,7 @@
             // Highlight Correct and Wrong options
             if (isCorrect) {
                 document.getElementById(`diag-opt-${currentSelectedDiagnosis}`).classList.add('correct');
-                score += 10; // 10 points per case
+                score += 20; // 20 points per case (5 cases = 100 points)
                 showFeedback(true, currentCase.feedback);
             } else {
                 document.getElementById(`diag-opt-${currentSelectedDiagnosis}`).classList.add('wrong');
@@ -963,7 +842,7 @@
             const desc = document.getElementById('feedback-text');
 
             if (isCorrect) {
-                status.textContent = '✓ 診斷正確！臨床決策無誤 (+10分)';
+                status.textContent = '✓ 診斷正確！臨床決策無誤 (+20分)';
                 status.className = 'feedback-status correct';
                 feedbackBox.style.borderLeftColor = 'var(--accent-green)';
             } else {
@@ -979,7 +858,7 @@
 
         function nextCase() {
             currentCaseIndex++;
-            if (currentCaseIndex < 3) {
+            if (currentCaseIndex < 5) {
                 loadCase();
             } else {
                 showFinalScore();
@@ -1002,11 +881,11 @@
             const fbTitle = document.getElementById('performance-feedback');
             const fbDesc = document.getElementById('performance-desc');
 
-            if (score === 30) {
+            if (score === 100) {
                 fbTitle.textContent = '🌟 完美滿分！高級救護技術員 (EMT-P) 導師級水準';
                 fbTitle.style.color = 'var(--accent-green)';
                 fbDesc.textContent = '您成功識破了所有複雜的創傷臨床案例！對貝克氏三徵、針刺減壓條件、大量血胸的實音判定以及氣管支氣管破裂等極高難度診斷的判讀完美無瑕，能給予病患最即時精準的救治決策！';
-            } else if (score === 20) {
+            } else if (score >= 80) {
                 fbTitle.textContent = '👏 表現優異！具備扎實的臨床判斷能力';
                 fbTitle.style.color = 'var(--accent-blue)';
                 fbDesc.textContent = '您答對了多數案例！展現了良好的創傷理學評估邏輯。再細心複習一下答錯的案例，注意區分不同休克分類（如失血性休克與梗塞性休克）以及超音波特徵，您一定能更上一層樓！';
